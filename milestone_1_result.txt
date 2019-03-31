@@ -1,0 +1,4 @@
+#ok
+ COMMENT
+#[ok]#
+ MULTILINECOMMENT
