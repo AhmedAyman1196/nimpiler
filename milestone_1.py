@@ -20,8 +20,6 @@ def get_token_type(token):
         return "STR_LIT"
     elif token.type == milestone_1Lexer.CHAR_LIT:
         return "CHAR_LIT"
-    elif token.type == milestone_1Lexer.TRIPLESTR_ITEM:
-        return "TRIPLESTR_ITEM"
     elif token.type == milestone_1Lexer.RSTR_LIT:
         return "RSTR_LIT"
     elif token.type == milestone_1Lexer.GENERALIZED_STR_LIT:
@@ -224,11 +222,16 @@ def get_token_type(token):
         return "SEMI_COLON"
 
     # ----------------- NUMERALS
+    elif token.type == milestone_1Lexer.DEC_LIT:
+        return "DEC_LIT"
+    elif token.type == milestone_1Lexer.OCT_LIT:
+        return "OCT_LIT"
+    elif token.type == milestone_1Lexer.BIN_LIT:
+        return "BIN_LIT"
     elif token.type == milestone_1Lexer.HEX_LIT:
         return "HEX_LIT"
-    elif token.type == milestone_1Lexer.HEXDIGIT:
-        return "HEXDIGIT"
-
+    elif token.type == milestone_1Lexer.INT_LIT:
+        return "INT_LIT"
     elif token.type == milestone_1Lexer.INT8_LIT:
         return "INT8_LIT"
     elif token.type == milestone_1Lexer.INT16_LIT:
@@ -247,6 +250,8 @@ def get_token_type(token):
         return "UINT32_LIT"
     elif token.type == milestone_1Lexer.UINT64_LIT:
         return "UINT64_LIT"
+    elif token.type == milestone_1Lexer.FLOAT_LIT:
+        return "FLOAT_LIT"
     elif token.type == milestone_1Lexer.FLOAT32_LIT:
         return "FLOAT32_LIT"
     elif token.type == milestone_1Lexer.FLOAT32_SUFFIX:
@@ -255,28 +260,6 @@ def get_token_type(token):
         return "FLOAT64_LIT"
     elif token.type == milestone_1Lexer.FLOAT64_SUFFIX:
         return "FLOAT64_SUFFIX"
-    elif token.type == milestone_1Lexer.FLOAT_LIT:
-        return "FLOAT_LIT"
-    elif token.type == milestone_1Lexer.EXP:
-        return "EXP"
-    elif token.type == milestone_1Lexer.INT_LIT:
-        return "INT_LIT"
-    elif token.type == milestone_1Lexer.DEC_LIT:
-        return "DEC_LIT"
-    elif token.type == milestone_1Lexer.OCT_LIT:
-        return "OCT_LIT"
-    elif token.type == milestone_1Lexer.BIN_LIT:
-        return "BIN_LIT"
-
-    elif token.type == milestone_1Lexer.OCTDIGIT:
-        return "OCTDIGIT"
-    elif token.type == milestone_1Lexer.BINDIGIT:
-        return "BINDIGIT"
-
-    elif token.type == milestone_1Lexer.DIGIT:
-        return "DIGIT"
-    elif token.type == milestone_1Lexer.LETTER:
-        return "LETTER"
     else:
         return "ERROR UNKNOWN TOKEN"
 
