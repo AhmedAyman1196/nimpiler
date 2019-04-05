@@ -236,6 +236,10 @@ def get_token_type(token):
     elif token.type == milestone_1Lexer.SEMI_COLON:
         return "SEMI_COLON"
 
+    elif token.type == milestone_1Lexer.INDENT:
+        return "INDENT"
+
+
     # ----------------- NUMERALS
     elif token.type == milestone_1Lexer.DEC_LIT:
         return "DEC_LIT"
