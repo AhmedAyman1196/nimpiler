@@ -9,10 +9,26 @@ from milestone_1Parser import milestone_1Parser
 # antlr -Dlanguage=Python3 milestone_1.g4 && python3 milestone_1.py --file SampleInput.txt
 # antlr4 -Dlanguage=Python3 milestone_1.g4 && python milestone_1.py --file SampleInput.txt
 
+
+# test cases check
+#  antlr -Dlanguage=Python3 milestone_1.g4 && python3 milestone_1.py --file Milestone1_TestCases/input_3.txt
+
+# input_1 : problem with indent ( we have extra although we should be correct )
+# input_2 : done
+# input_3 : done
+# input_4 : done
+# input_5 : there is one extra indent ( same problem with input_1 )
+# input_6 :
+
+
 def get_token_type(token):
+
     if token.type == milestone_1Lexer.VARIABLE:
         return "VARIABLE"
-
+    elif token.type == milestone_1Lexer.MULTILINEDOCUMENTATION:
+        return "MULTILINEDOCUMENTATION"
+    elif token.type == milestone_1Lexer.INDENT:
+        return "INDENT"
     # LITERALS
     elif token.type == milestone_1Lexer.TRIPLESTR_LIT:
         return "TRIPLESTR_LIT"
@@ -31,8 +47,7 @@ def get_token_type(token):
         return "MULTILINECOMMENT"
     elif token.type == milestone_1Lexer.COMMENT:
         return "COMMENT"
-    elif token.type == milestone_1Lexer.IDENTIFIER:
-        return "IDENTIFIER"
+
 
     elif token.type == milestone_1Lexer.COMMA:
         return "COMMA"
@@ -264,6 +279,10 @@ def get_token_type(token):
         return "FLOAT64_LIT"
     elif token.type == milestone_1Lexer.FLOAT64_SUFFIX:
         return "FLOAT64_SUFFIX"
+    elif token.type == milestone_1Lexer.IDENTIFIER:
+        return "IDENTIFIER"
+    elif token.type == milestone_1Lexer.DIGIT:
+        return "DIGIT"
     else:
         return "ERROR UNKNOWN TOKEN"
 
@@ -284,7 +303,7 @@ def main():
 
     while not token.type == Token.EOF:
         #print(token.text, get_token_type(token))
-        out.write(token.text + " " + get_token_type(token) + '\n')
+        out.write(get_token_type(token) +"  "+token.text +'\n')
         token = lexer.nextToken()
 
 
