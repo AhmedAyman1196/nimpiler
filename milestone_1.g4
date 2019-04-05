@@ -1,12 +1,11 @@
 grammar milestone_1;
 
-// The lexer annotates the following token with the preceding number of spaces;
-// indentation is not a separate token
+INDENT: '    '+;
+
 SPACE :[\r\n] -> skip;
 
-MULTILINECOMMENT: '#[' (.|[\r\n])*? ']#\n';
-COMMENT : '#' .*? [\n] ;
-
+MULTILINECOMMENT: INDENT? '#[' (.|[\r\n])*? ']#\n';
+COMMENT : INDENT? '#' .*? [\n] ;
 
 TRIPLESTR_LIT: '"""' .*? '"""';
 STR_LIT:'"' .*? '"' ; // matches escape characters
@@ -110,8 +109,17 @@ WHILE : 'while' ;
 XOR : 'xor' ;
 YIELD : 'yield' ;
 
+INT_LIT : HEX_LIT
+        | DEC_LIT
+        | OCT_LIT
+        | BIN_LIT ;
+
+
+//DEC_LIT : DIGIT ( ['_'] DIGIT )*;
+DEC_LIT : DIGIT (DIGIT)*? ;
+
 // IDENTIFIER : LETTER+ ('_'? (LETTER | DIGIT)*)*
-IDENTIFIER : LETTER+ ('_'(LETTER | DIGIT))*;
+IDENTIFIER : LETTER+ ('_'(LETTER | DIGIT))*?;
 DIGIT : [0-9] ;
 LETTER :[a-zA-Z];
 
@@ -122,17 +130,10 @@ BINDIGIT : [0-1] ;
 
 //HEX_LIT : '0' ('x' | 'X' ) HEXDIGIT ( ['_'] HEXDIGIT )*
 HEX_LIT : '0' ('x' | 'X' ) HEXDIGIT+ ;
-//DEC_LIT : DIGIT ( ['_'] DIGIT )*;
-DEC_LIT : DIGIT DIGIT*? ;
 //OCT_LIT = '0' 'o' OCTDIGIT ( ['_'] OCTDIGIT )*
 OCT_LIT : '0' 'o' OCTDIGIT+ ;
 //BIN_LIT = '0' ('b' | 'B' ) BINDIGIT ( ['_'] BINDIGIT )*
 BIN_LIT : '0' ('b' | 'B' ) BINDIGIT+ ;
-
-INT_LIT : HEX_LIT
-        | DEC_LIT
-        | OCT_LIT
-        | BIN_LIT ;
 
 //INT8_LIT = INT_LIT ['\''] ('i' | 'I') '8'
 INT8_LIT : INT_LIT ('i' | 'I') '8' ;

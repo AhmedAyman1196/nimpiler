@@ -1,1 +1,8 @@
-a IDENTIFIER
+     INDENT
+11.0 FLOAT_LIT
+         INDENT
+'x' CHAR_LIT
+"" STR_LIT
+"""""" TRIPLESTR_LIT
+    #ok
+ COMMENT
