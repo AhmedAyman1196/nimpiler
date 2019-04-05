@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48989edb-00a8-47d5-ba30-2eab0835d1ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Testcase check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1.g4" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1Lexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1Lexer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1Lexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1Lexer.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1Listener.py" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1Listener.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1Parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1_result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1_result.txt" afterDir="false" />
-    </list>
+    <list default="true" id="48989edb-00a8-47d5-ba30-2eab0835d1ff" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +61,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Testcase check.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
+            <state relative-caret-position="7">
               <caret line="3" column="54" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="111" />
             </state>
           </provider>
@@ -314,7 +302,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Testcase check.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
+        <state relative-caret-position="7">
           <caret line="3" column="54" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="111" />
         </state>
       </provider>
