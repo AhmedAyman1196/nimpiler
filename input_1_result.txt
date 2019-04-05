@@ -49,16 +49,13 @@ IDENTIFIER  mmlen
 GREATER_THAN  >
 DIGIT  0
 COLON  :
-INDENT      
 IDENTIFIER  action
-INDENT      
 IDENTIFIER  inc
 OPEN_PAREN  (
 IDENTIFIER  mmpos
 COMMA  ,
 IDENTIFIER  mmlen
 CLOSE_PAREN  )
-INDENT      
 BREAK  break
 IDENTIFIER  searchSubs
 TEMPLATE  template
@@ -86,7 +83,6 @@ IDENTIFIER  inp
 DOT  .
 IDENTIFIER  len
 COLON  :
-INDENT      
 BLOCK  block
 IDENTIFIER  searchSubs
 COLON  :

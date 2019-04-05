@@ -1,14 +1,13 @@
 grammar milestone_1;
 
-INDENT: '    '+;
-// SPACE :(' '| [\t\r\n]) -> skip;
-SPACE :[\t\r\n] -> skip;
+SPACE :(' '| [\t\r\n]) -> skip;
+INDENT : ('    ')+;
 
-// MULTILINECOMMENT: '#[' ((.|[\r\n]) | COMMENT | MULTILINECOMMENT )*']#' -> skip;
-MULTILINECOMMENT: INDENT? '#[' (.|[\r\n])*? ']#\n';
-// COMMENT : '#' .*? [\n]  -> skip ;
-COMMENT : INDENT? '#' .*? [\n];
+MULTILINECOMMENT: '#[' ((.|[\r\n]) | COMMENT | MULTILINECOMMENT )*']#' -> skip;
 MULTILINEDOCUMENTATION: '##[' (.|[\r\n])*? ']##' -> skip;
+
+COMMENT : '#' .*? [\n]  -> skip ;
+
 
 TRIPLESTR_LIT: '"""' .*? '"""';
 STR_LIT:'"' .*? '"' ; // matches escape characters
@@ -112,12 +111,8 @@ WHILE : 'while' ;
 XOR : 'xor' ;
 YIELD : 'yield' ;
 
-INT_LIT : HEX_LIT
-        | DEC_LIT
-        | OCT_LIT
-        | BIN_LIT ;
-
-IDENTIFIER : LETTER+ ('_'?(LETTER | DIGIT)*?)*?;
+// IDENTIFIER : LETTER+ ('_'? (LETTER | DIGIT)*)*
+IDENTIFIER : LETTER+ (LETTER | DIGIT)*;
 DIGIT : [0-9] ;
 LETTER :[a-zA-Z];
 
@@ -126,10 +121,22 @@ HEXDIGIT : DIGIT | [A-F] | [a-f] ;
 OCTDIGIT : [0-7] ;
 BINDIGIT : [0-1] ;
 
-DEC_LIT : DIGIT+ ;
+
+INT_LIT : HEX_LIT
+        | DEC_LIT
+        | OCT_LIT
+        | BIN_LIT ;
+
+//HEX_LIT : '0' ('x' | 'X' ) HEXDIGIT ( ['_'] HEXDIGIT )*
 HEX_LIT : '0' ('x' | 'X' ) HEXDIGIT+ ;
+//DEC_LIT : DIGIT ( ['_'] DIGIT )*;
+DEC_LIT : (DIGIT ( '_' DIGIT+ )*) | DIGIT+ ;
+//OCT_LIT = '0' 'o' OCTDIGIT ( ['_'] OCTDIGIT )*
 OCT_LIT : '0' 'o' OCTDIGIT+ ;
+//BIN_LIT = '0' ('b' | 'B' ) BINDIGIT ( ['_'] BINDIGIT )*
 BIN_LIT : '0' ('b' | 'B' ) BINDIGIT+ ;
+
+
 
 //INT8_LIT = INT_LIT ['\''] ('i' | 'I') '8'
 INT8_LIT : INT_LIT '\'' ('i' | 'I') '8' ;
@@ -143,7 +150,9 @@ UINT16_LIT : INT_LIT '\'' ('u' | 'U') '16' ;
 UINT32_LIT : INT_LIT '\'' ('u' | 'U') '32' ;
 UINT64_LIT : INT_LIT '\'' ('u' | 'U') '64' ;
 
+//EXP : ('e' | 'E' ) ['+' | '-'] DIGIT ( ['_'] DIGIT )*
 EXP : ('e' | 'E' ) ('+' | '-') DIGIT+ ;
+//FLOAT_LIT : DIGIT+ (('.' DIGIT ('_' DIGIT)* EXP) |DIGIT) ;
 FLOAT_LIT : DIGIT+ ('.' DIGIT+ EXP?) ;
 FLOAT32_SUFFIX : '\'' ('f' | 'F') '32' ;
 FLOAT32_LIT : HEX_LIT+ FLOAT32_SUFFIX
