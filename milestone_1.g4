@@ -1,13 +1,12 @@
 grammar milestone_1;
 
-SPACE :(' '| [\t\r\n]) -> skip;
 INDENT : ('    ')+;
+SPACE :(' '| [\t\r\n]) -> skip;
 
-MULTILINECOMMENT: '#[' ((.|[\r\n]) | COMMENT | MULTILINECOMMENT )*']#' -> skip;
-MULTILINEDOCUMENTATION: '##[' (.|[\r\n])*? ']##' -> skip;
+MULTILINECOMMENT: INDENT? '#[' ((.|[\r\n]) | COMMENT | MULTILINECOMMENT )*']#' -> skip;
+MULTILINEDOCUMENTATION: INDENT? '##[' (.|[\r\n])*? ']##' -> skip;
 
-COMMENT : '#' .*? [\n]  -> skip ;
-
+COMMENT : INDENT? '#' .*? [\n]  -> skip ;
 
 TRIPLESTR_LIT: '"""' .*? '"""';
 STR_LIT:'"' .*? '"' ; // matches escape characters
@@ -111,7 +110,12 @@ WHILE : 'while' ;
 XOR : 'xor' ;
 YIELD : 'yield' ;
 
-// IDENTIFIER : LETTER+ ('_'? (LETTER | DIGIT)*)*
+INT_LIT : HEX_LIT
+        | DEC_LIT
+        | OCT_LIT
+        | BIN_LIT ;
+
+//IDENTIFIER : LETTER+ (('_')? (LETTER | DIGIT));
 IDENTIFIER : LETTER+ (LETTER | DIGIT)*;
 DIGIT : [0-9] ;
 LETTER :[a-zA-Z];
@@ -121,24 +125,11 @@ HEXDIGIT : DIGIT | [A-F] | [a-f] ;
 OCTDIGIT : [0-7] ;
 BINDIGIT : [0-1] ;
 
-
-INT_LIT : HEX_LIT
-        | DEC_LIT
-        | OCT_LIT
-        | BIN_LIT ;
-
-//HEX_LIT : '0' ('x' | 'X' ) HEXDIGIT ( ['_'] HEXDIGIT )*
+DEC_LIT : (DIGIT ( '_' DIGIT+ )*?) | DIGIT+ ;
 HEX_LIT : '0' ('x' | 'X' ) HEXDIGIT+ ;
-//DEC_LIT : DIGIT ( ['_'] DIGIT )*;
-DEC_LIT : (DIGIT ( '_' DIGIT+ )*) | DIGIT+ ;
-//OCT_LIT = '0' 'o' OCTDIGIT ( ['_'] OCTDIGIT )*
-OCT_LIT : '0' 'o' OCTDIGIT+ ;
-//BIN_LIT = '0' ('b' | 'B' ) BINDIGIT ( ['_'] BINDIGIT )*
+OCT_LIT : '0' ('o' | 'O') OCTDIGIT+ ;
 BIN_LIT : '0' ('b' | 'B' ) BINDIGIT+ ;
 
-
-
-//INT8_LIT = INT_LIT ['\''] ('i' | 'I') '8'
 INT8_LIT : INT_LIT '\'' ('i' | 'I') '8' ;
 INT16_LIT : INT_LIT '\'' ('i' | 'I') '16' ;
 INT32_LIT : INT_LIT '\'' ('i' | 'I') '32' ;
@@ -150,9 +141,7 @@ UINT16_LIT : INT_LIT '\'' ('u' | 'U') '16' ;
 UINT32_LIT : INT_LIT '\'' ('u' | 'U') '32' ;
 UINT64_LIT : INT_LIT '\'' ('u' | 'U') '64' ;
 
-//EXP : ('e' | 'E' ) ['+' | '-'] DIGIT ( ['_'] DIGIT )*
 EXP : ('e' | 'E' ) ('+' | '-') DIGIT+ ;
-//FLOAT_LIT : DIGIT+ (('.' DIGIT ('_' DIGIT)* EXP) |DIGIT) ;
 FLOAT_LIT : DIGIT+ ('.' DIGIT+ EXP?) ;
 FLOAT32_SUFFIX : '\'' ('f' | 'F') '32' ;
 FLOAT32_LIT : HEX_LIT+ FLOAT32_SUFFIX
@@ -163,7 +152,7 @@ FLOAT64_LIT : HEX_LIT+ FLOAT64_SUFFIX
 
 start :
 
- SPACE | INDENT | MULTILINEDOCUMENTATION |
+ SPACE | INDENT | MULTILINEDOCUMENTATION | COMMENT | MULTILINECOMMENT |
 
  AND |VARIABLE  |ADDR |AS |ASM |BIND |BLOCK |BREAK |CASE |CAST |CONCEPT |CONST |
  CONTINUE |CONVERTER |DEFER |DISCARD |DISTINCT |DIV |DO | ELIF|ELSE| END | ENUM|
@@ -179,10 +168,6 @@ start :
  BITWISE_NOT_OPERATOR |AND_OPERATOR|OR_OPERATOR | LESS_THAN | GREATER_THAN |
  AT | MODULUS | NOT_OPERATOR | XOR_OPERATOR | DOT | COLON | OPEN_PAREN |
  CLOSE_PAREN | OPEN_BRACE | CLOSE_BRACE | OPEN_BRACK | CLOSE_BRACK | COMMA | SEMI_COLON |
-
- COMMENT | MULTILINECOMMENT |
-
-
 
  INT_LIT | INT8_LIT |INT16_LIT | INT32_LIT | INT32_LIT |INT64_LIT |
  UINT_LIT | UINT8_LIT | UINT16_LIT | UINT32_LIT | UINT32_LIT | UINT64_LIT |

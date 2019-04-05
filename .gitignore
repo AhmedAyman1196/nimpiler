@@ -7,3 +7,10 @@ milestone_1Lexer.tokens
 milestone_1Listener.py
 milestone_1Parser.py
 SampleInput.txt
+milestone_1.tokens
+milestone_1Lexer.py
+milestone_1Lexer.tokens
+milestone_1Parser.py
+__pycache__/milestone_1Parser.cpython-36.pyc
+__pycache__/milestone_1Lexer.cpython-36.pyc
+milestone_1.interp
