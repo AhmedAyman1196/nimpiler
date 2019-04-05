@@ -1,13 +1,16 @@
-# Generated from milestone_1.g4 by ANTLR 4.5.3
+# Generated from milestone_1.g4 by ANTLR 4.7.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
+from typing.io import TextIO
+import sys
+
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\177")
-        buf.write("\7\4\2\t\2\3\2\3\2\3\2\2\2\3\2\2\3\6\2\3flpry{\177\5\2")
-        buf.write("\4\3\2\2\2\4\5\t\2\2\2\5\3\3\2\2\2\2")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\u0081")
+        buf.write("\7\4\2\t\2\3\2\3\2\3\2\2\2\3\2\2\3\5\2\3in{}\u0081\2\5")
+        buf.write("\2\4\3\2\2\2\4\5\t\2\2\2\5\3\3\2\2\2\2")
         return buf.getvalue()
 
 
@@ -23,12 +26,13 @@ class milestone_1Parser ( Parser ):
 
     literalNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "'='", "'+'", "'*'", "'-'", 
-                     "'/'", "'~'", "'&'", "'|'", "'<'", "'>'", "'@'", "'%'", 
-                     "'!'", "'^'", "'.'", "':'", "'('", "')'", "'{'", "'}'", 
-                     "'['", "']'", "','", "';'", "'and'", "'var'", "'addr'", 
-                     "'as'", "'asm'", "'bind'", "'block'", "'break'", "'case'", 
-                     "'cast'", "'concept'", "'const'", "'continue'", "'converter'", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "'+'", "'*'", "'-'", "'/'", "'~'", "'&'", 
+                     "'|'", "'<'", "'>'", "'@'", "'%'", "'!'", "'^'", "'.'", 
+                     "':'", "'('", "')'", "'{'", "'}'", "'['", "']'", "','", 
+                     "';'", "'and'", "'var'", "'addr'", "'as'", "'asm'", 
+                     "'bind'", "'block'", "'break'", "'case'", "'cast'", 
+                     "'concept'", "'const'", "'continue'", "'converter'", 
                      "'defer'", "'discard'", "'distinct'", "'div'", "'do'", 
                      "'elif'", "'else'", "'end'", "'enum'", "'except'", 
                      "'export'", "'finally'", "'for'", "'from'", "'func'", 
@@ -40,29 +44,29 @@ class milestone_1Parser ( Parser ):
                      "'template'", "'try'", "'tuple'", "'type'", "'using'", 
                      "'when'", "'while'", "'xor'", "'yield'" ]
 
-    symbolicNames = [ "<INVALID>", "SPACE", "MULTILINECOMMENT", "COMMENT", 
-                      "TRIPLESTR_LIT", "STR_LIT", "CHAR_LIT", "RSTR_LIT", 
-                      "GENERALIZED_STR_LIT", "GENERALIZED_TRIPLESTR_LIT", 
-                      "EQUALS_OPERATOR", "ADD_OPERATOR", "MUL_OPERATOR", 
-                      "MINUS_OPERATOR", "DIV_OPERATOR", "BITWISE_NOT_OPERATOR", 
-                      "AND_OPERATOR", "OR_OPERATOR", "LESS_THAN", "GREATER_THAN", 
-                      "AT", "MODULUS", "NOT_OPERATOR", "XOR_OPERATOR", "DOT", 
-                      "COLON", "OPEN_PAREN", "CLOSE_PAREN", "OPEN_BRACE", 
-                      "CLOSE_BRACE", "OPEN_BRACK", "CLOSE_BRACK", "COMMA", 
-                      "SEMI_COLON", "AND", "VARIABLE", "ADDR", "AS", "ASM", 
-                      "BIND", "BLOCK", "BREAK", "CASE", "CAST", "CONCEPT", 
-                      "CONST", "CONTINUE", "CONVERTER", "DEFER", "DISCARD", 
-                      "DISTINCT", "DIV", "DO", "ELIF", "ELSE", "END", "ENUM", 
-                      "EXCEPT", "EXPORT", "FINALLY", "FOR", "FROM", "FUNC", 
-                      "IF", "IMPORT", "IN", "INCLUDE", "INTERFACE", "IS", 
-                      "ISNOT", "ITERATOR", "LET", "MACRO", "METHOD", "MIXIN", 
-                      "MOD", "NIL", "NOT", "NOTIN", "OBJECT", "OF", "OR", 
-                      "OUT", "PROC", "PTR", "RAISE", "REF", "RETURN", "SHL", 
-                      "SHR", "STATIC", "TEMPLATE", "TRY", "TUPLE", "TYPE", 
-                      "USING", "WHEN", "WHILE", "XOR", "YIELD", "IDENTIFIER", 
-                      "DIGIT", "LETTER", "HEXDIGIT", "OCTDIGIT", "BINDIGIT", 
-                      "HEX_LIT", "DEC_LIT", "OCT_LIT", "BIN_LIT", "INT_LIT", 
-                      "INT8_LIT", "INT16_LIT", "INT32_LIT", "INT64_LIT", 
+    symbolicNames = [ "<INVALID>", "SPACE", "INDENT", "MULTILINECOMMENT", 
+                      "MULTILINEDOCUMENTATION", "COMMENT", "TRIPLESTR_LIT", 
+                      "STR_LIT", "CHAR_LIT", "RSTR_LIT", "GENERALIZED_STR_LIT", 
+                      "GENERALIZED_TRIPLESTR_LIT", "EQUALS_OPERATOR", "ADD_OPERATOR", 
+                      "MUL_OPERATOR", "MINUS_OPERATOR", "DIV_OPERATOR", 
+                      "BITWISE_NOT_OPERATOR", "AND_OPERATOR", "OR_OPERATOR", 
+                      "LESS_THAN", "GREATER_THAN", "AT", "MODULUS", "NOT_OPERATOR", 
+                      "XOR_OPERATOR", "DOT", "COLON", "OPEN_PAREN", "CLOSE_PAREN", 
+                      "OPEN_BRACE", "CLOSE_BRACE", "OPEN_BRACK", "CLOSE_BRACK", 
+                      "COMMA", "SEMI_COLON", "AND", "VARIABLE", "ADDR", 
+                      "AS", "ASM", "BIND", "BLOCK", "BREAK", "CASE", "CAST", 
+                      "CONCEPT", "CONST", "CONTINUE", "CONVERTER", "DEFER", 
+                      "DISCARD", "DISTINCT", "DIV", "DO", "ELIF", "ELSE", 
+                      "END", "ENUM", "EXCEPT", "EXPORT", "FINALLY", "FOR", 
+                      "FROM", "FUNC", "IF", "IMPORT", "IN", "INCLUDE", "INTERFACE", 
+                      "IS", "ISNOT", "ITERATOR", "LET", "MACRO", "METHOD", 
+                      "MIXIN", "MOD", "NIL", "NOT", "NOTIN", "OBJECT", "OF", 
+                      "OR", "OUT", "PROC", "PTR", "RAISE", "REF", "RETURN", 
+                      "SHL", "SHR", "STATIC", "TEMPLATE", "TRY", "TUPLE", 
+                      "TYPE", "USING", "WHEN", "WHILE", "XOR", "YIELD", 
+                      "IDENTIFIER", "DIGIT", "LETTER", "HEXDIGIT", "OCTDIGIT", 
+                      "BINDIGIT", "INT_LIT", "HEX_LIT", "DEC_LIT", "OCT_LIT", 
+                      "BIN_LIT", "INT8_LIT", "INT16_LIT", "INT32_LIT", "INT64_LIT", 
                       "UINT_LIT", "UINT8_LIT", "UINT16_LIT", "UINT32_LIT", 
                       "UINT64_LIT", "EXP", "FLOAT_LIT", "FLOAT32_SUFFIX", 
                       "FLOAT32_LIT", "FLOAT64_SUFFIX", "FLOAT64_LIT" ]
@@ -73,136 +77,139 @@ class milestone_1Parser ( Parser ):
 
     EOF = Token.EOF
     SPACE=1
-    MULTILINECOMMENT=2
-    COMMENT=3
-    TRIPLESTR_LIT=4
-    STR_LIT=5
-    CHAR_LIT=6
-    RSTR_LIT=7
-    GENERALIZED_STR_LIT=8
-    GENERALIZED_TRIPLESTR_LIT=9
-    EQUALS_OPERATOR=10
-    ADD_OPERATOR=11
-    MUL_OPERATOR=12
-    MINUS_OPERATOR=13
-    DIV_OPERATOR=14
-    BITWISE_NOT_OPERATOR=15
-    AND_OPERATOR=16
-    OR_OPERATOR=17
-    LESS_THAN=18
-    GREATER_THAN=19
-    AT=20
-    MODULUS=21
-    NOT_OPERATOR=22
-    XOR_OPERATOR=23
-    DOT=24
-    COLON=25
-    OPEN_PAREN=26
-    CLOSE_PAREN=27
-    OPEN_BRACE=28
-    CLOSE_BRACE=29
-    OPEN_BRACK=30
-    CLOSE_BRACK=31
-    COMMA=32
-    SEMI_COLON=33
-    AND=34
-    VARIABLE=35
-    ADDR=36
-    AS=37
-    ASM=38
-    BIND=39
-    BLOCK=40
-    BREAK=41
-    CASE=42
-    CAST=43
-    CONCEPT=44
-    CONST=45
-    CONTINUE=46
-    CONVERTER=47
-    DEFER=48
-    DISCARD=49
-    DISTINCT=50
-    DIV=51
-    DO=52
-    ELIF=53
-    ELSE=54
-    END=55
-    ENUM=56
-    EXCEPT=57
-    EXPORT=58
-    FINALLY=59
-    FOR=60
-    FROM=61
-    FUNC=62
-    IF=63
-    IMPORT=64
-    IN=65
-    INCLUDE=66
-    INTERFACE=67
-    IS=68
-    ISNOT=69
-    ITERATOR=70
-    LET=71
-    MACRO=72
-    METHOD=73
-    MIXIN=74
-    MOD=75
-    NIL=76
-    NOT=77
-    NOTIN=78
-    OBJECT=79
-    OF=80
-    OR=81
-    OUT=82
-    PROC=83
-    PTR=84
-    RAISE=85
-    REF=86
-    RETURN=87
-    SHL=88
-    SHR=89
-    STATIC=90
-    TEMPLATE=91
-    TRY=92
-    TUPLE=93
-    TYPE=94
-    USING=95
-    WHEN=96
-    WHILE=97
-    XOR=98
-    YIELD=99
-    IDENTIFIER=100
-    DIGIT=101
-    LETTER=102
-    HEXDIGIT=103
-    OCTDIGIT=104
-    BINDIGIT=105
-    HEX_LIT=106
-    DEC_LIT=107
-    OCT_LIT=108
-    BIN_LIT=109
-    INT_LIT=110
-    INT8_LIT=111
-    INT16_LIT=112
-    INT32_LIT=113
-    INT64_LIT=114
-    UINT_LIT=115
-    UINT8_LIT=116
-    UINT16_LIT=117
-    UINT32_LIT=118
-    UINT64_LIT=119
-    EXP=120
-    FLOAT_LIT=121
-    FLOAT32_SUFFIX=122
-    FLOAT32_LIT=123
-    FLOAT64_SUFFIX=124
-    FLOAT64_LIT=125
+    INDENT=2
+    MULTILINECOMMENT=3
+    MULTILINEDOCUMENTATION=4
+    COMMENT=5
+    TRIPLESTR_LIT=6
+    STR_LIT=7
+    CHAR_LIT=8
+    RSTR_LIT=9
+    GENERALIZED_STR_LIT=10
+    GENERALIZED_TRIPLESTR_LIT=11
+    EQUALS_OPERATOR=12
+    ADD_OPERATOR=13
+    MUL_OPERATOR=14
+    MINUS_OPERATOR=15
+    DIV_OPERATOR=16
+    BITWISE_NOT_OPERATOR=17
+    AND_OPERATOR=18
+    OR_OPERATOR=19
+    LESS_THAN=20
+    GREATER_THAN=21
+    AT=22
+    MODULUS=23
+    NOT_OPERATOR=24
+    XOR_OPERATOR=25
+    DOT=26
+    COLON=27
+    OPEN_PAREN=28
+    CLOSE_PAREN=29
+    OPEN_BRACE=30
+    CLOSE_BRACE=31
+    OPEN_BRACK=32
+    CLOSE_BRACK=33
+    COMMA=34
+    SEMI_COLON=35
+    AND=36
+    VARIABLE=37
+    ADDR=38
+    AS=39
+    ASM=40
+    BIND=41
+    BLOCK=42
+    BREAK=43
+    CASE=44
+    CAST=45
+    CONCEPT=46
+    CONST=47
+    CONTINUE=48
+    CONVERTER=49
+    DEFER=50
+    DISCARD=51
+    DISTINCT=52
+    DIV=53
+    DO=54
+    ELIF=55
+    ELSE=56
+    END=57
+    ENUM=58
+    EXCEPT=59
+    EXPORT=60
+    FINALLY=61
+    FOR=62
+    FROM=63
+    FUNC=64
+    IF=65
+    IMPORT=66
+    IN=67
+    INCLUDE=68
+    INTERFACE=69
+    IS=70
+    ISNOT=71
+    ITERATOR=72
+    LET=73
+    MACRO=74
+    METHOD=75
+    MIXIN=76
+    MOD=77
+    NIL=78
+    NOT=79
+    NOTIN=80
+    OBJECT=81
+    OF=82
+    OR=83
+    OUT=84
+    PROC=85
+    PTR=86
+    RAISE=87
+    REF=88
+    RETURN=89
+    SHL=90
+    SHR=91
+    STATIC=92
+    TEMPLATE=93
+    TRY=94
+    TUPLE=95
+    TYPE=96
+    USING=97
+    WHEN=98
+    WHILE=99
+    XOR=100
+    YIELD=101
+    IDENTIFIER=102
+    DIGIT=103
+    LETTER=104
+    HEXDIGIT=105
+    OCTDIGIT=106
+    BINDIGIT=107
+    INT_LIT=108
+    HEX_LIT=109
+    DEC_LIT=110
+    OCT_LIT=111
+    BIN_LIT=112
+    INT8_LIT=113
+    INT16_LIT=114
+    INT32_LIT=115
+    INT64_LIT=116
+    UINT_LIT=117
+    UINT8_LIT=118
+    UINT16_LIT=119
+    UINT32_LIT=120
+    UINT64_LIT=121
+    EXP=122
+    FLOAT_LIT=123
+    FLOAT32_SUFFIX=124
+    FLOAT32_LIT=125
+    FLOAT64_SUFFIX=126
+    FLOAT64_LIT=127
 
-    def __init__(self, input:TokenStream):
-        super().__init__(input)
-        self.checkVersion("4.5.3")
+    def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
+        super().__init__(input, output)
+        self.checkVersion("4.7.2")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
+
 
 
 
@@ -214,6 +221,12 @@ class milestone_1Parser ( Parser ):
 
         def SPACE(self):
             return self.getToken(milestone_1Parser.SPACE, 0)
+
+        def INDENT(self):
+            return self.getToken(milestone_1Parser.INDENT, 0)
+
+        def MULTILINEDOCUMENTATION(self):
+            return self.getToken(milestone_1Parser.MULTILINEDOCUMENTATION, 0)
 
         def AND(self):
             return self.getToken(milestone_1Parser.AND, 0)
@@ -512,29 +525,17 @@ class milestone_1Parser ( Parser ):
         def MULTILINECOMMENT(self):
             return self.getToken(milestone_1Parser.MULTILINECOMMENT, 0)
 
-        def HEX_LIT(self):
-            return self.getToken(milestone_1Parser.HEX_LIT, 0)
-
-        def DEC_LIT(self):
-            return self.getToken(milestone_1Parser.DEC_LIT, 0)
-
-        def OCT_LIT(self):
-            return self.getToken(milestone_1Parser.OCT_LIT, 0)
-
-        def BIN_LIT(self):
-            return self.getToken(milestone_1Parser.BIN_LIT, 0)
-
         def INT_LIT(self):
             return self.getToken(milestone_1Parser.INT_LIT, 0)
+
+        def INT8_LIT(self):
+            return self.getToken(milestone_1Parser.INT8_LIT, 0)
 
         def INT16_LIT(self):
             return self.getToken(milestone_1Parser.INT16_LIT, 0)
 
-        def INT32_LIT(self, i:int=None):
-            if i is None:
-                return self.getTokens(milestone_1Parser.INT32_LIT)
-            else:
-                return self.getToken(milestone_1Parser.INT32_LIT, i)
+        def INT32_LIT(self):
+            return self.getToken(milestone_1Parser.INT32_LIT, 0)
 
         def INT64_LIT(self):
             return self.getToken(milestone_1Parser.INT64_LIT, 0)
@@ -548,14 +549,23 @@ class milestone_1Parser ( Parser ):
         def UINT16_LIT(self):
             return self.getToken(milestone_1Parser.UINT16_LIT, 0)
 
-        def UINT32_LIT(self, i:int=None):
-            if i is None:
-                return self.getTokens(milestone_1Parser.UINT32_LIT)
-            else:
-                return self.getToken(milestone_1Parser.UINT32_LIT, i)
+        def UINT32_LIT(self):
+            return self.getToken(milestone_1Parser.UINT32_LIT, 0)
 
         def UINT64_LIT(self):
             return self.getToken(milestone_1Parser.UINT64_LIT, 0)
+
+        def HEX_LIT(self):
+            return self.getToken(milestone_1Parser.HEX_LIT, 0)
+
+        def DEC_LIT(self):
+            return self.getToken(milestone_1Parser.DEC_LIT, 0)
+
+        def OCT_LIT(self):
+            return self.getToken(milestone_1Parser.OCT_LIT, 0)
+
+        def BIN_LIT(self):
+            return self.getToken(milestone_1Parser.BIN_LIT, 0)
 
         def FLOAT_LIT(self):
             return self.getToken(milestone_1Parser.FLOAT_LIT, 0)
@@ -571,6 +581,9 @@ class milestone_1Parser ( Parser ):
 
         def FLOAT64_LIT(self):
             return self.getToken(milestone_1Parser.FLOAT64_LIT, 0)
+
+        def DIGIT(self):
+            return self.getToken(milestone_1Parser.DIGIT, 0)
 
         def getRuleIndex(self):
             return milestone_1Parser.RULE_start
@@ -595,9 +608,10 @@ class milestone_1Parser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 2
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << milestone_1Parser.SPACE) | (1 << milestone_1Parser.MULTILINECOMMENT) | (1 << milestone_1Parser.COMMENT) | (1 << milestone_1Parser.TRIPLESTR_LIT) | (1 << milestone_1Parser.STR_LIT) | (1 << milestone_1Parser.CHAR_LIT) | (1 << milestone_1Parser.RSTR_LIT) | (1 << milestone_1Parser.GENERALIZED_STR_LIT) | (1 << milestone_1Parser.GENERALIZED_TRIPLESTR_LIT) | (1 << milestone_1Parser.EQUALS_OPERATOR) | (1 << milestone_1Parser.ADD_OPERATOR) | (1 << milestone_1Parser.MUL_OPERATOR) | (1 << milestone_1Parser.MINUS_OPERATOR) | (1 << milestone_1Parser.DIV_OPERATOR) | (1 << milestone_1Parser.BITWISE_NOT_OPERATOR) | (1 << milestone_1Parser.AND_OPERATOR) | (1 << milestone_1Parser.OR_OPERATOR) | (1 << milestone_1Parser.LESS_THAN) | (1 << milestone_1Parser.GREATER_THAN) | (1 << milestone_1Parser.AT) | (1 << milestone_1Parser.MODULUS) | (1 << milestone_1Parser.NOT_OPERATOR) | (1 << milestone_1Parser.XOR_OPERATOR) | (1 << milestone_1Parser.DOT) | (1 << milestone_1Parser.COLON) | (1 << milestone_1Parser.OPEN_PAREN) | (1 << milestone_1Parser.CLOSE_PAREN) | (1 << milestone_1Parser.OPEN_BRACE) | (1 << milestone_1Parser.CLOSE_BRACE) | (1 << milestone_1Parser.OPEN_BRACK) | (1 << milestone_1Parser.CLOSE_BRACK) | (1 << milestone_1Parser.COMMA) | (1 << milestone_1Parser.SEMI_COLON) | (1 << milestone_1Parser.AND) | (1 << milestone_1Parser.VARIABLE) | (1 << milestone_1Parser.ADDR) | (1 << milestone_1Parser.AS) | (1 << milestone_1Parser.ASM) | (1 << milestone_1Parser.BIND) | (1 << milestone_1Parser.BLOCK) | (1 << milestone_1Parser.BREAK) | (1 << milestone_1Parser.CASE) | (1 << milestone_1Parser.CAST) | (1 << milestone_1Parser.CONCEPT) | (1 << milestone_1Parser.CONST) | (1 << milestone_1Parser.CONTINUE) | (1 << milestone_1Parser.CONVERTER) | (1 << milestone_1Parser.DEFER) | (1 << milestone_1Parser.DISCARD) | (1 << milestone_1Parser.DISTINCT) | (1 << milestone_1Parser.DIV) | (1 << milestone_1Parser.DO) | (1 << milestone_1Parser.ELIF) | (1 << milestone_1Parser.ELSE) | (1 << milestone_1Parser.END) | (1 << milestone_1Parser.ENUM) | (1 << milestone_1Parser.EXCEPT) | (1 << milestone_1Parser.EXPORT) | (1 << milestone_1Parser.FINALLY) | (1 << milestone_1Parser.FOR) | (1 << milestone_1Parser.FROM) | (1 << milestone_1Parser.FUNC) | (1 << milestone_1Parser.IF))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (milestone_1Parser.IMPORT - 64)) | (1 << (milestone_1Parser.IN - 64)) | (1 << (milestone_1Parser.INCLUDE - 64)) | (1 << (milestone_1Parser.INTERFACE - 64)) | (1 << (milestone_1Parser.IS - 64)) | (1 << (milestone_1Parser.ISNOT - 64)) | (1 << (milestone_1Parser.ITERATOR - 64)) | (1 << (milestone_1Parser.LET - 64)) | (1 << (milestone_1Parser.MACRO - 64)) | (1 << (milestone_1Parser.METHOD - 64)) | (1 << (milestone_1Parser.MIXIN - 64)) | (1 << (milestone_1Parser.MOD - 64)) | (1 << (milestone_1Parser.NIL - 64)) | (1 << (milestone_1Parser.NOT - 64)) | (1 << (milestone_1Parser.NOTIN - 64)) | (1 << (milestone_1Parser.OBJECT - 64)) | (1 << (milestone_1Parser.OF - 64)) | (1 << (milestone_1Parser.OR - 64)) | (1 << (milestone_1Parser.OUT - 64)) | (1 << (milestone_1Parser.PROC - 64)) | (1 << (milestone_1Parser.PTR - 64)) | (1 << (milestone_1Parser.RAISE - 64)) | (1 << (milestone_1Parser.REF - 64)) | (1 << (milestone_1Parser.RETURN - 64)) | (1 << (milestone_1Parser.SHL - 64)) | (1 << (milestone_1Parser.SHR - 64)) | (1 << (milestone_1Parser.STATIC - 64)) | (1 << (milestone_1Parser.TEMPLATE - 64)) | (1 << (milestone_1Parser.TRY - 64)) | (1 << (milestone_1Parser.TUPLE - 64)) | (1 << (milestone_1Parser.TYPE - 64)) | (1 << (milestone_1Parser.USING - 64)) | (1 << (milestone_1Parser.WHEN - 64)) | (1 << (milestone_1Parser.WHILE - 64)) | (1 << (milestone_1Parser.XOR - 64)) | (1 << (milestone_1Parser.YIELD - 64)) | (1 << (milestone_1Parser.IDENTIFIER - 64)) | (1 << (milestone_1Parser.HEX_LIT - 64)) | (1 << (milestone_1Parser.DEC_LIT - 64)) | (1 << (milestone_1Parser.OCT_LIT - 64)) | (1 << (milestone_1Parser.BIN_LIT - 64)) | (1 << (milestone_1Parser.INT_LIT - 64)) | (1 << (milestone_1Parser.INT16_LIT - 64)) | (1 << (milestone_1Parser.INT32_LIT - 64)) | (1 << (milestone_1Parser.INT64_LIT - 64)) | (1 << (milestone_1Parser.UINT_LIT - 64)) | (1 << (milestone_1Parser.UINT8_LIT - 64)) | (1 << (milestone_1Parser.UINT16_LIT - 64)) | (1 << (milestone_1Parser.UINT32_LIT - 64)) | (1 << (milestone_1Parser.UINT64_LIT - 64)) | (1 << (milestone_1Parser.FLOAT_LIT - 64)) | (1 << (milestone_1Parser.FLOAT32_SUFFIX - 64)) | (1 << (milestone_1Parser.FLOAT32_LIT - 64)) | (1 << (milestone_1Parser.FLOAT64_SUFFIX - 64)) | (1 << (milestone_1Parser.FLOAT64_LIT - 64)))) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << milestone_1Parser.SPACE) | (1 << milestone_1Parser.INDENT) | (1 << milestone_1Parser.MULTILINECOMMENT) | (1 << milestone_1Parser.MULTILINEDOCUMENTATION) | (1 << milestone_1Parser.COMMENT) | (1 << milestone_1Parser.TRIPLESTR_LIT) | (1 << milestone_1Parser.STR_LIT) | (1 << milestone_1Parser.CHAR_LIT) | (1 << milestone_1Parser.RSTR_LIT) | (1 << milestone_1Parser.GENERALIZED_STR_LIT) | (1 << milestone_1Parser.GENERALIZED_TRIPLESTR_LIT) | (1 << milestone_1Parser.EQUALS_OPERATOR) | (1 << milestone_1Parser.ADD_OPERATOR) | (1 << milestone_1Parser.MUL_OPERATOR) | (1 << milestone_1Parser.MINUS_OPERATOR) | (1 << milestone_1Parser.DIV_OPERATOR) | (1 << milestone_1Parser.BITWISE_NOT_OPERATOR) | (1 << milestone_1Parser.AND_OPERATOR) | (1 << milestone_1Parser.OR_OPERATOR) | (1 << milestone_1Parser.LESS_THAN) | (1 << milestone_1Parser.GREATER_THAN) | (1 << milestone_1Parser.AT) | (1 << milestone_1Parser.MODULUS) | (1 << milestone_1Parser.NOT_OPERATOR) | (1 << milestone_1Parser.XOR_OPERATOR) | (1 << milestone_1Parser.DOT) | (1 << milestone_1Parser.COLON) | (1 << milestone_1Parser.OPEN_PAREN) | (1 << milestone_1Parser.CLOSE_PAREN) | (1 << milestone_1Parser.OPEN_BRACE) | (1 << milestone_1Parser.CLOSE_BRACE) | (1 << milestone_1Parser.OPEN_BRACK) | (1 << milestone_1Parser.CLOSE_BRACK) | (1 << milestone_1Parser.COMMA) | (1 << milestone_1Parser.SEMI_COLON) | (1 << milestone_1Parser.AND) | (1 << milestone_1Parser.VARIABLE) | (1 << milestone_1Parser.ADDR) | (1 << milestone_1Parser.AS) | (1 << milestone_1Parser.ASM) | (1 << milestone_1Parser.BIND) | (1 << milestone_1Parser.BLOCK) | (1 << milestone_1Parser.BREAK) | (1 << milestone_1Parser.CASE) | (1 << milestone_1Parser.CAST) | (1 << milestone_1Parser.CONCEPT) | (1 << milestone_1Parser.CONST) | (1 << milestone_1Parser.CONTINUE) | (1 << milestone_1Parser.CONVERTER) | (1 << milestone_1Parser.DEFER) | (1 << milestone_1Parser.DISCARD) | (1 << milestone_1Parser.DISTINCT) | (1 << milestone_1Parser.DIV) | (1 << milestone_1Parser.DO) | (1 << milestone_1Parser.ELIF) | (1 << milestone_1Parser.ELSE) | (1 << milestone_1Parser.END) | (1 << milestone_1Parser.ENUM) | (1 << milestone_1Parser.EXCEPT) | (1 << milestone_1Parser.EXPORT) | (1 << milestone_1Parser.FINALLY) | (1 << milestone_1Parser.FOR) | (1 << milestone_1Parser.FROM))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (milestone_1Parser.FUNC - 64)) | (1 << (milestone_1Parser.IF - 64)) | (1 << (milestone_1Parser.IMPORT - 64)) | (1 << (milestone_1Parser.IN - 64)) | (1 << (milestone_1Parser.INCLUDE - 64)) | (1 << (milestone_1Parser.INTERFACE - 64)) | (1 << (milestone_1Parser.IS - 64)) | (1 << (milestone_1Parser.ISNOT - 64)) | (1 << (milestone_1Parser.ITERATOR - 64)) | (1 << (milestone_1Parser.LET - 64)) | (1 << (milestone_1Parser.MACRO - 64)) | (1 << (milestone_1Parser.METHOD - 64)) | (1 << (milestone_1Parser.MIXIN - 64)) | (1 << (milestone_1Parser.MOD - 64)) | (1 << (milestone_1Parser.NIL - 64)) | (1 << (milestone_1Parser.NOT - 64)) | (1 << (milestone_1Parser.NOTIN - 64)) | (1 << (milestone_1Parser.OBJECT - 64)) | (1 << (milestone_1Parser.OF - 64)) | (1 << (milestone_1Parser.OR - 64)) | (1 << (milestone_1Parser.OUT - 64)) | (1 << (milestone_1Parser.PROC - 64)) | (1 << (milestone_1Parser.PTR - 64)) | (1 << (milestone_1Parser.RAISE - 64)) | (1 << (milestone_1Parser.REF - 64)) | (1 << (milestone_1Parser.RETURN - 64)) | (1 << (milestone_1Parser.SHL - 64)) | (1 << (milestone_1Parser.SHR - 64)) | (1 << (milestone_1Parser.STATIC - 64)) | (1 << (milestone_1Parser.TEMPLATE - 64)) | (1 << (milestone_1Parser.TRY - 64)) | (1 << (milestone_1Parser.TUPLE - 64)) | (1 << (milestone_1Parser.TYPE - 64)) | (1 << (milestone_1Parser.USING - 64)) | (1 << (milestone_1Parser.WHEN - 64)) | (1 << (milestone_1Parser.WHILE - 64)) | (1 << (milestone_1Parser.XOR - 64)) | (1 << (milestone_1Parser.YIELD - 64)) | (1 << (milestone_1Parser.IDENTIFIER - 64)) | (1 << (milestone_1Parser.DIGIT - 64)) | (1 << (milestone_1Parser.INT_LIT - 64)) | (1 << (milestone_1Parser.HEX_LIT - 64)) | (1 << (milestone_1Parser.DEC_LIT - 64)) | (1 << (milestone_1Parser.OCT_LIT - 64)) | (1 << (milestone_1Parser.BIN_LIT - 64)) | (1 << (milestone_1Parser.INT8_LIT - 64)) | (1 << (milestone_1Parser.INT16_LIT - 64)) | (1 << (milestone_1Parser.INT32_LIT - 64)) | (1 << (milestone_1Parser.INT64_LIT - 64)) | (1 << (milestone_1Parser.UINT_LIT - 64)) | (1 << (milestone_1Parser.UINT8_LIT - 64)) | (1 << (milestone_1Parser.UINT16_LIT - 64)) | (1 << (milestone_1Parser.UINT32_LIT - 64)) | (1 << (milestone_1Parser.UINT64_LIT - 64)) | (1 << (milestone_1Parser.FLOAT_LIT - 64)) | (1 << (milestone_1Parser.FLOAT32_SUFFIX - 64)) | (1 << (milestone_1Parser.FLOAT32_LIT - 64)) | (1 << (milestone_1Parser.FLOAT64_SUFFIX - 64)) | (1 << (milestone_1Parser.FLOAT64_LIT - 64)))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
+                self._errHandler.reportMatch(self)
                 self.consume()
         except RecognitionException as re:
             localctx.exception = re
