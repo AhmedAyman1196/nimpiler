@@ -11,14 +11,6 @@ from milestone_1Parser import milestone_1Parser
 # antlr4 -Dlanguage=Python3 milestone_1.g4 && python "Testcase check.py" --testcase Milestone1_TestCases/input_1_result.txt --output milestone_1_result.txt
 # python "Testcase check.py" --testcase Milestone1_TestCases/input_1_result.txt --output milestone_1_result.txt
 
-# input_1 : problem with indent ( we have extra although we should be correct )
-# input_2 : done
-# input_3 : done
-# input_4 : done
-# input_5 : there is one extra indent ( same problem with input_1 )
-# input_6 :
-
-
 def get_token_type(token):
 
     if token.type == milestone_1Lexer.VARIABLE:

@@ -1,5 +1,7 @@
 grammar milestone_1;
 
+//INDENT : {print(Token.text)}('    ')+;
+// _tokenStartCharPositionInLine
 INDENT : ('    ')+;
 SPACE :(' '| [\t\r\n]) -> skip;
 
