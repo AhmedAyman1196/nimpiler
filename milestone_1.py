@@ -3,15 +3,13 @@ from antlr4 import *
 from milestone_1Lexer import milestone_1Lexer
 from milestone_1Parser import milestone_1Parser
 
-
-# running command ( make sure antlr is connected to the project , I used the same as mile 4
-
 # antlr -Dlanguage=Python3 milestone_1.g4 && python3 milestone_1.py --file SampleInput.txt
 # antlr4 -Dlanguage=Python3 milestone_1.g4 && python milestone_1.py --file SampleInput.txt
 
-
 # test cases check
-#  antlr -Dlanguage=Python3 milestone_1.g4 && python3 milestone_1.py --file Milestone1_TestCases/input_3.txt
+# antlr -Dlanguage=Python3 milestone_1.g4 && python3 milestone_1.py --file Milestone1_TestCases/input_3.txt
+# antlr4 -Dlanguage=Python3 milestone_1.g4 && python "Testcase check.py" --testcase Milestone1_TestCases/input_1_result.txt --output milestone_1_result.txt
+# python "Testcase check.py" --testcase Milestone1_TestCases/input_1_result.txt --output milestone_1_result.txt
 
 # input_1 : problem with indent ( we have extra although we should be correct )
 # input_2 : done

@@ -110,14 +110,14 @@ WHILE : 'while' ;
 XOR : 'xor' ;
 YIELD : 'yield' ;
 
+IDENTIFIER : LETTER+ ('_'? (LETTER | DIGIT))*;
+DIGIT : [0-9] ;
+LETTER : [a-zA-Z] ;
+
 INT_LIT : HEX_LIT
         | DEC_LIT
         | OCT_LIT
         | BIN_LIT ;
-
-IDENTIFIER : LETTER+ ('_'? (LETTER | DIGIT))*;
-DIGIT : [0-9] ;
-LETTER : [a-zA-Z] ;
 
 // NUMERALS
 HEXDIGIT : DIGIT | [A-F] | [a-f] ;
