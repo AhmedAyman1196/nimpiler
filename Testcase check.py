@@ -1,7 +1,7 @@
 import argparse
 
 # running command
-# python3 Testcase\ check.py --testcase Milestone1_TestCases/input_6_result.txt --output milestone_1_result.txt
+# python3 Testcase\ check.py --testcase Milestone1_TestCases/input_1_result.txt --output milestone_1_result.txt
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(add_help=True, description='Sample Commandline')
