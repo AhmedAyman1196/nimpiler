@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48989edb-00a8-47d5-ba30-2eab0835d1ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testcase check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testcase check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1.g4" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1.interp" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1Lexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1Lexer.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1Lexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1Lexer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1Lexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1Lexer.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1Listener.py" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1Listener.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1Parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/milestone_1_result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_1_result.txt" afterDir="false" />
-    </list>
+    <list default="true" id="48989edb-00a8-47d5-ba30-2eab0835d1ff" name="Default Changelist" comment="&quot;Ayman Commit&quot;" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,51 +18,6 @@
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/milestone_1.g4">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_1.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_1_result.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-372">
-              <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/milestone_1_result.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-345">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Testcase check.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="111" selection-start-line="3" selection-start-column="111" selection-end-line="3" selection-end-column="111" />
             </state>
           </provider>
         </entry>
