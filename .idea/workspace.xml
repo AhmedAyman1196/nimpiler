@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48989edb-00a8-47d5-ba30-2eab0835d1ff" name="Default Changelist" comment="&quot;Ayman Commit&quot;">
-      <change afterPath="$PROJECT_DIR$/milestone_2.g4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/milestone_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleInput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SampleInput.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/milestone_2.g4" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_2.g4" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/milestone_2.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="160" column="3" selection-start-line="160" selection-start-column="3" selection-end-line="160" selection-end-column="3" />
+            <state relative-caret-position="1077">
+              <caret line="229" column="44" lean-forward="true" selection-start-line="229" selection-start-column="44" selection-end-line="229" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -300,8 +297,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/milestone_2.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="160" column="3" selection-start-line="160" selection-start-column="3" selection-end-line="160" selection-end-column="3" />
+        <state relative-caret-position="1077">
+          <caret line="229" column="44" lean-forward="true" selection-start-line="229" selection-start-column="44" selection-end-line="229" selection-end-column="44" />
         </state>
       </provider>
     </entry>
