@@ -1,161 +1,34 @@
 grammar milestone_2;
 
-// Lexical Analysis
-
-//INDENT : {print(Token.text)}('    ')+;
-// _tokenStartCharPositionInLine
-SKIPINDENT: INDENT+ SPACE+?  -> skip;
-INDENT : ('    ')+;
-SPACE :(' '| [\t\r\n]) -> skip;
-
-MULTILINECOMMENT: INDENT? '#[' ((.|[\r\n]) | COMMENT | MULTILINECOMMENT )*']#' -> skip;
-MULTILINEDOCUMENTATION: INDENT? '##[' (.|[\r\n])*? ']##' -> skip;
-
-COMMENT : INDENT? '#' .*? [\n]  -> skip ;
-
-TRIPLESTR_LIT: '"""' .*? '"""';
-STR_LIT:'"' .*? '"' ; // matches escape characters
-CHAR_LIT: '\'' .*? '\'';
-
-RSTR_LIT: ('r'|'R') STR_LIT; // doesnt match escape characters
-GENERALIZED_STR_LIT: IDENTIFIER'('RSTR_LIT')' | IDENTIFIER STR_LIT;
-GENERALIZED_TRIPLESTR_LIT: IDENTIFIER'('TRIPLESTR_LIT')' | IDENTIFIER TRIPLESTR_LIT;
-
-// OPERATORS
-EQUALS_OPERATOR : '=' | '==' ;
-ADD_OPERATOR : '+' ;
-MUL_OPERATOR : '*' ;
-MINUS_OPERATOR : '-';
-DIV_OPERATOR : '/' ;
-BITWISE_NOT_OPERATOR : '~' ;
-AND_OPERATOR : '&' ;
-OR_OPERATOR : '|' ;
-LESS_THAN : '<' ;
-GREATER_THAN : '>' ;
-AT : '@' ;
-MODULUS : '%' ;
-NOT_OPERATOR : '!';
-XOR_OPERATOR : '^';
-DOT : '.' ;
-COLON : ':' ;
-OPEN_PAREN : '(' ;
-CLOSE_PAREN : ')' ;
-OPEN_BRACE : '{' ;
-CLOSE_BRACE : '}' ;
-OPEN_BRACK : '[';
-CLOSE_BRACK :  ']';
-COMMA : ',' ;
-SEMI_COLON : ';';
-
-// KEYWORDS
-AND : 'and' ;
-VARIABLE: 'var';
-ADDR: 'addr' ;
-AS : 'as' ;
-ASM: 'asm';
-BIND: 'bind' ;
-BLOCK: 'block';
-BREAK: 'break' ;
-CASE: 'case' ;
-CAST: 'cast';
-CONCEPT : 'concept';
-CONST:  'const';
-CONTINUE: 'continue';
-CONVERTER :  'converter';
-DEFER : 'defer';
-DISCARD : 'discard';
-DISTINCT : 'distinct';
-DIV : 'div';
-DO : 'do';
-ELIF: 'elif';
-ELSE : 'else' ;
-END : 'end' ;
-ENUM : 'enum' ;
-EXCEPT : 'except' ;
-EXPORT : 'export' ;
-FINALLY : 'finally' ;
-FOR : 'for' ;
-FROM : 'from' ;
-FUNC : 'func' ;
-IF : 'if' ;
-IMPORT : 'import' ;
-IN : 'in' ;
-INCLUDE : 'include' ;
-INTERFACE : 'interface' ;
-IS : 'is' ;
-ISNOT : 'isnot' ;
-ITERATOR : 'iterator' ;
-LET : 'let' ;
-MACRO : 'macro' ;
-METHOD : 'method' ;
-MIXIN : 'mixin' ;
-MOD : 'mod' ;
-NIL : 'nil' ;
-NOT : 'not' ;
-NOTIN : 'notin' ;
-OBJECT : 'object' ;
-OF : 'of' ;
-OR : 'or' ;
-OUT : 'out' ;
-PROC : 'proc' ;
-PTR : 'ptr' ;
-RAISE : 'raise' ;
-REF : 'ref' ;
-RETURN : 'return' ;
-SHL : 'shl' ;
-SHR : 'shr' ;
-STATIC : 'static' ;
-TEMPLATE : 'template' ;
-TRY : 'try' ;
-TUPLE : 'tuple' ;
-TYPE : 'type' ;
-USING : 'using' ;
-WHEN : 'when' ;
-WHILE : 'while' ;
-XOR : 'xor' ;
-YIELD : 'yield' ;
-
-IDENTIFIER : LETTER+ ('_'? (LETTER | DIGIT))*;
-DIGIT : [0-9] ;
-LETTER : [a-zA-Z] ;
-
-INT_LIT : HEX_LIT
-        | DEC_LIT
-        | OCT_LIT
-        | BIN_LIT ;
-
-// NUMERALS
-HEXDIGIT : DIGIT | [A-F] | [a-f] ;
-OCTDIGIT : [0-7] ;
-BINDIGIT : [0-1] ;
-
-HEX_LIT : '0' ('x' | 'X' ) HEXDIGIT ('_'? HEXDIGIT)* ;
-DEC_LIT : DIGIT+ ('_'? DIGIT)* ;
-OCT_LIT : '0' ('o' | 'O') OCTDIGIT ('_'? OCTDIGIT)* ;
-BIN_LIT : '0' ('b' | 'B' ) BINDIGIT ('_'? BINDIGIT)* ;
-
-INT8_LIT : INT_LIT '\'' ('i' | 'I') '8' ;
-INT16_LIT : INT_LIT '\'' ('i' | 'I') '16' ;
-INT32_LIT : INT_LIT '\'' ('i' | 'I') '32' ;
-INT64_LIT : INT_LIT '\'' ('i' | 'I') '64' ;
-
-UINT_LIT : INT_LIT '\'' ('u' | 'U') ;
-UINT8_LIT : INT_LIT '\'' ('u' | 'U') '8' ;
-UINT16_LIT : INT_LIT '\'' ('u' | 'U') '16' ;
-UINT32_LIT : INT_LIT '\'' ('u' | 'U') '32' ;
-UINT64_LIT : INT_LIT '\'' ('u' | 'U') '64' ;
-
-EXP : ('e' | 'E' ) ('+' | '-') DIGIT ('_'? DIGIT)* ;
-FLOAT_LIT : DIGIT ('_'? DIGIT)* (('.' DIGIT ('_'? DIGIT)* EXP?) |EXP) ;
-FLOAT32_SUFFIX : ('f' | 'F') '32'? ;
-FLOAT32_LIT : HEX_LIT '\'' FLOAT32_SUFFIX
-            | (FLOAT_LIT | DEC_LIT | OCT_LIT | BIN_LIT) '\''? FLOAT32_SUFFIX;
-FLOAT64_SUFFIX : (('f' | 'F') '64') | 'd' | 'D';
-FLOAT64_LIT : HEX_LIT '\'' FLOAT64_SUFFIX
-            | (FLOAT_LIT | DEC_LIT | OCT_LIT | BIN_LIT) '\''? FLOAT64_SUFFIX;
 
 // ----------------------------------------------------------------------------
 // Grammar
+
+// & is the lookahead operator; &a means that an a is expected but not consumed.
+// It will be consumed in the following rule.
+
+// The |, / symbols are used to mark alternatives and have the lowest precedence.
+// / is the ordered choice that requires the parser to try the alternatives in the given order.
+// / is often used to ensure the grammar is not ambiguous.
+
+
+// Non-terminals start with a lowercase letter, abstract terminal symbols are in UPPERCASE.
+// Verbatim terminal symbols (including keywords) are quoted with '.
+
+// The binary ^* operator is used as a shorthand for 0 or more occurrences separated by its second argument;
+// likewise ^+ means 1 or more occurrences: a ^+ b is short for a (b a)* and a ^* b is short for (a (b a)*)?.
+
+// indentation : The indentation handling is implemented as follows:
+// The lexer annotates the following token with the preceding number of spaces; indentation is not a separate token.
+// This trick allows parsing of Nim with only 1 token of lookahead.
+// The parser uses a stack of indentation levels: the stack consists of integers counting the spaces.
+// The indentation information is queried at strategic places in the parser but ignored otherwise:
+// The pseudo terminal IND{>} denotes an indentation that consists of more spaces than the entry at the top of the stack;
+// IND{=} an indentation that has the same number of spaces. DED is another pseudo terminal that describes the action of popping a value from the stack, IND{>} then implies to push onto the stack.
+
+// Binary operators whose first character is ^ are right-associative,
+// all other binary operators are left-associative.
+
 
 // stmt : complexOrSimpleStmt;
 // complexOrSimpleStmt : VARIABLE;
@@ -171,6 +44,7 @@ operator :  OP0 | OP1 | OP2 | OP3 | OP4 | OP5 | OP6 | OP7 | OP8 | OP9
          | 'or' | 'xor' | 'and'
          | 'is' | 'isnot' | 'in' | 'notin' | 'of'
          | 'div' | 'mod' | 'shl' | 'shr' | 'not' | 'static' | '..' ;
+
 prefixOperator : operator ;
 optInd : COMMENT? IND? ;
 optPar : (IND{>} | IND{=})? ;
@@ -238,6 +112,7 @@ arrayConstr : '[' optInd (exprColonEqExpr comma?)* optPar ']' ;
 primarySuffix : '(' (exprColonEqExpr comma?)* ')' doBlocks?
       | doBlocks
       | '.' optInd symbol generalizedLit?
+      | '[' optInd indexExprList optPar ']'
       | '{' optInd indexExprList optPar '}'
       | ( '`'|IDENT|literal|'cast'|'addr'|'type') expr '#' command syntax ;
 
@@ -376,7 +251,7 @@ indAndComment : (IND{>} COMMENT)? | COMMENT? ;
 routine : optInd identVis pattern? genericParamList?
   paramListColon pragma? ('=' COMMENT? stmt)? indAndComment ;
 commentStmt : COMMENT ;
-//section(p) : COMMENT? p / (IND{>} (p / COMMENT)^+IND{=} DED) ;
+//section(p) : COMMENT? p / (IND{>} (p / COMMENT)^+IND{=} DED) ; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 sectionp : COMMENT? p | (IND{>} (p | COMMENT)+IND{=} DED) ;
 constant : identWithPragma (colon typeDesc)? '=' optInd expr indAndComment ;
 enum : 'enum' optInd (symbol optInd ('=' optInd expr COMMENT?)? comma?)+ ;
@@ -451,9 +326,172 @@ complexOrSimpleStmt : (ifStmt | whenStmt | whileStmt
                     | bindStmt | mixinStmt)
                     | simpleStmt ;
 
+
+// Lexical Analysis
+
+//INDENT : {print(Token.text)}('    ')+;
+// _tokenStartCharPositionInLine
+SKIPINDENT: IDENT+ SPACE+?  -> skip;
+IDENT : ('    ')+;
+SPACE :(' '| [\t\r\n]) -> skip;
+
+MULTILINECOMMENT: IDENT? '#[' ((.|[\r\n]) | COMMENT | MULTILINECOMMENT )*']#' -> skip;
+MULTILINEDOCUMENTATION: IDENT? '##[' (.|[\r\n])*? ']##' -> skip;
+
+COMMENT : IDENT? '#' .*? [\n]  -> skip ;
+
+TRIPLESTR_LIT: '"""' .*? '"""';
+STR_LIT:'"' .*? '"' ; // matches escape characters
+CHAR_LIT: '\'' .*? '\'';
+
+RSTR_LIT: ('r'|'R') STR_LIT; // doesnt match escape characters
+GENERALIZED_STR_LIT: IDENTIFIER'('RSTR_LIT')' | IDENTIFIER STR_LIT;
+GENERALIZED_TRIPLESTR_LIT: IDENTIFIER'('TRIPLESTR_LIT')' | IDENTIFIER TRIPLESTR_LIT;
+
+// OPERATORS
+
+EQUALS_OPERATOR : '=' | '==' ;
+ADD_OPERATOR : '+' ;
+MUL_OPERATOR : '*' ;
+MINUS_OPERATOR : '-';
+DIV_OPERATOR : '/' ;
+BITWISE_NOT_OPERATOR : '~' ;
+AND_OPERATOR : '&' ;
+OR_OPERATOR : '|' ;
+LESS_THAN : '<' ;
+GREATER_THAN : '>' ;
+AT : '@' ;
+MODULUS : '%' ;
+NOT_OPERATOR : '!';
+XOR_OPERATOR : '^';
+DOT : '.' ;
+COLON : ':' ;
+OPEN_PAREN : '(' ;
+CLOSE_PAREN : ')' ;
+OPEN_BRACE : '{' ;
+CLOSE_BRACE : '}' ;
+OPEN_BRACK : '[';
+CLOSE_BRACK :  ']';
+COMMA : ',' ;
+SEMI_COLON : ';';
+
+// KEYWORDS
+KEYW :
+AND | VARIABLE|ADDR |AS | ASM |BIND |BLOCK |BREAK |CASE |CAST |CONCEPT |CONST |CONTINUE | CONVERTER |DEFER |
+DISCARD |DISTINCT |DIV |DO |ELIF |ELSE |END |ENUM |EXCEPT |EXPORT |FINALLY | FOR |FROM |FUNC |IF |IMPORT |
+IN |INCLUDE| INTERFACE |IS |ISNOT | ITERATOR |LET | MACRO |METHOD |MIXIN |MOD |NIL |NOT |NOTIN |OBJECT |
+OF |OR |OUT  |PROC |PTR |RAISE |REF |RETURN |SHL |SHR |STATIC | TEMPLATE | TRY |TUPLE |TYPE |USING |WHEN |
+WHILE |XOR |YIELD ;
+
+AND : 'and' ;
+VARIABLE: 'var';
+ADDR: 'addr' ;
+AS : 'as' ;
+ASM: 'asm';
+BIND: 'bind' ;
+BLOCK: 'block';
+BREAK: 'break' ;
+CASE: 'case' ;
+CAST: 'cast';
+CONCEPT : 'concept';
+CONST:  'const';
+CONTINUE: 'continue';
+CONVERTER :  'converter';
+DEFER : 'defer';
+DISCARD : 'discard';
+DISTINCT : 'distinct';
+DIV : 'div';
+DO : 'do';
+ELIF: 'elif';
+ELSE : 'else' ;
+END : 'end' ;
+ENUM : 'enum' ;
+EXCEPT : 'except' ;
+EXPORT : 'export' ;
+FINALLY : 'finally' ;
+FOR : 'for' ;
+FROM : 'from' ;
+FUNC : 'func' ;
+IF : 'if' ;
+IMPORT : 'import' ;
+IN : 'in' ;
+INCLUDE : 'include' ;
+INTERFACE : 'interface' ;
+IS : 'is' ;
+ISNOT : 'isnot' ;
+ITERATOR : 'iterator' ;
+LET : 'let' ;
+MACRO : 'macro' ;
+METHOD : 'method' ;
+MIXIN : 'mixin' ;
+MOD : 'mod' ;
+NIL : 'nil' ;
+NOT : 'not' ;
+NOTIN : 'notin' ;
+OBJECT : 'object' ;
+OF : 'of' ;
+OR : 'or' ;
+OUT : 'out' ;
+PROC : 'proc' ;
+PTR : 'ptr' ;
+RAISE : 'raise' ;
+REF : 'ref' ;
+RETURN : 'return' ;
+SHL : 'shl' ;
+SHR : 'shr' ;
+STATIC : 'static' ;
+TEMPLATE : 'template' ;
+TRY : 'try' ;
+TUPLE : 'tuple' ;
+TYPE : 'type' ;
+USING : 'using' ;
+WHEN : 'when' ;
+WHILE : 'while' ;
+XOR : 'xor' ;
+YIELD : 'yield' ;
+
+IDENTIFIER : LETTER+ ('_'? (LETTER | DIGIT))*;
+DIGIT : [0-9] ;
+LETTER : [a-zA-Z] ;
+
+INT_LIT : HEX_LIT
+        | DEC_LIT
+        | OCT_LIT
+        | BIN_LIT ;
+
+// NUMERALS
+HEXDIGIT : DIGIT | [A-F] | [a-f] ;
+OCTDIGIT : [0-7] ;
+BINDIGIT : [0-1] ;
+
+HEX_LIT : '0' ('x' | 'X' ) HEXDIGIT ('_'? HEXDIGIT)* ;
+DEC_LIT : DIGIT+ ('_'? DIGIT)* ;
+OCT_LIT : '0' ('o' | 'O') OCTDIGIT ('_'? OCTDIGIT)* ;
+BIN_LIT : '0' ('b' | 'B' ) BINDIGIT ('_'? BINDIGIT)* ;
+
+INT8_LIT : INT_LIT '\'' ('i' | 'I') '8' ;
+INT16_LIT : INT_LIT '\'' ('i' | 'I') '16' ;
+INT32_LIT : INT_LIT '\'' ('i' | 'I') '32' ;
+INT64_LIT : INT_LIT '\'' ('i' | 'I') '64' ;
+
+UINT_LIT : INT_LIT '\'' ('u' | 'U') ;
+UINT8_LIT : INT_LIT '\'' ('u' | 'U') '8' ;
+UINT16_LIT : INT_LIT '\'' ('u' | 'U') '16' ;
+UINT32_LIT : INT_LIT '\'' ('u' | 'U') '32' ;
+UINT64_LIT : INT_LIT '\'' ('u' | 'U') '64' ;
+
+EXP : ('e' | 'E' ) ('+' | '-') DIGIT ('_'? DIGIT)* ;
+FLOAT_LIT : DIGIT ('_'? DIGIT)* (('.' DIGIT ('_'? DIGIT)* EXP?) |EXP) ;
+FLOAT32_SUFFIX : ('f' | 'F') '32'? ;
+FLOAT32_LIT : HEX_LIT '\'' FLOAT32_SUFFIX
+            | (FLOAT_LIT | DEC_LIT | OCT_LIT | BIN_LIT) '\''? FLOAT32_SUFFIX;
+FLOAT64_SUFFIX : (('f' | 'F') '64') | 'd' | 'D';
+FLOAT64_LIT : HEX_LIT '\'' FLOAT64_SUFFIX
+            | (FLOAT_LIT | DEC_LIT | OCT_LIT | BIN_LIT) '\''? FLOAT64_SUFFIX;
+
+
 //stmt : (IND{>} complexOrSimpleStmt^+(IND{=} / ';') DED)
 //     / simpleStmt ^+ ';' ;
 stmt : (IND{>} complexOrSimpleStmt +(IND{=} | ';') DED)
      | simpleStmt + ';' ;
-
 start : module;
