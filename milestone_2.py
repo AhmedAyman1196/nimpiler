@@ -7,7 +7,7 @@ from antlr4.tree.Trees import Trees
 
 
 # antlr -Dlanguage=Python3 milestone_1.g4 && python3 milestone_1.py --file SampleInput.txt
-# antlr4 -Dlanguage=Python3 milestone_1.g4 && python milestone_1.py --file SampleInput.txt
+# antlr4 -Dlanguage=Python3 milestone_2.g4 && python milestone_2.py --file SampleInput.txt
 
 # test cases check
 # antlr -Dlanguage=Python3 milestone_1.g4 && python3 milestone_1.py --file Milestone1_TestCases/input_3.txt
