@@ -5,7 +5,7 @@ grammar milestone_2;
 // stmt : complexOrSimpleStmt;
 // complexOrSimpleStmt : VARIABLE;
 
-module : (stmt ((';' | IND{=}) stmt)*)? ;
+module : (stmt ((';' | 'IND{=}') stmt)*)? ;
 
 comma : ',' COMMENT? ;
 semicolon : ';' COMMENT? ;
@@ -18,7 +18,10 @@ operator :  OP0 | OP1 | OP2 | OP3 | OP4 | OP5 | OP6 | OP7 | OP8 | OP9
 
 prefixOperator : operator ;
 optInd : COMMENT? IND? ;
-optPar : (IND{>} | IND{=})? ;
+optPar : ('IND{>}' | 'IND{=}')? ;
+
+// TODO fix left recursive error
+/*
 simpleExpr : arrowExpr (OP0 optInd arrowExpr)* pragma? ;
 arrowExpr : assignExpr (OP1 optInd assignExpr)* ;
 assignExpr : orExpr (OP2 optInd orExpr)* ;
@@ -30,8 +33,11 @@ ampExpr : plusExpr (OP7 optInd plusExpr)* ;
 plusExpr : mulExpr (OP8 optInd mulExpr)* ;
 mulExpr : dollarExpr (OP9 optInd dollarExpr)* ;
 dollarExpr : primary (OP10 optInd primary)* ;
-symbol : '`' (KEYW|IDENT|literal|(operator|'('|')'|'['|']'|'{'|'}'|'=')+)+ '`'
-       | IDENT | KEYW ;
+*/
+// TODO
+//symbol : '`' (KEYW|IDENT|literal|(operator|'('|')'|'['|']'|'{'|'}'|'=')+)+ '`' | IDENT | KEYW ;
+symbol : 'x';
+
 exprColonEqExpr : expr (':'|'=' expr)?;
 
 exprList : expr (comma expr)* ;
@@ -47,14 +53,19 @@ parKeyw : 'discard' | 'include' | 'if' | 'while' | 'case' | 'try'
         | 'when' | 'var' | 'mixin' ;
 
 // TODO &
+/*
 par : '(' optInd
 //        ( &parKeyw complexOrSimpleStmt ^+ ';'
-          ( parKeyw complexOrSimpleStmt (';' complexOrSimpleStmt)*
+          ( {} complexOrSimpleStmt (';' complexOrSimpleStmt)*
           | ';' complexOrSimpleStmt (';' complexOrSimpleStmt)*
           | pragmaStmt
           | simpleExpr ( ('=' expr (';' complexOrSimpleStmt (';' complexOrSimpleStmt)* )? )
                        | (':' expr (',' exprColonEqExpr (',' exprColonExpr)* )? ) ) )
           optPar ')' ;
+*/
+// TODO
+exprColonExpr : 'x';
+
 
 literal : | INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
           | UINT_LIT | UINT8_LIT | UINT16_LIT | UINT32_LIT | UINT64_LIT
@@ -78,6 +89,49 @@ primarySuffix : '(' (exprColonEqExpr comma?)* ')' doBlocks?
       | ( '`'|IDENT|literal|'cast'|'addr'|'type') expr;
 //    | &( '`'|IDENT|literal|'cast'|'addr'|'type') expr # command syntax
 
+// TODO
+indexExprList: 'x';
+// TODO
+pragmas : 'x';
+// TODO
+indentWithPragma : 'x';
+// TODO
+caseExpr : 'x';
+// TODO
+typeDescK : 'x';
+// TODO
+typeDesc : 'x';
+// TODO
+macroColon : 'x';
+// TODO
+moduleName : 'x';
+// TODO
+sectionTypeDef : 'x';
+// TODO
+sectionConstant : 'x';
+// TODO
+sectionVariable : 'x';
+// TODO
+exportStmt : 'x';
+// TODO
+expr : 'x';
+// TODO
+typeKeyw : 'x';
+// TODO
+exprStmt : 'x';
+// TODO
+typeDefAux : 'x';
+// TODO
+par : 'x';
+//TODO
+opr : 'x';
+// TODO
+IDENT : 'x';
+// TODO
+doBlocks : 'x';
+// TODO
+p: 'x';
+
 condExpr : expr colcom expr optInd
         ('elif' expr colcom expr optInd)*
          'else' colcom expr ;
@@ -92,7 +146,7 @@ identWithPragma : identVis pragma? ;
 identWithPragmaDot : identVisDot pragma? ;
 declColonEquals : identWithPragma (comma identWithPragma)* comma?
                   (':' optInd typeDesc)? ('=' optInd expr)? ;
-identColonEquals : ident (comma ident)* comma?
+identColonEquals : IDENT (comma IDENT)* comma?
      (':' optInd typeDesc)? ('=' optInd expr)? ;
 
 // TODO missing '
@@ -101,7 +155,7 @@ inlTupleDecl : 'tuple'
 //   [' optInd  (identColonEquals (comma/semicolon)?)*  optPar ']'
 
 extTupleDecl : 'tuple'
-    COMMENT? (IND{>} identColonEquals (IND{=} identColonEquals)*)? ;
+    COMMENT? ('IND{>}' identColonEquals ('IND{=}' identColonEquals)*)? ;
 tupleClass : 'tuple' ;
 
 paramList : '(' (declColonEquals ((comma'/'semicolon) declColonEquals)*)? ')' ;
@@ -123,6 +177,7 @@ forExpr : forStmt ;
 //      | forExpr
 //      | tryExpr)
 //      / simpleExpr ;
+/*
 expr : (blockExpr
       | ifExpr
       | whenExpr
@@ -132,6 +187,7 @@ expr : (blockExpr
       | simpleExpr ;
 typeKeyw : 'var' | 'out' | 'ref' | 'ptr' | 'shared' | 'tuple'
          | 'proc' | 'iterator' | 'distinct' | 'object' | 'enum' ;
+*/
 
 // TODO precedence
 //primary : typeKeyw typeDescK
@@ -141,14 +197,16 @@ primary : typeKeyw typeDescK
         | prefixOperator* identOrLiteral primarySuffix*
         | 'bind' primary ;
 
+/*
 typeDesc : simpleExpr ;
 typeDefAux : simpleExpr
            | 'concept' typeClass ;
-postExprBlocks : ':' stmt? ( IND{=} doBlock
-                           | IND{=} 'of' exprList ':' stmt
-                           | IND{=} 'elif' expr ':' stmt
-                           | IND{=} 'except' exprList ':' stmt
-                           | IND{=} 'else' ':' stmt )* ;
+postExprBlocks : ':' stmt? ( 'IND{=}' doBlock
+                           | 'IND{=}' 'of' exprList ':' stmt
+                           | 'IND{=}' 'elif' expr ':' stmt
+                           | 'IND{=}' 'except' exprList ':' stmt
+                           | 'IND{=}' 'else' ':' stmt )* ;
+*/
 
 // TODO precedence
 //exprStmt : simpleExpr
@@ -157,12 +215,14 @@ postExprBlocks : ':' stmt? ( IND{=} doBlock
 //             doBlocks
 //              / macroColon
 //           ))? ;
+/*
 exprStmt : simpleExpr
          (( '=' optInd expr colonBody? )
          | ( expr (comma expr)*
              doBlocks
               | macroColon
            ))? ;
+*/
 
 // TODO precedence
 //importStmt : 'import' optInd expr
@@ -182,24 +242,24 @@ discardStmt : 'discard' optInd expr? ;
 breakStmt : 'break' optInd expr? ;
 continueStmt : 'break' optInd expr? ;
 condStmt : expr colcom stmt COMMENT?
-           (IND{=} 'elif' expr colcom stmt)*
-           (IND{=} 'else' colcom stmt)? ;
+           ('IND{=}' 'elif' expr colcom stmt)*
+           ('IND{=}' 'else' colcom stmt)? ;
 ifStmt : 'if' condStmt  ;
 whenStmt : 'when' condStmt ;
 whileStmt : 'while' expr colcom stmt ;
 ofBranch : 'of' exprList colcom stmt ;
-ofBranches : ofBranch (IND{=} ofBranch)*
-                      (IND{=} 'elif' expr colcom stmt)*
-                      (IND{=} 'else' colcom stmt)? ;
+ofBranches : ofBranch ('IND{=}' ofBranch)*
+                      ('IND{=}' 'elif' expr colcom stmt)*
+                      ('IND{=}' 'else' colcom stmt)? ;
 caseStmt : 'case' expr ':'? COMMENT?
-            (IND{>} ofBranches DED
-            | IND{=} ofBranches) ;
+            ('IND{>}' ofBranches 'DED'
+            | 'IND{=}' ofBranches) ;
 
 // TODO &
-//tryStmt : 'try' colcom stmt &(IND{=}? 'except'|'finally')
-tryStmt : 'try' colcom stmt (IND{=}? 'except'|'finally')
-           (IND{=}? 'except' exprList colcom stmt)*
-           (IND{=}? 'finally' colcom stmt)? ;
+//tryStmt : 'try' colcom stmt &('IND{=}'? 'except'|'finally')
+tryStmt : 'try' colcom stmt ('IND{=}'? 'except'|'finally')
+           ('IND{=}'? 'except' exprList colcom stmt)*
+           ('IND{=}'? 'finally' colcom stmt)? ;
 
 // TODO &
 //tryExpr : 'try' colcom stmt &(optInd 'except'|'finally')
@@ -216,15 +276,15 @@ asmStmt : 'asm' pragma? (STR_LIT | RSTR_LIT | TRIPLESTR_LIT) ;
 genericParam : symbol (comma symbol)* (colon expr)? ('=' optInd expr)? ;
 
 genericParamList : '[' optInd
-  *genericParam ((comma|semicolon) genericParam)*)? optPar ']' ;
+  (genericParam ((comma|semicolon) genericParam)*)? optPar ']' ;
 
 pattern : '{' stmt '}' ;
-indAndComment : (IND{>} COMMENT)? | COMMENT? ;
+indAndComment : ('IND{>}' COMMENT)? | COMMENT? ;
 routine : optInd identVis pattern? genericParamList?
   paramListColon pragma? ('=' COMMENT? stmt)? indAndComment ;
 commentStmt : COMMENT ;
 
-sectionp : COMMENT? p | (IND{>} (p | COMMENT) (IND{=} (p | COMMENT))* DED) ;
+sectionp : COMMENT? p | ('IND{>}' (p | COMMENT) ('IND{=}' (p | COMMENT))* 'DED') ;
 
 constant : identWithPragma (colon typeDesc)? '=' optInd expr indAndComment ;
 enum : 'enum' optInd (symbol optInd ('=' optInd expr COMMENT?)? comma?)+ ;
@@ -232,21 +292,22 @@ objectWhen : 'when' expr colcom objectPart COMMENT?
             ('elif' expr colcom objectPart COMMENT?)*
             ('else' colcom objectPart COMMENT?)? ;
 objectBranch : 'of' exprList colcom objectPart ;
-objectBranches : objectBranch (IND{=} objectBranch)*
-                      (IND{=} 'elif' expr colcom objectPart)*
-                      (IND{=} 'else' colcom objectPart)? ;
+objectBranches : objectBranch ('IND{=}' objectBranch)*
+                      ('IND{=}' 'elif' expr colcom objectPart)*
+                      ('IND{=}' 'else' colcom objectPart)? ;
 objectCase : 'case' identWithPragma ':' typeDesc ':'? COMMENT?
-            (IND{>} objectBranches DED
-            | IND{=} objectBranches) ;
+            ('IND{>}' objectBranches 'DED'
+            | 'IND{=}' objectBranches) ;
 
-objectPart : IND{>} objectPart (IND{=} objectPart)* DED
+objectPart : 'IND{>}' objectPart ('IND{=}' objectPart)* 'DED'
            | objectWhen | objectCase | 'nil' | 'discard' | declColonEquals ;
 
-object : 'object' pragma? ('of' typeDesc)? COMMENT? objectPart ;
+// renamed from object
+objectX : 'object' pragma? ('of' typeDesc)? COMMENT? objectPart ;
 typeClassParam : ('var' | 'out')? symbol ;
 
 typeClass : (typeClassParam (',' typeClassParam)*)? (pragma)? ('of' (typeDesc (',' typeDesc)*)?)?
-              |IND{>} stmt ;
+              |'IND{>}' stmt ;
 
 typeDef : identWithPragmaDot genericParamList? '=' optInd typeDefAux
             indAndComment? ;
@@ -283,9 +344,9 @@ simpleStmt : ((returnStmt | raiseStmt | yieldStmt | discardStmt | breakStmt
 //                    | 'macro' routine
 //                    | 'template' routine
 //                    | 'converter' routine
-//                    | 'type' section(typeDef)
-//                    | 'const' section(constant)
-//                    | ('let' | 'var' | 'using') section(variable)
+//                    | 'type' sectionTypeDef
+//                    | 'const' sectionConstant
+//                    | ('let' | 'var' | 'using') sectionVariable
 //                    | bindStmt | mixinStmt)
 //                    / simpleStmt ;
 complexOrSimpleStmt : (ifStmt | whenStmt | whileStmt
@@ -297,9 +358,9 @@ complexOrSimpleStmt : (ifStmt | whenStmt | whileStmt
                     | 'macro' routine
                     | 'template' routine
                     | 'converter' routine
-                    | 'type' section(typeDef)
-                    | 'const' section(constant)
-                    | ('let' | 'var' | 'using') section(variable)
+                    | 'type' sectionTypeDef
+                    | 'const' sectionConstant
+                    | ('let' | 'var' | 'using') sectionVariable
                     | bindStmt | mixinStmt)
                     | simpleStmt ;
 
@@ -309,14 +370,14 @@ complexOrSimpleStmt : (ifStmt | whenStmt | whileStmt
 
 //INDENT : {print(Token.text)}('    ')+;
 // _tokenStartCharPositionInLine
-SKIPINDENT: IDENT+ SPACE+?  -> skip;
-IDENT : ('    ')+;
+SKIPINDENT: INDENT+ SPACE+?  -> skip;
+INDENT : ('    ')+;
 SPACE :(' '| [\t\r\n]) -> skip;
 
-MULTILINECOMMENT: IDENT? '#[' ((.|[\r\n]) | COMMENT | MULTILINECOMMENT )*']#' -> skip;
-MULTILINEDOCUMENTATION: IDENT? '##[' (.|[\r\n])*? ']##' -> skip;
+MULTILINECOMMENT: INDENT? '#[' ((.|[\r\n]) | COMMENT | MULTILINECOMMENT )*']#' -> skip;
+MULTILINEDOCUMENTATION: INDENT? '##[' (.|[\r\n])*? ']##' -> skip;
 
-COMMENT : IDENT? '#' .*? [\n]  -> skip ;
+COMMENT : INDENT? '#' .*? [\n]  -> skip ;
 
 TRIPLESTR_LIT: '"""' .*? '"""';
 STR_LIT:'"' .*? '"' ; // matches escape characters
@@ -469,8 +530,8 @@ FLOAT64_LIT : HEX_LIT '\'' FLOAT64_SUFFIX
 
 
 // TODO precedence
-//stmt : (IND{>} complexOrSimpleStmt^+(IND{=} / ';') DED)
+//stmt : ('IND{>}' complexOrSimpleStmt^+('IND{=}' / ';') 'DED')
 //     / simpleStmt ^+ ';' ;
-stmt : (IND{>} complexOrSimpleStmt ((IND{=} | ';') complexOrSimpleStmt)* DED)
+stmt : ('IND{>}' complexOrSimpleStmt (('IND{=}' | ';') complexOrSimpleStmt)* 'DED')
      | simpleStmt (';' simpleStmt)* ;
 start : module;
