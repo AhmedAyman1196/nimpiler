@@ -25,7 +25,7 @@ def main():
     parser = milestone_2Parser(token_stream)
 
     tree = parser.start()
-    print(Trees.toStringTree(tree,None, parser))
+    print(Trees.toStringTree(tree, None, parser))
     token = lexer.nextToken()
     out = open("milestone_2_result.txt", "w+")
 

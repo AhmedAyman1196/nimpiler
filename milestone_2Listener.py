@@ -89,6 +89,105 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by milestone_2Parser#simpleExpr.
+    def enterSimpleExpr(self, ctx:milestone_2Parser.SimpleExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#simpleExpr.
+    def exitSimpleExpr(self, ctx:milestone_2Parser.SimpleExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#arrowExpr.
+    def enterArrowExpr(self, ctx:milestone_2Parser.ArrowExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#arrowExpr.
+    def exitArrowExpr(self, ctx:milestone_2Parser.ArrowExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#assignExpr.
+    def enterAssignExpr(self, ctx:milestone_2Parser.AssignExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#assignExpr.
+    def exitAssignExpr(self, ctx:milestone_2Parser.AssignExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#orExpr.
+    def enterOrExpr(self, ctx:milestone_2Parser.OrExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#orExpr.
+    def exitOrExpr(self, ctx:milestone_2Parser.OrExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#andExpr.
+    def enterAndExpr(self, ctx:milestone_2Parser.AndExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#andExpr.
+    def exitAndExpr(self, ctx:milestone_2Parser.AndExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#cmpExpr.
+    def enterCmpExpr(self, ctx:milestone_2Parser.CmpExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#cmpExpr.
+    def exitCmpExpr(self, ctx:milestone_2Parser.CmpExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#sliceExpr.
+    def enterSliceExpr(self, ctx:milestone_2Parser.SliceExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#sliceExpr.
+    def exitSliceExpr(self, ctx:milestone_2Parser.SliceExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#ampExpr.
+    def enterAmpExpr(self, ctx:milestone_2Parser.AmpExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#ampExpr.
+    def exitAmpExpr(self, ctx:milestone_2Parser.AmpExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#plusExpr.
+    def enterPlusExpr(self, ctx:milestone_2Parser.PlusExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#plusExpr.
+    def exitPlusExpr(self, ctx:milestone_2Parser.PlusExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#mulExpr.
+    def enterMulExpr(self, ctx:milestone_2Parser.MulExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#mulExpr.
+    def exitMulExpr(self, ctx:milestone_2Parser.MulExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#dollarExpr.
+    def enterDollarExpr(self, ctx:milestone_2Parser.DollarExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#dollarExpr.
+    def exitDollarExpr(self, ctx:milestone_2Parser.DollarExprContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#symbol.
     def enterSymbol(self, ctx:milestone_2Parser.SymbolContext):
         pass
@@ -179,12 +278,12 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by milestone_2Parser#exprColonExpr.
-    def enterExprColonExpr(self, ctx:milestone_2Parser.ExprColonExprContext):
+    # Enter a parse tree produced by milestone_2Parser#par.
+    def enterPar(self, ctx:milestone_2Parser.ParContext):
         pass
 
-    # Exit a parse tree produced by milestone_2Parser#exprColonExpr.
-    def exitExprColonExpr(self, ctx:milestone_2Parser.ExprColonExprContext):
+    # Exit a parse tree produced by milestone_2Parser#par.
+    def exitPar(self, ctx:milestone_2Parser.ParContext):
         pass
 
 
@@ -251,15 +350,6 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by milestone_2Parser#pragmas.
-    def enterPragmas(self, ctx:milestone_2Parser.PragmasContext):
-        pass
-
-    # Exit a parse tree produced by milestone_2Parser#pragmas.
-    def exitPragmas(self, ctx:milestone_2Parser.PragmasContext):
-        pass
-
-
     # Enter a parse tree produced by milestone_2Parser#indentWithPragma.
     def enterIndentWithPragma(self, ctx:milestone_2Parser.IndentWithPragmaContext):
         pass
@@ -284,15 +374,6 @@ class milestone_2Listener(ParseTreeListener):
 
     # Exit a parse tree produced by milestone_2Parser#typeDescK.
     def exitTypeDescK(self, ctx:milestone_2Parser.TypeDescKContext):
-        pass
-
-
-    # Enter a parse tree produced by milestone_2Parser#typeDesc.
-    def enterTypeDesc(self, ctx:milestone_2Parser.TypeDescContext):
-        pass
-
-    # Exit a parse tree produced by milestone_2Parser#typeDesc.
-    def exitTypeDesc(self, ctx:milestone_2Parser.TypeDescContext):
         pass
 
 
@@ -350,51 +431,6 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by milestone_2Parser#expr.
-    def enterExpr(self, ctx:milestone_2Parser.ExprContext):
-        pass
-
-    # Exit a parse tree produced by milestone_2Parser#expr.
-    def exitExpr(self, ctx:milestone_2Parser.ExprContext):
-        pass
-
-
-    # Enter a parse tree produced by milestone_2Parser#typeKeyw.
-    def enterTypeKeyw(self, ctx:milestone_2Parser.TypeKeywContext):
-        pass
-
-    # Exit a parse tree produced by milestone_2Parser#typeKeyw.
-    def exitTypeKeyw(self, ctx:milestone_2Parser.TypeKeywContext):
-        pass
-
-
-    # Enter a parse tree produced by milestone_2Parser#exprStmt.
-    def enterExprStmt(self, ctx:milestone_2Parser.ExprStmtContext):
-        pass
-
-    # Exit a parse tree produced by milestone_2Parser#exprStmt.
-    def exitExprStmt(self, ctx:milestone_2Parser.ExprStmtContext):
-        pass
-
-
-    # Enter a parse tree produced by milestone_2Parser#typeDefAux.
-    def enterTypeDefAux(self, ctx:milestone_2Parser.TypeDefAuxContext):
-        pass
-
-    # Exit a parse tree produced by milestone_2Parser#typeDefAux.
-    def exitTypeDefAux(self, ctx:milestone_2Parser.TypeDefAuxContext):
-        pass
-
-
-    # Enter a parse tree produced by milestone_2Parser#par.
-    def enterPar(self, ctx:milestone_2Parser.ParContext):
-        pass
-
-    # Exit a parse tree produced by milestone_2Parser#par.
-    def exitPar(self, ctx:milestone_2Parser.ParContext):
-        pass
-
-
     # Enter a parse tree produced by milestone_2Parser#opr.
     def enterOpr(self, ctx:milestone_2Parser.OprContext):
         pass
@@ -419,6 +455,15 @@ class milestone_2Listener(ParseTreeListener):
 
     # Exit a parse tree produced by milestone_2Parser#p.
     def exitP(self, ctx:milestone_2Parser.PContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#exprColonExpr.
+    def enterExprColonExpr(self, ctx:milestone_2Parser.ExprColonExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#exprColonExpr.
+    def exitExprColonExpr(self, ctx:milestone_2Parser.ExprColonExprContext):
         pass
 
 
@@ -611,12 +656,66 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by milestone_2Parser#expr.
+    def enterExpr(self, ctx:milestone_2Parser.ExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#expr.
+    def exitExpr(self, ctx:milestone_2Parser.ExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#typeKeyw.
+    def enterTypeKeyw(self, ctx:milestone_2Parser.TypeKeywContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#typeKeyw.
+    def exitTypeKeyw(self, ctx:milestone_2Parser.TypeKeywContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#primary.
     def enterPrimary(self, ctx:milestone_2Parser.PrimaryContext):
         pass
 
     # Exit a parse tree produced by milestone_2Parser#primary.
     def exitPrimary(self, ctx:milestone_2Parser.PrimaryContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#typeDesc.
+    def enterTypeDesc(self, ctx:milestone_2Parser.TypeDescContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#typeDesc.
+    def exitTypeDesc(self, ctx:milestone_2Parser.TypeDescContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#typeDefAux.
+    def enterTypeDefAux(self, ctx:milestone_2Parser.TypeDefAuxContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#typeDefAux.
+    def exitTypeDefAux(self, ctx:milestone_2Parser.TypeDefAuxContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#postExprBlocks.
+    def enterPostExprBlocks(self, ctx:milestone_2Parser.PostExprBlocksContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#postExprBlocks.
+    def exitPostExprBlocks(self, ctx:milestone_2Parser.PostExprBlocksContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#exprStmt.
+    def enterExprStmt(self, ctx:milestone_2Parser.ExprStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#exprStmt.
+    def exitExprStmt(self, ctx:milestone_2Parser.ExprStmtContext):
         pass
 
 
