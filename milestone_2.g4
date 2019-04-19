@@ -2,8 +2,9 @@ grammar milestone_2;
 
 // ------------------------------ Grammar --------------------------------------
 
-module : literal;
-//module : (stmt ((';' | 'IND{=}') stmt)*)? ;
+// TODO INDENTATION
+
+module : (stmt ((';' | 'IND{=}') stmt)*)? ;
 
 comma : ',' COMMENT? ;
 semicolon : ';' COMMENT? ;
@@ -14,8 +15,7 @@ operator :  OP0 | OP1 | OP2 | OP3 | OP4 | OP5 | OP6 | OP7 | OP8 | OP9
          | 'is' | 'isnot' | 'in' | 'notin' | 'of'
          | 'div' | 'mod' | 'shl' | 'shr' | 'not' | 'static' | '..' ;
 
-
-OP10 : 'z';
+OP10 : '^';
 OP9 : MUL_OPERATOR | DIV_OPERATOR | DIV | SHL | SHR | MODULUS;
 OP8 : ADD_OPERATOR | MINUS_OPERATOR;
 OP7 : AND_OPERATOR;
@@ -23,9 +23,10 @@ OP6 : '..';
 OP5 : '==' | '<=' | '<' | '>=' | '>' | '!=' | IN | NOTIN | IS | ISNOT | NOT | OF;
 OP4 : AND;
 OP3 : OR | XOR;
-OP2 : AT;
+OP2 : AT | COLON | '?';
 OP1 : '=' | '+=' | '-=' | '*=' | '/=';
 OP0 : '->' | '~>' | '=>';
+opr : OP9 | OP8;
 
 prefixOperator : operator ;
 optInd : COMMENT? 'IND'? ;
@@ -64,7 +65,7 @@ par : '(' optInd
           | ';' complexOrSimpleStmt (';' complexOrSimpleStmt)*
           | pragmaStmt
           | simpleExpr ( ('=' expr (';' complexOrSimpleStmt (';' complexOrSimpleStmt)* )? )
-                       | (':' expr (',' exprColonEqExpr (',' exprColonExpr)* )? ) ) )
+                       | (':' expr (',' exprColonEqExpr (',' exprColonEqExpr)* )? ) ) )
           optPar ')' ;
 
 literal : INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
@@ -87,29 +88,32 @@ primarySuffix : '(' (exprColonEqExpr comma?)* ')' doBlocks?
       | '{' optInd indexExprList optPar '}'
       | expr;
 
-// TODO
-indexExprList: 'x';
-indentWithPragma : 'x';
-caseExpr : 'x';
-typeDescK : 'x';
-macroColon : 'x';
-moduleName : 'x';
-sectionTypeDef : 'x';
-sectionConstant : 'x';
-sectionVariable : 'x';
-exportStmt : 'x';
-opr : 'x';
-IDENT : 'x';
-doBlocks : 'x';
-p: 'x';
-exprColonExpr : 'x';
+indexExprList : indexExpr (comma indexExpr)*;
+indexExpr : expr;
+
+macroColon : ':' stmt? ( 'IND{=}' 'of' exprList ':' stmt
+                       | 'IND{=}' 'elif' expr ':' stmt
+                       | 'IND{=}' 'except' exprList ':' stmt
+                       | 'IND{=}' 'else' ':' stmt )*;
+
+moduleName : IDENTIFIER ('.'IDENTIFIER)*?;
+
+exportStmt : 'import' optInd expr
+              ((comma expr)*
+              | 'except' optInd (expr (comma expr)*)) ;
+
+IDENT : qualifiedIdent;
+
+doBlocks : (doBlock ('IND{=}' doBlock)*);
+
+caseExpr : caseStmt;
 
 condExpr : expr colcom expr optInd
         ('elif' expr colcom expr optInd)*
          'else' colcom expr ;
 ifExpr : 'if' condExpr ;
 whenExpr : 'when' condExpr ;
-pragma : '{.' optInd (exprColonExpr comma?)* optPar ('.}' | '}') ;
+pragma : '{.' optInd (exprColonEqExpr comma?)* optPar ('.}' | '}') ;
 
 identVis : symbol opr?;
 
@@ -136,7 +140,7 @@ doBlock : 'do' paramListArrow pragma? colcom stmt ;
 procExpr : 'proc' paramListColon pragma? ('=' COMMENT? stmt)? ;
 distinct : 'distinct' optInd typeDesc ;
 
-forStmt : 'for' (identWithPragma (comma indentWithPragma)*) 'in' expr colcom stmt ;
+forStmt : 'for' (identWithPragma (comma identWithPragma)*) 'in' expr colcom stmt ;
 forExpr : forStmt ;
 
 
@@ -150,7 +154,7 @@ expr : (blockExpr
 typeKeyw : 'var' | 'out' | 'ref' | 'ptr' | 'shared' | 'tuple'
          | 'proc' | 'iterator' | 'distinct' | 'object' | 'enum' ;
 
-primary : typeKeyw typeDescK
+primary : typeKeyw typeDesc
         | prefixOperator* identOrLiteral primarySuffix*
         | 'bind' primary ;
 
@@ -224,7 +228,9 @@ routine : optInd identVis pattern? genericParamList?
   paramListColon pragma? ('=' COMMENT? stmt)? indAndComment ;
 commentStmt : COMMENT ;
 
-sectionp : COMMENT? p | ('IND{>}' (p | COMMENT) ('IND{=}' (p | COMMENT))* 'DED') ;
+sectionTypeDef : COMMENT? typeDef | ('IND{>}' (typeDef | COMMENT) ('IND{=}' (typeDef | COMMENT))* 'DED') ;
+sectionConstant : COMMENT? constant | ('IND{>}' (constant | COMMENT) ('IND{=}' (constant | COMMENT))* 'DED') ;
+sectionVariable : COMMENT? variable | ('IND{>}' (variable | COMMENT) ('IND{=}' (variable | COMMENT))* 'DED') ;
 
 constant : identWithPragma (colon typeDesc)? '=' optInd expr indAndComment ;
 enum : 'enum' optInd (symbol optInd ('=' optInd expr COMMENT?)? comma?)+ ;
