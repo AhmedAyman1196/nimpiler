@@ -1,9 +1,6 @@
 // ------------------------------ Grammar --------------------------------------
 
 module : (stmt ((';' | INDENT) stmt)*)? ;
-//module : (stmt ((';' | INDENT) stmt)*)? ;
-module : literal;
-stmt : varStmt ;
 
 comma : ',' COMMENT? ;
 semicolon : ';' COMMENT? ;
@@ -31,17 +28,17 @@ prefixOperator : operator ;
 optInd : COMMENT? INDENT ;
 optPar : (INDENT | INDENT)? ;
 
-simpleExpr : arrowExpr (OP0 optInd arrowExpr)* pragma? ;
-arrowExpr : assignExpr (OP1 optInd assignExpr)* ;
-assignExpr : orExpr (OP2 optInd orExpr)* ;
-orExpr : andExpr (OP3 optInd andExpr)*;
-andExpr : cmpExpr (OP4 optInd cmpExpr)* ;
-cmpExpr : sliceExpr (OP5 optInd sliceExpr)*;
-sliceExpr : ampExpr (OP6 optInd ampExpr)* ;
-ampExpr : plusExpr (OP7 optInd plusExpr)* ;
-plusExpr : mulExpr (OP8 optInd mulExpr)* ;
-mulExpr : dollarExpr (OP9 optInd dollarExpr)* ;
-dollarExpr : primary (OP10 optInd primary)* ;
+simpleExpr : arrowExpr (OP0 optInd? arrowExpr)* pragma? ;
+arrowExpr : assignExpr (OP1 optInd? assignExpr)* ;
+assignExpr : orExpr (OP2 optInd? orExpr)* ;
+orExpr : andExpr (OP3 optInd? andExpr)*;
+andExpr : cmpExpr (OP4 optInd? cmpExpr)* ;
+cmpExpr : sliceExpr (OP5 optInd? sliceExpr)*;
+sliceExpr : ampExpr (OP6 optInd? ampExpr)* ;
+ampExpr : plusExpr (OP7 optInd? plusExpr)* ;
+plusExpr : mulExpr (OP8 optInd? mulExpr)* ;
+mulExpr : dollarExpr (OP9 optInd? dollarExpr)* ;
+dollarExpr : primary (OP10 optInd? primary)* ;
 symbol : ('`' (KEYW|ident|literal|(operator|'('|')'|'['|']'|'{'|'}'|'=')+)+ '`') | ident | KEYW ;
 
 exprColonEqExpr : expr (':'|'=' expr)?;
@@ -49,17 +46,17 @@ exprColonEqExpr : expr (':'|'=' expr)?;
 exprList : expr (comma expr)* ;
 
 exprColonEqExprList : exprColonEqExpr (comma exprColonEqExpr)* (comma)? ;
-dotExpr : expr '.' optInd (symbol | '[:' exprList ']') ;
+dotExpr : expr '.' optInd? (symbol | '[:' exprList ']') ;
 explicitGenericInstantiation : '[:' exprList ']' ( '(' exprColonEqExpr ')' )? ;
-qualifiedIdent : symbol ('.' optInd symbol)? ;
+qualifiedIdent : symbol ('.' optInd? symbol)? ;
 setOrTableConstr : '{' ((exprColonEqExpr comma)* | ':' ) '}' ;
-castExpr : 'cast' '[' optInd typeDesc optPar ']' '(' optInd expr optPar ')' ;
+castExpr : 'cast' '[' optInd? typeDesc optPar ']' '(' optInd? expr optPar ')' ;
 parKeyw : 'discard' | 'include' | 'if' | 'while' | 'case' | 'try'
        | 'finally' | 'except' | 'for' | 'block' | 'const' | 'let'
        | 'when' | 'var' | 'mixin' ;
 
 
-par : '(' optInd
+par : '(' optInd?
          ( complexOrSimpleStmt (';' complexOrSimpleStmt)*
          | ';' complexOrSimpleStmt (';' complexOrSimpleStmt)*
          | pragmaStmt
@@ -78,14 +75,14 @@ generalizedLit : GENERALIZED_STR_LIT | GENERALIZED_TRIPLESTR_LIT ;
 identOrLiteral : generalizedLit | symbol | literal
               | par | arrayConstr | setOrTableConstr
               | castExpr ;
-tupleConstr : '(' optInd (exprColonEqExpr comma?)* optPar ')' ;
-arrayConstr : '[' optInd (exprColonEqExpr comma?)* optPar ']' ;
+tupleConstr : '(' optInd? (exprColonEqExpr comma?)* optPar ')' ;
+arrayConstr : '[' optInd? (exprColonEqExpr comma?)* optPar ']' ;
 
 primarySuffix : '(' (exprColonEqExpr comma?)* ')' doBlocks?
      | doBlocks
-     | '.' optInd symbol generalizedLit?
-     | '[' optInd indexExprList optPar ']'
-     | '{' optInd indexExprList optPar '}'
+     | '.' optInd? symbol generalizedLit?
+     | '[' optInd? indexExprList optPar ']'
+     | '{' optInd? indexExprList optPar '}'
      | expr;
 
 indexExprList : indexExpr (comma indexExpr)*;
@@ -98,9 +95,9 @@ macroColon : ':' stmt? ( INDENT 'of' exprList ':' stmt
 
 moduleName : IDENTIFIER ('.'IDENTIFIER)*?;
 
-exportStmt : 'import' optInd expr
+exportStmt : 'export' optInd? expr
              ((comma expr)*
-             | 'except' optInd (expr (comma expr)*)) ;
+             | 'except' optInd? (expr (comma expr)*)) ;
 
 ident : IDENTIFIER (comma IDENTIFIER)*;
 
@@ -108,25 +105,25 @@ doBlocks : (doBlock (INDENT doBlock)*);
 
 caseExpr : caseStmt;
 
-condExpr : expr colcom expr optInd
-       ('elif' expr colcom expr optInd)*
+condExpr : expr colcom expr optInd?
+       ('elif' expr colcom expr optInd?)*
         'else' colcom expr ;
 ifExpr : 'if' condExpr ;
 whenExpr : 'when' condExpr ;
-pragma : '{.' optInd (exprColonEqExpr comma?)* optPar ('.}' | '}') ;
+pragma : '{.' optInd? (exprColonEqExpr comma?)* optPar ('.}' | '}') ;
 
 identVis : symbol opr?;
 
-identVisDot : symbol '.' optInd symbol opr? ;
+identVisDot : symbol '.' optInd? symbol opr? ;
 identWithPragma : identVis pragma? ;
 identWithPragmaDot : identVisDot pragma? ;
 declColonEquals : identWithPragma (comma identWithPragma)* comma?
-                 (':' optInd typeDesc)? ('=' optInd expr)? ;
+                 (':' optInd? typeDesc)? ('=' optInd? expr)? ;
 identColonEquals : ident (comma ident)* comma?
-    (':' optInd typeDesc)? ('=' optInd expr)? ;
+    (':' optInd? typeDesc)? ('=' optInd? expr)? ;
 
 inlTupleDecl : 'tuple'
-   '[' optInd  (identColonEquals (comma/semicolon)?)*  optPar ']' ;
+   '[' optInd?  (identColonEquals (comma/semicolon)?)*  optPar ']' ;
 
 extTupleDecl : 'tuple'
    COMMENT? (INDENT identColonEquals (INDENT identColonEquals)*)? ;
@@ -134,11 +131,11 @@ tupleClass : 'tuple' ;
 
 paramList : '(' (declColonEquals ((comma'/'semicolon) declColonEquals)*)? ')' ;
 
-paramListArrow : paramList? ('->' optInd typeDesc)? ;
-paramListColon : paramList? (':' optInd typeDesc)? ;
+paramListArrow : paramList? ('->' optInd? typeDesc)? ;
+paramListColon : paramList? (':' optInd? typeDesc)? ;
 doBlock : 'do' paramListArrow pragma? colcom stmt ;
 procExpr : 'proc' paramListColon pragma? ('=' COMMENT? stmt)? ;
-distinct : 'distinct' optInd typeDesc ;
+distinct : 'distinct' optInd? typeDesc ;
 
 forStmt : 'for' (identWithPragma (comma identWithPragma)*) 'in' expr colcom stmt ;
 forExpr : forStmt ;
@@ -169,22 +166,22 @@ postExprBlocks : ':' stmt? ( INDENT doBlock
                           | INDENT 'else' ':' stmt )* ;
 
 
-exprStmt : simpleExpr (( '=' optInd expr colonBody? )
+exprStmt : simpleExpr (( '=' optInd? expr colonBody? )
                     | ( expr (comma expr)* doBlocks | macroColon))? ;
 
-importStmt : 'import' optInd expr
+importStmt : 'import' optInd? expr
              ((comma expr)*
-             | 'except' optInd (expr (comma expr)*)) ;
+             | 'except' optInd? (expr (comma expr)*)) ;
 
-includeStmt : 'include' optInd expr (comma expr)* ;
+includeStmt : 'include' optInd? expr (comma expr)* ;
 
-fromStmt : 'from' moduleName 'import' optInd expr (comma expr)* ;
-returnStmt : 'return' optInd expr? ;
-raiseStmt : 'raise' optInd expr? ;
-yieldStmt : 'yield' optInd expr? ;
-discardStmt : 'discard' optInd expr? ;
-breakStmt : 'break' optInd expr? ;
-continueStmt : 'break' optInd expr? ;
+fromStmt : 'from' moduleName 'import' optInd? expr (comma expr)* ;
+returnStmt : 'return' optInd? expr? ;
+raiseStmt : 'raise' optInd? expr? ;
+yieldStmt : 'yield' optInd? expr? ;
+discardStmt : 'discard' optInd? expr? ;
+breakStmt : 'break' optInd? expr? ;
+continueStmt : 'break' optInd? expr? ;
 condStmt : expr colcom stmt COMMENT?
           (INDENT 'elif' expr colcom stmt)*
           (INDENT 'else' colcom stmt)? ;
@@ -204,8 +201,8 @@ tryStmt : 'try' colcom stmt
           (INDENT? 'finally' colcom stmt)? ;
 
 tryExpr : 'try' colcom stmt
-          (optInd 'except' exprList colcom stmt)*
-          (optInd 'finally' colcom stmt)? ;
+          (optInd? 'except' exprList colcom stmt)*
+          (optInd? 'finally' colcom stmt)? ;
 
 exceptBlock : 'except' colcom stmt ;
 blockStmt : 'block' symbol? colcom stmt ;
@@ -213,14 +210,14 @@ blockExpr : 'block' symbol? colcom stmt ;
 staticStmt : 'static' colcom stmt ;
 deferStmt : 'defer' colcom stmt ;
 asmStmt : 'asm' pragma? (STR_LIT | RSTR_LIT | TRIPLESTR_LIT) ;
-genericParam : symbol (comma symbol)* (colon expr)? ('=' optInd expr)? ;
+genericParam : symbol (comma symbol)* (colon expr)? ('=' optInd? expr)? ;
 
-genericParamList : '[' optInd
+genericParamList : '[' optInd?
  (genericParam ((comma|semicolon) genericParam)*)? optPar ']' ;
 
 pattern : '{' stmt '}' ;
 indAndComment : (INDENT COMMENT)? | COMMENT? ;
-routine : optInd identVis pattern? genericParamList?
+routine : optInd? identVis pattern? genericParamList?
  paramListColon pragma? ('=' COMMENT? stmt)? indAndComment ;
 commentStmt : COMMENT ;
 
@@ -228,8 +225,8 @@ sectionTypeDef : COMMENT? typeDef | (INDENT (typeDef | COMMENT) (INDENT (typeDef
 sectionConstant : COMMENT? constant | (INDENT (constant | COMMENT) (INDENT (constant | COMMENT))* ) ;
 sectionVariable : COMMENT? variable | (INDENT (variable | COMMENT) (INDENT (variable | COMMENT))* ) ;
 
-constant : identWithPragma (colon typeDesc)? '=' optInd expr indAndComment ;
-enum : 'enum' optInd (symbol optInd ('=' optInd expr COMMENT?)? comma?)+ ;
+constant : identWithPragma (colon typeDesc)? '=' optInd? expr indAndComment ;
+enum : 'enum' optInd? (symbol optInd? ('=' optInd? expr COMMENT?)? comma?)+ ;
 objectWhen : 'when' expr colcom objectPart COMMENT?
            ('elif' expr colcom objectPart COMMENT?)*
            ('else' colcom objectPart COMMENT?)? ;
@@ -250,18 +247,18 @@ typeClassParam : ('var' | 'out')? symbol ;
 typeClass : (typeClassParam (',' typeClassParam)*)? (pragma)? ('of' (typeDesc (',' typeDesc)*)?)?
              | stmt ;
 
-typeDef : identWithPragmaDot genericParamList? '=' optInd typeDefAux
+typeDef : identWithPragmaDot genericParamList? '=' optInd? typeDefAux
            indAndComment? ;
 
-varTuple : '(' optInd identWithPragma (comma identWithPragma)* optPar ')' '=' optInd expr ;
+varTuple : '(' optInd? identWithPragma (comma identWithPragma)* optPar ')' '=' optInd? expr ;
 
 colonBody : colcom stmt doBlocks? ;
 
 variable : (varTuple | identColonEquals) colonBody? indAndComment ;
 
-bindStmt : 'bind' optInd qualifiedIdent (comma qualifiedIdent)* ;
+bindStmt : 'bind' optInd? qualifiedIdent (comma qualifiedIdent)* ;
 
-mixinStmt : 'mixin' optInd qualifiedIdent (comma qualifiedIdent)* ;
+mixinStmt : 'mixin' optInd? qualifiedIdent (comma qualifiedIdent)* ;
 
 pragmaStmt : pragma (':' COMMENT? stmt)? ;
 
@@ -288,4 +285,3 @@ complexOrSimpleStmt : (ifStmt | whenStmt | whileStmt
 
 stmt : (INDENT complexOrSimpleStmt ((INDENT | ';') complexOrSimpleStmt)* )
     | simpleStmt (';' simpleStmt)* ;
-predefType : 'int';

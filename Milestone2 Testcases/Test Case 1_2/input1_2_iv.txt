@@ -1,4 +1,4 @@
-zar
+var
     j, k: int
     # a comment can occur here too
     a, b, c: string

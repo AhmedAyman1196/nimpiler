@@ -26,12 +26,57 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by milestone_2Parser#varStmt.
+    def enterVarStmt(self, ctx:milestone_2Parser.VarStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#varStmt.
+    def exitVarStmt(self, ctx:milestone_2Parser.VarStmtContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#assignStmt.
+    def enterAssignStmt(self, ctx:milestone_2Parser.AssignStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#assignStmt.
+    def exitAssignStmt(self, ctx:milestone_2Parser.AssignStmtContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#literal.
     def enterLiteral(self, ctx:milestone_2Parser.LiteralContext):
         pass
 
     # Exit a parse tree produced by milestone_2Parser#literal.
     def exitLiteral(self, ctx:milestone_2Parser.LiteralContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#expr.
+    def enterExpr(self, ctx:milestone_2Parser.ExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#expr.
+    def exitExpr(self, ctx:milestone_2Parser.ExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#simpleExpr.
+    def enterSimpleExpr(self, ctx:milestone_2Parser.SimpleExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#simpleExpr.
+    def exitSimpleExpr(self, ctx:milestone_2Parser.SimpleExprContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#echoStmt.
+    def enterEchoStmt(self, ctx:milestone_2Parser.EchoStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#echoStmt.
+    def exitEchoStmt(self, ctx:milestone_2Parser.EchoStmtContext):
         pass
 
 

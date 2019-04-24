@@ -2,9 +2,12 @@ grammar milestone_2;
 
 // ------------------------------ Grammar --------------------------------------
 
-//module : (stmt ((';' | INDENT) stmt)*)? ;
-module : stmt;
-stmt : literal ;
+module : stmt+;
+
+stmt : varStmt |  assignStmt | echoStmt;
+
+varStmt : 'zar' INDENT? IDENTIFIER (COMMA IDENTIFIER)* ((COLON 'int') | ('=' literal));
+assignStmt : IDENTIFIER '=' expr;
 
 literal : INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
           | UINT_LIT | UINT8_LIT | UINT16_LIT | UINT32_LIT | UINT64_LIT
@@ -13,12 +16,15 @@ literal : INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
           | CHAR_LIT
           | NIL ;
 
+expr : simpleExpr ;
 
+simpleExpr: (literal | IDENTIFIER) ('+' (literal | IDENTIFIER))*;
+
+echoStmt: 'echo' '(' (literal|IDENTIFIER) (COMMA (literal|IDENTIFIER))* ')';
 
 // =============================================================================
 // ============================ Lexical Analysis ===============================
 
-SKIPINDENT: INDENT+ SPACE+?  -> skip;
 INDENT : ('    ')+;
 
 SPACE :(' '| [\t\r\n]) -> skip;
