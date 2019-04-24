@@ -2,7 +2,81 @@ grammar milestone_2;
 
 // ------------------------------ Grammar --------------------------------------
 
-// TODO INDENTATION
+tokens { INDENT, DEDENT }
+
+@lexer::members {
+
+import queue
+
+# A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
+tokens = queue.Queue()
+# The stack that keeps track of the indentation level.
+indents = []
+# The amount of opened braces, brackets and parenthesis.
+opened = 0
+# The most recently produced token.
+lastToken = None
+
+def emit(self, t):
+    super.setToken(t)
+    tokens.offer(t)
+
+def nextToken(self):
+    # Check if the end-of-file is ahead and there are still some DEDENTS expected.
+    if self._input.LA(1) == Token.EOF and this.indents:
+        # Remove any trailing EOF tokens from our buffer.
+        for j in range(0, len(tokens)):
+            i = len(tokens) - 1 - j
+            if tokens.get(i).getType() == EOF:
+                tokens.remove(i)
+
+    # Now emit as much DEDENT tokens as needed.
+    while indents:
+        this.emit(createDedent())
+        indents.pop()
+
+    # Put the EOF back on the token stream.
+    this.emit(commonToken(Token.EOF, "<EOF>"))
+
+    next = super.nextToken()
+
+    if next.getChannel() == Token.DEFAULT_CHANNEL:
+        # Keep track of the last token on the default channel.
+        this.lastToken = next
+
+    return next if not tokens else tokens.poll()
+
+def createDedent(self):
+    dedent = commonToken(milestone_2Parser.DEDENT, "")
+    dedent.setLine(this.lastToken.getLine())
+    return dedent
+
+def commonToken(self, type, text):
+    stop = this.getCharIndex() - 1
+    start = stop if not text else stop - len(text) + 1
+    return CommonToken(this._tokenFactorySourcePair, type, DEFAULT_TOKEN_CHANNEL, start, stop)
+
+# Calculates the indentation of the provided spaces, taking the
+# following rules into account:
+#
+# "Tabs are replaced (from left to right) by one to four spaces
+#  such that the total number of characters up to and including
+#  the replacement is a multiple of four [...]"
+@staticmethod
+def getIndentationCount(spaces):
+    count = 0
+    for ch in spaces.toCharArray():
+        if ch == '\t':
+            count += 4 - (count % 4)
+            break
+        else:
+            # A normal space char.
+            count += 1
+    return count
+
+def atStartOfInput(self):
+    return super.getCharPositionInLine() == 0 and super.getLine() == 1
+}
 
 module : (stmt ((';' | 'IND{=}') stmt)*)? ;
 
@@ -43,7 +117,7 @@ ampExpr : plusExpr (OP7 optInd plusExpr)* ;
 plusExpr : mulExpr (OP8 optInd mulExpr)* ;
 mulExpr : dollarExpr (OP9 optInd dollarExpr)* ;
 dollarExpr : primary (OP10 optInd primary)* ;
-symbol : ('`' (KEYW|IDENT|literal|(operator|'('|')'|'['|']'|'{'|'}'|'=')+)+ '`') | IDENT | KEYW ;
+symbol : ('`' (KEYW|ident|literal|(operator|'('|')'|'['|']'|'{'|'}'|'=')+)+ '`') | ident | KEYW ;
 
 exprColonEqExpr : expr (':'|'=' expr)?;
 
@@ -102,7 +176,7 @@ exportStmt : 'import' optInd expr
               ((comma expr)*
               | 'except' optInd (expr (comma expr)*)) ;
 
-IDENT : qualifiedIdent;
+ident : IDENTIFIER;
 
 doBlocks : (doBlock ('IND{=}' doBlock)*);
 
@@ -122,7 +196,7 @@ identWithPragma : identVis pragma? ;
 identWithPragmaDot : identVisDot pragma? ;
 declColonEquals : identWithPragma (comma identWithPragma)* comma?
                   (':' optInd typeDesc)? ('=' optInd expr)? ;
-identColonEquals : IDENT (comma IDENT)* comma?
+identColonEquals : ident (comma ident)* comma?
      (':' optInd typeDesc)? ('=' optInd expr)? ;
 
 inlTupleDecl : 'tuple'
@@ -297,16 +371,12 @@ stmt : ('IND{>}' complexOrSimpleStmt (('IND{=}' | ';') complexOrSimpleStmt)* 'DE
 // =============================================================================
 // ============================ Lexical Analysis ===============================
 
-//INDENT : {print(Token.text)}('    ')+;
-// _tokenStartCharPositionInLine
-SKIPINDENT: INDENT+ SPACE+?  -> skip;
-INDENT : ('    ')+;
 SPACE :(' '| [\t\r\n]) -> skip;
 
-MULTILINECOMMENT: INDENT? '#[' ((.|[\r\n]) | COMMENT | MULTILINECOMMENT )*']#' -> skip;
-MULTILINEDOCUMENTATION: INDENT? '##[' (.|[\r\n])*? ']##' -> skip;
+MULTILINECOMMENT: '#[' ((.|[\r\n]) | COMMENT | MULTILINECOMMENT )*']#' -> skip;
+MULTILINEDOCUMENTATION: '##[' (.|[\r\n])*? ']##' -> skip;
 
-COMMENT : INDENT? '#' .*? [\n]  -> skip ;
+COMMENT : '#' .*? [\n]  -> skip ;
 
 TRIPLESTR_LIT: '"""' .*? '"""';
 STR_LIT:'"' .*? '"' ; // matches escape characters

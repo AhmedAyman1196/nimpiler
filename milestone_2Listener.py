@@ -62,6 +62,15 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by milestone_2Parser#opr.
+    def enterOpr(self, ctx:milestone_2Parser.OprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#opr.
+    def exitOpr(self, ctx:milestone_2Parser.OprContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#prefixOperator.
     def enterPrefixOperator(self, ctx:milestone_2Parser.PrefixOperatorContext):
         pass
@@ -386,21 +395,12 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by milestone_2Parser#opr.
-    def enterOpr(self, ctx:milestone_2Parser.OprContext):
+    # Enter a parse tree produced by milestone_2Parser#ident.
+    def enterIdent(self, ctx:milestone_2Parser.IdentContext):
         pass
 
-    # Exit a parse tree produced by milestone_2Parser#opr.
-    def exitOpr(self, ctx:milestone_2Parser.OprContext):
-        pass
-
-
-    # Enter a parse tree produced by milestone_2Parser#exprColonExpr.
-    def enterExprColonExpr(self, ctx:milestone_2Parser.ExprColonExprContext):
-        pass
-
-    # Exit a parse tree produced by milestone_2Parser#exprColonExpr.
-    def exitExprColonExpr(self, ctx:milestone_2Parser.ExprColonExprContext):
+    # Exit a parse tree produced by milestone_2Parser#ident.
+    def exitIdent(self, ctx:milestone_2Parser.IdentContext):
         pass
 
 
