@@ -2,83 +2,7 @@ grammar milestone_2;
 
 // ------------------------------ Grammar --------------------------------------
 
-tokens { INDENT, DEDENT }
-
-@lexer::members {
-
-import queue
-
-# A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
-tokens = queue.Queue()
-# The stack that keeps track of the indentation level.
-indents = []
-# The amount of opened braces, brackets and parenthesis.
-opened = 0
-# The most recently produced token.
-lastToken = None
-
-def emit(self, t):
-    super.setToken(t)
-    tokens.offer(t)
-
-def nextToken(self):
-    # Check if the end-of-file is ahead and there are still some DEDENTS expected.
-    if self._input.LA(1) == Token.EOF and this.indents:
-        # Remove any trailing EOF tokens from our buffer.
-        for j in range(0, len(tokens)):
-            i = len(tokens) - 1 - j
-            if tokens.get(i).getType() == EOF:
-                tokens.remove(i)
-
-    # Now emit as much DEDENT tokens as needed.
-    while indents:
-        this.emit(createDedent())
-        indents.pop()
-
-    # Put the EOF back on the token stream.
-    this.emit(commonToken(Token.EOF, "<EOF>"))
-
-    next = super.nextToken()
-
-    if next.getChannel() == Token.DEFAULT_CHANNEL:
-        # Keep track of the last token on the default channel.
-        this.lastToken = next
-
-    return next if not tokens else tokens.poll()
-
-def createDedent(self):
-    dedent = commonToken(milestone_2Parser.DEDENT, "")
-    dedent.setLine(this.lastToken.getLine())
-    return dedent
-
-def commonToken(self, type, text):
-    stop = this.getCharIndex() - 1
-    start = stop if not text else stop - len(text) + 1
-    return CommonToken(this._tokenFactorySourcePair, type, DEFAULT_TOKEN_CHANNEL, start, stop)
-
-# Calculates the indentation of the provided spaces, taking the
-# following rules into account:
-#
-# "Tabs are replaced (from left to right) by one to four spaces
-#  such that the total number of characters up to and including
-#  the replacement is a multiple of four [...]"
-@staticmethod
-def getIndentationCount(spaces):
-    count = 0
-    for ch in spaces.toCharArray():
-        if ch == '\t':
-            count += 4 - (count % 4)
-            break
-        else:
-            # A normal space char.
-            count += 1
-    return count
-
-def atStartOfInput(self):
-    return super.getCharPositionInLine() == 0 and super.getLine() == 1
-}
-
-module : (stmt ((';' | 'IND{=}') stmt)*)? ;
+module : (stmt ((';' | INDENT) stmt)*)? ;
 
 comma : ',' COMMENT? ;
 semicolon : ';' COMMENT? ;
@@ -103,8 +27,8 @@ OP0 : '->' | '~>' | '=>';
 opr : OP9 | OP8;
 
 prefixOperator : operator ;
-optInd : COMMENT? 'IND'? ;
-optPar : ('IND{>}' | 'IND{=}')? ;
+optInd : COMMENT? INDENT ;
+optPar : (INDENT | INDENT)? ;
 
 simpleExpr : arrowExpr (OP0 optInd arrowExpr)* pragma? ;
 arrowExpr : assignExpr (OP1 optInd assignExpr)* ;
@@ -165,10 +89,10 @@ primarySuffix : '(' (exprColonEqExpr comma?)* ')' doBlocks?
 indexExprList : indexExpr (comma indexExpr)*;
 indexExpr : expr;
 
-macroColon : ':' stmt? ( 'IND{=}' 'of' exprList ':' stmt
-                       | 'IND{=}' 'elif' expr ':' stmt
-                       | 'IND{=}' 'except' exprList ':' stmt
-                       | 'IND{=}' 'else' ':' stmt )*;
+macroColon : ':' stmt? ( INDENT 'of' exprList ':' stmt
+                       | INDENT 'elif' expr ':' stmt
+                       | INDENT 'except' exprList ':' stmt
+                       | INDENT 'else' ':' stmt )*;
 
 moduleName : IDENTIFIER ('.'IDENTIFIER)*?;
 
@@ -176,9 +100,9 @@ exportStmt : 'import' optInd expr
               ((comma expr)*
               | 'except' optInd (expr (comma expr)*)) ;
 
-ident : IDENTIFIER;
+ident : IDENTIFIER (comma IDENTIFIER)*;
 
-doBlocks : (doBlock ('IND{=}' doBlock)*);
+doBlocks : (doBlock (INDENT doBlock)*);
 
 caseExpr : caseStmt;
 
@@ -203,7 +127,7 @@ inlTupleDecl : 'tuple'
     '[' optInd  (identColonEquals (comma/semicolon)?)*  optPar ']' ;
 
 extTupleDecl : 'tuple'
-    COMMENT? ('IND{>}' identColonEquals ('IND{=}' identColonEquals)*)? ;
+    COMMENT? (INDENT identColonEquals (INDENT identColonEquals)*)? ;
 tupleClass : 'tuple' ;
 
 paramList : '(' (declColonEquals ((comma'/'semicolon) declColonEquals)*)? ')' ;
@@ -236,19 +160,15 @@ primary : typeKeyw typeDesc
 typeDesc : simpleExpr ;
 typeDefAux : simpleExpr
            | 'concept' typeClass ;
-postExprBlocks : ':' stmt? ( 'IND{=}' doBlock
-                           | 'IND{=}' 'of' exprList ':' stmt
-                           | 'IND{=}' 'elif' expr ':' stmt
-                           | 'IND{=}' 'except' exprList ':' stmt
-                           | 'IND{=}' 'else' ':' stmt )* ;
+postExprBlocks : ':' stmt? ( INDENT doBlock
+                           | INDENT 'of' exprList ':' stmt
+                           | INDENT 'elif' expr ':' stmt
+                           | INDENT 'except' exprList ':' stmt
+                           | INDENT 'else' ':' stmt )* ;
 
 
-exprStmt : simpleExpr
-         (( '=' optInd expr colonBody? )
-         | ( expr (comma expr)*
-             doBlocks
-              | macroColon
-           ))? ;
+exprStmt : simpleExpr (( '=' optInd expr colonBody? )
+                     | ( expr (comma expr)* doBlocks | macroColon))? ;
 
 importStmt : 'import' optInd expr
               ((comma expr)*
@@ -264,22 +184,22 @@ discardStmt : 'discard' optInd expr? ;
 breakStmt : 'break' optInd expr? ;
 continueStmt : 'break' optInd expr? ;
 condStmt : expr colcom stmt COMMENT?
-           ('IND{=}' 'elif' expr colcom stmt)*
-           ('IND{=}' 'else' colcom stmt)? ;
+           (INDENT 'elif' expr colcom stmt)*
+           (INDENT 'else' colcom stmt)? ;
 ifStmt : 'if' condStmt  ;
 whenStmt : 'when' condStmt ;
 whileStmt : 'while' expr colcom stmt ;
 ofBranch : 'of' exprList colcom stmt ;
-ofBranches : ofBranch ('IND{=}' ofBranch)*
-                      ('IND{=}' 'elif' expr colcom stmt)*
-                      ('IND{=}' 'else' colcom stmt)? ;
+ofBranches : ofBranch (INDENT ofBranch)*
+                      (INDENT 'elif' expr colcom stmt)*
+                      (INDENT 'else' colcom stmt)? ;
 caseStmt : 'case' expr ':'? COMMENT?
-            ('IND{>}' ofBranches 'DED'
-            | 'IND{=}' ofBranches) ;
+            (INDENT ofBranches 'DED'
+            | INDENT ofBranches) ;
 
 tryStmt : 'try' colcom stmt
-           ('IND{=}'? 'except' exprList colcom stmt)*
-           ('IND{=}'? 'finally' colcom stmt)? ;
+           (INDENT? 'except' exprList colcom stmt)*
+           (INDENT? 'finally' colcom stmt)? ;
 
 tryExpr : 'try' colcom stmt
            (optInd 'except' exprList colcom stmt)*
@@ -297,14 +217,14 @@ genericParamList : '[' optInd
   (genericParam ((comma|semicolon) genericParam)*)? optPar ']' ;
 
 pattern : '{' stmt '}' ;
-indAndComment : ('IND{>}' COMMENT)? | COMMENT? ;
+indAndComment : (INDENT COMMENT)? | COMMENT? ;
 routine : optInd identVis pattern? genericParamList?
   paramListColon pragma? ('=' COMMENT? stmt)? indAndComment ;
 commentStmt : COMMENT ;
 
-sectionTypeDef : COMMENT? typeDef | ('IND{>}' (typeDef | COMMENT) ('IND{=}' (typeDef | COMMENT))* 'DED') ;
-sectionConstant : COMMENT? constant | ('IND{>}' (constant | COMMENT) ('IND{=}' (constant | COMMENT))* 'DED') ;
-sectionVariable : COMMENT? variable | ('IND{>}' (variable | COMMENT) ('IND{=}' (variable | COMMENT))* 'DED') ;
+sectionTypeDef : COMMENT? typeDef | (INDENT (typeDef | COMMENT) (INDENT (typeDef | COMMENT))* 'DED') ;
+sectionConstant : COMMENT? constant | (INDENT (constant | COMMENT) (INDENT (constant | COMMENT))* 'DED') ;
+sectionVariable : COMMENT? variable | (INDENT (variable | COMMENT) (INDENT (variable | COMMENT))* 'DED') ;
 
 constant : identWithPragma (colon typeDesc)? '=' optInd expr indAndComment ;
 enum : 'enum' optInd (symbol optInd ('=' optInd expr COMMENT?)? comma?)+ ;
@@ -312,17 +232,16 @@ objectWhen : 'when' expr colcom objectPart COMMENT?
             ('elif' expr colcom objectPart COMMENT?)*
             ('else' colcom objectPart COMMENT?)? ;
 objectBranch : 'of' exprList colcom objectPart ;
-objectBranches : objectBranch ('IND{=}' objectBranch)*
-                      ('IND{=}' 'elif' expr colcom objectPart)*
-                      ('IND{=}' 'else' colcom objectPart)? ;
+objectBranches : objectBranch (INDENT objectBranch)*
+                      (INDENT 'elif' expr colcom objectPart)*
+                      (INDENT 'else' colcom objectPart)? ;
 objectCase : 'case' identWithPragma ':' typeDesc ':'? COMMENT?
-            ('IND{>}' objectBranches 'DED'
-            | 'IND{=}' objectBranches) ;
+            (INDENT objectBranches 'DED'
+            | INDENT objectBranches) ;
 
-objectPart : 'IND{>}' objectPart ('IND{=}' objectPart)* 'DED'
+objectPart : INDENT objectPart (INDENT objectPart)* 'DED'
            | objectWhen | objectCase | 'nil' | 'discard' | declColonEquals ;
 
-// renamed from object
 objectX : 'object' pragma? ('of' typeDesc)? COMMENT? objectPart ;
 typeClassParam : ('var' | 'out')? symbol ;
 
@@ -364,12 +283,15 @@ complexOrSimpleStmt : (ifStmt | whenStmt | whileStmt
                     | simpleStmt ;
 
 
-stmt : ('IND{>}' complexOrSimpleStmt (('IND{=}' | ';') complexOrSimpleStmt)* 'DED')
+stmt : (INDENT complexOrSimpleStmt ((INDENT | ';') complexOrSimpleStmt)* 'DED')
      | simpleStmt (';' simpleStmt)* ;
 
 
 // =============================================================================
 // ============================ Lexical Analysis ===============================
+
+SKIPINDENT: INDENT+ SPACE+?  -> skip;
+INDENT : ('    ')+;
 
 SPACE :(' '| [\t\r\n]) -> skip;
 

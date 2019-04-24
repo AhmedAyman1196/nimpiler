@@ -1,1 +1,1 @@
-let x2 = "abc"
+var x,y,z :int

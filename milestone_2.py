@@ -20,12 +20,13 @@ def main():
     with open(args.file, "r") as file:
         lines = file.read()
     input_stream = InputStream(lines)
+
     lexer = milestone_2Lexer(input_stream)
     token_stream = CommonTokenStream(lexer)
     parser = milestone_2Parser(token_stream)
-
     tree = parser.start()
     print(Trees.toStringTree(tree, None, parser))
+
     token = lexer.nextToken()
     out = open("milestone_2_result.txt", "w+")
 
@@ -42,6 +43,9 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    #print(args.file)
-
-main()
+    try:
+        main()
+    except:
+        print("invalid")
+    else:
+        print("valid")
