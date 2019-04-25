@@ -197,6 +197,33 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by milestone_2Parser#whileStmt.
+    def enterWhileStmt(self, ctx:milestone_2Parser.WhileStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#whileStmt.
+    def exitWhileStmt(self, ctx:milestone_2Parser.WhileStmtContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#colcom.
+    def enterColcom(self, ctx:milestone_2Parser.ColcomContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#colcom.
+    def exitColcom(self, ctx:milestone_2Parser.ColcomContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#breakStmt.
+    def enterBreakStmt(self, ctx:milestone_2Parser.BreakStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#breakStmt.
+    def exitBreakStmt(self, ctx:milestone_2Parser.BreakStmtContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#literal.
     def enterLiteral(self, ctx:milestone_2Parser.LiteralContext):
         pass

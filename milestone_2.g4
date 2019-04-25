@@ -6,7 +6,8 @@ start : module EOF;
 
 module : stmt ((';' | INDENT)? stmt)*;
 
-stmt : invokeFunc | forStmt | importStmt | varStmt | assignStmt | constStmt | echoStmt | letStmt | assretStmt;
+stmt : breakStmt | whileStmt | invokeFunc | forStmt | importStmt | varStmt | assignStmt
+       | constStmt | echoStmt | letStmt | assretStmt;
 
 varStmt : simpleVarStmt | complexVarStmt ;
 simpleVarStmt : 'var' (IDENTIFIER (',' complexIdentifier)* ':' ('int'|'string'))+ ;
@@ -35,16 +36,22 @@ arrayConstr : complexIdentifier '[' ('int' | 'string') ']()' ;
 
 complexIdentifier : IDENTIFIER('.' IDENTIFIER)*;
 
-forStmt : 'for' complexIdentifier (',' complexIdentifier)* 'in' (complexIdentifier | invokeFunc) ':' COMMENT? stmt ;
+forStmt : 'for' complexIdentifier (',' complexIdentifier)* 'in' (complexIdentifier | invokeFunc) colcom stmt ;
 
 invokeFunc : (complexIdentifier '.')? IDENTIFIER '(' (literal | complexIdentifier)? ')';
+
+whileStmt : 'while' expr colcom stmt ;
+
+colcom : ':' COMMENT? ;
+
+breakStmt : 'break' optInd? expr? ;
 
 literal : INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
           | UINT_LIT | UINT8_LIT | UINT16_LIT | UINT32_LIT | UINT64_LIT
           | FLOAT_LIT | FLOAT32_LIT | FLOAT64_LIT
           | STR_LIT | RSTR_LIT | TRIPLESTR_LIT
           | CHAR_LIT
-          | NIL ;
+          | 'nil' ;
 
 // =============================================================================
 // ============================ Lexical Analysis ===============================
@@ -65,102 +72,6 @@ CHAR_LIT: '\'' .*? '\'';
 RSTR_LIT: ('r'|'R') STR_LIT; // doesnt match escape characters
 GENERALIZED_STR_LIT: IDENTIFIER'('RSTR_LIT')' | IDENTIFIER STR_LIT;
 GENERALIZED_TRIPLESTR_LIT: IDENTIFIER'('TRIPLESTR_LIT')' | IDENTIFIER TRIPLESTR_LIT;
-
-// OPERATORS
-
-EQUALS_OPERATOR : '=' | '==' ;
-ADD_OPERATOR : '+' ;
-MUL_OPERATOR : '*' ;
-MINUS_OPERATOR : '-';
-DIV_OPERATOR : '/' ;
-BITWISE_NOT_OPERATOR : '~' ;
-AND_OPERATOR : '&' ;
-OR_OPERATOR : '|' ;
-LESS_THAN : '<' ;
-GREATER_THAN : '>' ;
-AT : '@' ;
-MODULUS : '%' ;
-NOT_OPERATOR : '!';
-XOR_OPERATOR : '^';
-DOT : '.' ;
-OPEN_PAREN : '(' ;
-OPEN_BRACE : '{' ;
-CLOSE_BRACE : '}' ;
-OPEN_BRACK : '[';
-CLOSE_BRACK :  ']';
-SEMI_COLON : ';';
-
-// KEYWORDS
-KEYW :
-AND | ADDR |AS | ASM |BIND |BLOCK |BREAK |CASE |CAST |CONCEPT |CONTINUE | CONVERTER |DEFER |
-DISCARD |DISTINCT |DIV |DO |ELIF |ELSE |END |ENUM |EXCEPT |EXPORT |FINALLY |FROM |FUNC |IF |
-INCLUDE| INTERFACE |IS |ISNOT | ITERATOR  | MACRO |METHOD |MIXIN |MOD |NIL |NOT |NOTIN |OBJECT |
-OF |OR |OUT  |PROC |PTR |RAISE |REF |RETURN |SHL |SHR |STATIC | TEMPLATE | TRY |TUPLE |TYPE |USING |WHEN |
-WHILE |XOR |YIELD ;
-
-AND : 'and' ;
-//VARIABLE: 'var';
-ADDR: 'addr' ;
-AS : 'as' ;
-ASM: 'asm';
-BIND: 'bind' ;
-BLOCK: 'block';
-BREAK: 'break' ;
-CASE: 'case' ;
-CAST: 'cast';
-CONCEPT : 'concept';
-// CONST:  'const';
-CONTINUE: 'continue';
-CONVERTER :  'converter';
-DEFER : 'defer';
-DISCARD : 'discard';
-DISTINCT : 'distinct';
-DIV : 'div';
-DO : 'do';
-ELIF: 'elif';
-ELSE : 'else' ;
-END : 'end' ;
-ENUM : 'enum' ;
-EXCEPT : 'except' ;
-EXPORT : 'export' ;
-FINALLY : 'finally' ;
-FROM : 'from' ;
-FUNC : 'func' ;
-IF : 'if' ;
-INCLUDE : 'include' ;
-INTERFACE : 'interface' ;
-IS : 'is' ;
-ISNOT : 'isnot' ;
-ITERATOR : 'iterator' ;
-// LET : 'let' ;
-MACRO : 'macro' ;
-METHOD : 'method' ;
-MIXIN : 'mixin' ;
-MOD : 'mod' ;
-NIL : 'nil' ;
-NOT : 'not' ;
-NOTIN : 'notin' ;
-OBJECT : 'object' ;
-OF : 'of' ;
-OR : 'or' ;
-OUT : 'out' ;
-PROC : 'proc' ;
-PTR : 'ptr' ;
-RAISE : 'raise' ;
-REF : 'ref' ;
-RETURN : 'return' ;
-SHL : 'shl' ;
-SHR : 'shr' ;
-STATIC : 'static' ;
-TEMPLATE : 'template' ;
-TRY : 'try' ;
-TUPLE : 'tuple' ;
-TYPE : 'type' ;
-USING : 'using' ;
-WHEN : 'when' ;
-WHILE : 'while' ;
-XOR : 'xor' ;
-YIELD : 'yield' ;
 
 IDENTIFIER : LETTER+ ('_'? (LETTER | DIGIT))*;
 DIGIT : [0-9] ;
