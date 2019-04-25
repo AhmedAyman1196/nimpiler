@@ -6,60 +6,61 @@ from io import StringIO
 def serializedATN():
     with StringIO() as buf:
         buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\u0088")
-        buf.write("\u0099\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\u009a\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
-        buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\3\2\5\2%\n\2\3")
-        buf.write("\2\7\2(\n\2\f\2\16\2+\13\2\3\3\3\3\3\3\3\3\3\3\5\3\62")
-        buf.write("\n\3\3\4\3\4\5\4\66\n\4\3\5\3\5\3\5\3\5\7\5<\n\5\f\5\16")
-        buf.write("\5?\13\5\3\5\3\5\6\5C\n\5\r\5\16\5D\3\6\3\6\3\6\3\7\3")
-        buf.write("\7\3\7\3\7\3\b\3\b\6\bP\n\b\r\b\16\bQ\3\t\3\t\3\n\3\n")
-        buf.write("\6\nX\n\n\r\n\16\nY\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3")
-        buf.write("\f\5\fd\n\f\3\f\3\f\3\f\3\f\5\fj\n\f\7\fl\n\f\f\f\16\f")
-        buf.write("o\13\f\3\r\3\r\3\r\5\rt\n\r\3\16\3\16\3\16\5\16y\n\16")
-        buf.write("\3\16\3\16\3\16\5\16~\n\16\7\16\u0080\n\16\f\16\16\16")
-        buf.write("\u0083\13\16\3\16\3\16\3\17\3\17\5\17\u0089\n\17\3\17")
-        buf.write("\3\17\3\17\5\17\u008e\n\17\7\17\u0090\n\17\f\17\16\17")
-        buf.write("\u0093\13\17\3\20\3\20\3\21\3\21\3\21\2\2\22\2\4\6\b\n")
-        buf.write("\f\16\20\22\24\26\30\32\34\36 \2\5\4\2\r\r..\3\2\4\5\t")
-        buf.write("\2\22\25WWrrz\u0082\u0084\u0084\u0086\u0086\u0088\u0088")
-        buf.write("\u009f\2\"\3\2\2\2\4\61\3\2\2\2\6\65\3\2\2\2\b\67\3\2")
-        buf.write("\2\2\nF\3\2\2\2\fI\3\2\2\2\16M\3\2\2\2\20S\3\2\2\2\22")
-        buf.write("U\3\2\2\2\24[\3\2\2\2\26c\3\2\2\2\30p\3\2\2\2\32u\3\2")
-        buf.write("\2\2\34\u0088\3\2\2\2\36\u0094\3\2\2\2 \u0096\3\2\2\2")
-        buf.write("\")\5\4\3\2#%\t\2\2\2$#\3\2\2\2$%\3\2\2\2%&\3\2\2\2&(")
-        buf.write("\5\4\3\2\'$\3\2\2\2(+\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*\3")
-        buf.write("\3\2\2\2+)\3\2\2\2,\62\5\6\4\2-\62\5\f\7\2.\62\5\22\n")
-        buf.write("\2/\62\5\30\r\2\60\62\5\16\b\2\61,\3\2\2\2\61-\3\2\2\2")
-        buf.write("\61.\3\2\2\2\61/\3\2\2\2\61\60\3\2\2\2\62\5\3\2\2\2\63")
-        buf.write("\66\5\b\5\2\64\66\5\n\6\2\65\63\3\2\2\2\65\64\3\2\2\2")
-        buf.write("\66\7\3\2\2\2\67B\7\3\2\28=\7o\2\29:\7-\2\2:<\7o\2\2;")
-        buf.write("9\3\2\2\2<?\3\2\2\2=;\3\2\2\2=>\3\2\2\2>@\3\2\2\2?=\3")
-        buf.write("\2\2\2@A\7\'\2\2AC\t\3\2\2B8\3\2\2\2CD\3\2\2\2DB\3\2\2")
-        buf.write("\2DE\3\2\2\2E\t\3\2\2\2FG\7\3\2\2GH\5\f\7\2H\13\3\2\2")
-        buf.write("\2IJ\7o\2\2JK\7\6\2\2KL\5\20\t\2L\r\3\2\2\2MO\7\7\2\2")
-        buf.write("NP\5\f\7\2ON\3\2\2\2PQ\3\2\2\2QO\3\2\2\2QR\3\2\2\2R\17")
-        buf.write("\3\2\2\2ST\5\26\f\2T\21\3\2\2\2UW\7\b\2\2VX\5\f\7\2WV")
-        buf.write("\3\2\2\2XY\3\2\2\2YW\3\2\2\2YZ\3\2\2\2Z\23\3\2\2\2[\\")
-        buf.write("\7\t\2\2\\]\5\36\20\2]^\7\n\2\2^_\5\36\20\2_\25\3\2\2")
-        buf.write("\2`d\5\36\20\2ad\7o\2\2bd\7p\2\2c`\3\2\2\2ca\3\2\2\2c")
-        buf.write("b\3\2\2\2dm\3\2\2\2ei\7\31\2\2fj\5\36\20\2gj\7o\2\2hj")
-        buf.write("\7p\2\2if\3\2\2\2ig\3\2\2\2ih\3\2\2\2jl\3\2\2\2ke\3\2")
-        buf.write("\2\2lo\3\2\2\2mk\3\2\2\2mn\3\2\2\2n\27\3\2\2\2om\3\2\2")
-        buf.write("\2ps\7\13\2\2qt\5\34\17\2rt\5\32\16\2sq\3\2\2\2sr\3\2")
-        buf.write("\2\2t\31\3\2\2\2ux\7(\2\2vy\5\36\20\2wy\7o\2\2xv\3\2\2")
-        buf.write("\2xw\3\2\2\2y\u0081\3\2\2\2z}\7-\2\2{~\5\36\20\2|~\7o")
-        buf.write("\2\2}{\3\2\2\2}|\3\2\2\2~\u0080\3\2\2\2\177z\3\2\2\2\u0080")
-        buf.write("\u0083\3\2\2\2\u0081\177\3\2\2\2\u0081\u0082\3\2\2\2\u0082")
-        buf.write("\u0084\3\2\2\2\u0083\u0081\3\2\2\2\u0084\u0085\7\f\2\2")
-        buf.write("\u0085\33\3\2\2\2\u0086\u0089\5\36\20\2\u0087\u0089\7")
-        buf.write("o\2\2\u0088\u0086\3\2\2\2\u0088\u0087\3\2\2\2\u0089\u0091")
-        buf.write("\3\2\2\2\u008a\u008d\7-\2\2\u008b\u008e\5\36\20\2\u008c")
-        buf.write("\u008e\7o\2\2\u008d\u008b\3\2\2\2\u008d\u008c\3\2\2\2")
-        buf.write("\u008e\u0090\3\2\2\2\u008f\u008a\3\2\2\2\u0090\u0093\3")
-        buf.write("\2\2\2\u0091\u008f\3\2\2\2\u0091\u0092\3\2\2\2\u0092\35")
-        buf.write("\3\2\2\2\u0093\u0091\3\2\2\2\u0094\u0095\t\4\2\2\u0095")
-        buf.write("\37\3\2\2\2\u0096\u0097\5\2\2\2\u0097!\3\2\2\2\24$)\61")
-        buf.write("\65=DQYcimsx}\u0081\u0088\u008d\u0091")
+        buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\3\2\3\2\3\3\3")
+        buf.write("\3\5\3(\n\3\3\3\7\3+\n\3\f\3\16\3.\13\3\3\4\3\4\3\4\3")
+        buf.write("\4\3\4\5\4\65\n\4\3\5\3\5\5\59\n\5\3\6\3\6\3\6\3\6\7\6")
+        buf.write("?\n\6\f\6\16\6B\13\6\3\6\3\6\6\6F\n\6\r\6\16\6G\3\7\3")
+        buf.write("\7\3\7\3\b\3\b\3\b\3\b\3\t\3\t\6\tS\n\t\r\t\16\tT\3\n")
+        buf.write("\3\n\3\13\3\13\6\13[\n\13\r\13\16\13\\\3\f\3\f\3\f\3\f")
+        buf.write("\3\f\3\r\3\r\3\r\5\rg\n\r\3\r\3\r\3\r\3\r\5\rm\n\r\7\r")
+        buf.write("o\n\r\f\r\16\rr\13\r\3\16\3\16\3\16\5\16w\n\16\3\17\3")
+        buf.write("\17\3\17\5\17|\n\17\3\17\3\17\3\17\5\17\u0081\n\17\7\17")
+        buf.write("\u0083\n\17\f\17\16\17\u0086\13\17\3\17\3\17\3\20\3\20")
+        buf.write("\5\20\u008c\n\20\3\20\3\20\3\20\5\20\u0091\n\20\7\20\u0093")
+        buf.write("\n\20\f\20\16\20\u0096\13\20\3\21\3\21\3\21\2\2\22\2\4")
+        buf.write("\6\b\n\f\16\20\22\24\26\30\32\34\36 \2\5\4\2\r\r..\3\2")
+        buf.write("\4\5\t\2\22\25WWrrz\u0082\u0084\u0084\u0086\u0086\u0088")
+        buf.write("\u0088\u00a0\2\"\3\2\2\2\4%\3\2\2\2\6\64\3\2\2\2\b8\3")
+        buf.write("\2\2\2\n:\3\2\2\2\fI\3\2\2\2\16L\3\2\2\2\20P\3\2\2\2\22")
+        buf.write("V\3\2\2\2\24X\3\2\2\2\26^\3\2\2\2\30f\3\2\2\2\32s\3\2")
+        buf.write("\2\2\34x\3\2\2\2\36\u008b\3\2\2\2 \u0097\3\2\2\2\"#\5")
+        buf.write("\4\3\2#$\7\2\2\3$\3\3\2\2\2%,\5\6\4\2&(\t\2\2\2\'&\3\2")
+        buf.write("\2\2\'(\3\2\2\2()\3\2\2\2)+\5\6\4\2*\'\3\2\2\2+.\3\2\2")
+        buf.write("\2,*\3\2\2\2,-\3\2\2\2-\5\3\2\2\2.,\3\2\2\2/\65\5\b\5")
+        buf.write("\2\60\65\5\16\b\2\61\65\5\24\13\2\62\65\5\32\16\2\63\65")
+        buf.write("\5\20\t\2\64/\3\2\2\2\64\60\3\2\2\2\64\61\3\2\2\2\64\62")
+        buf.write("\3\2\2\2\64\63\3\2\2\2\65\7\3\2\2\2\669\5\n\6\2\679\5")
+        buf.write("\f\7\28\66\3\2\2\28\67\3\2\2\29\t\3\2\2\2:E\7\3\2\2;@")
+        buf.write("\7o\2\2<=\7-\2\2=?\7o\2\2><\3\2\2\2?B\3\2\2\2@>\3\2\2")
+        buf.write("\2@A\3\2\2\2AC\3\2\2\2B@\3\2\2\2CD\7\'\2\2DF\t\3\2\2E")
+        buf.write(";\3\2\2\2FG\3\2\2\2GE\3\2\2\2GH\3\2\2\2H\13\3\2\2\2IJ")
+        buf.write("\7\3\2\2JK\5\16\b\2K\r\3\2\2\2LM\7o\2\2MN\7\6\2\2NO\5")
+        buf.write("\22\n\2O\17\3\2\2\2PR\7\7\2\2QS\5\16\b\2RQ\3\2\2\2ST\3")
+        buf.write("\2\2\2TR\3\2\2\2TU\3\2\2\2U\21\3\2\2\2VW\5\30\r\2W\23")
+        buf.write("\3\2\2\2XZ\7\b\2\2Y[\5\16\b\2ZY\3\2\2\2[\\\3\2\2\2\\Z")
+        buf.write("\3\2\2\2\\]\3\2\2\2]\25\3\2\2\2^_\7\t\2\2_`\5 \21\2`a")
+        buf.write("\7\n\2\2ab\5 \21\2b\27\3\2\2\2cg\5 \21\2dg\7o\2\2eg\7")
+        buf.write("p\2\2fc\3\2\2\2fd\3\2\2\2fe\3\2\2\2gp\3\2\2\2hl\7\31\2")
+        buf.write("\2im\5 \21\2jm\7o\2\2km\7p\2\2li\3\2\2\2lj\3\2\2\2lk\3")
+        buf.write("\2\2\2mo\3\2\2\2nh\3\2\2\2or\3\2\2\2pn\3\2\2\2pq\3\2\2")
+        buf.write("\2q\31\3\2\2\2rp\3\2\2\2sv\7\13\2\2tw\5\36\20\2uw\5\34")
+        buf.write("\17\2vt\3\2\2\2vu\3\2\2\2w\33\3\2\2\2x{\7(\2\2y|\5 \21")
+        buf.write("\2z|\7o\2\2{y\3\2\2\2{z\3\2\2\2|\u0084\3\2\2\2}\u0080")
+        buf.write("\7-\2\2~\u0081\5 \21\2\177\u0081\7o\2\2\u0080~\3\2\2\2")
+        buf.write("\u0080\177\3\2\2\2\u0081\u0083\3\2\2\2\u0082}\3\2\2\2")
+        buf.write("\u0083\u0086\3\2\2\2\u0084\u0082\3\2\2\2\u0084\u0085\3")
+        buf.write("\2\2\2\u0085\u0087\3\2\2\2\u0086\u0084\3\2\2\2\u0087\u0088")
+        buf.write("\7\f\2\2\u0088\35\3\2\2\2\u0089\u008c\5 \21\2\u008a\u008c")
+        buf.write("\7o\2\2\u008b\u0089\3\2\2\2\u008b\u008a\3\2\2\2\u008c")
+        buf.write("\u0094\3\2\2\2\u008d\u0090\7-\2\2\u008e\u0091\5 \21\2")
+        buf.write("\u008f\u0091\7o\2\2\u0090\u008e\3\2\2\2\u0090\u008f\3")
+        buf.write("\2\2\2\u0091\u0093\3\2\2\2\u0092\u008d\3\2\2\2\u0093\u0096")
+        buf.write("\3\2\2\2\u0094\u0092\3\2\2\2\u0094\u0095\3\2\2\2\u0095")
+        buf.write("\37\3\2\2\2\u0096\u0094\3\2\2\2\u0097\u0098\t\4\2\2\u0098")
+        buf.write("!\3\2\2\2\24\',\648@GT\\flpv{\u0080\u0084\u008b\u0090")
+        buf.write("\u0094")
         return buf.getvalue()
 
 
@@ -123,27 +124,27 @@ class milestone_2Parser ( Parser ):
                       "UINT64_LIT", "EXP", "FLOAT_LIT", "FLOAT32_SUFFIX", 
                       "FLOAT32_LIT", "FLOAT64_SUFFIX", "FLOAT64_LIT" ]
 
-    RULE_module = 0
-    RULE_stmt = 1
-    RULE_varStmt = 2
-    RULE_simpleVarStmt = 3
-    RULE_complexVarStmt = 4
-    RULE_assignStmt = 5
-    RULE_letStmt = 6
-    RULE_expr = 7
-    RULE_constStmt = 8
-    RULE_assrtStmt = 9
-    RULE_simpleExpr = 10
-    RULE_echoStmt = 11
-    RULE_complexEcho = 12
-    RULE_simpleEcho = 13
-    RULE_literal = 14
-    RULE_start = 15
+    RULE_start = 0
+    RULE_module = 1
+    RULE_stmt = 2
+    RULE_varStmt = 3
+    RULE_simpleVarStmt = 4
+    RULE_complexVarStmt = 5
+    RULE_assignStmt = 6
+    RULE_letStmt = 7
+    RULE_expr = 8
+    RULE_constStmt = 9
+    RULE_assrtStmt = 10
+    RULE_simpleExpr = 11
+    RULE_echoStmt = 12
+    RULE_complexEcho = 13
+    RULE_simpleEcho = 14
+    RULE_literal = 15
 
-    ruleNames =  [ "module", "stmt", "varStmt", "simpleVarStmt", "complexVarStmt", 
-                   "assignStmt", "letStmt", "expr", "constStmt", "assrtStmt", 
-                   "simpleExpr", "echoStmt", "complexEcho", "simpleEcho", 
-                   "literal", "start" ]
+    ruleNames =  [ "start", "module", "stmt", "varStmt", "simpleVarStmt", 
+                   "complexVarStmt", "assignStmt", "letStmt", "expr", "constStmt", 
+                   "assrtStmt", "simpleExpr", "echoStmt", "complexEcho", 
+                   "simpleEcho", "literal" ]
 
     EOF = Token.EOF
     T__0=1
@@ -289,6 +290,51 @@ class milestone_2Parser ( Parser ):
 
 
 
+    class StartContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def module(self):
+            return self.getTypedRuleContext(milestone_2Parser.ModuleContext,0)
+
+
+        def EOF(self):
+            return self.getToken(milestone_2Parser.EOF, 0)
+
+        def getRuleIndex(self):
+            return milestone_2Parser.RULE_start
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterStart" ):
+                listener.enterStart(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitStart" ):
+                listener.exitStart(self)
+
+
+
+
+    def start(self):
+
+        localctx = milestone_2Parser.StartContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 0, self.RULE_start)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 32
+            self.module()
+            self.state = 33
+            self.match(milestone_2Parser.EOF)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
     class ModuleContext(ParserRuleContext):
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -325,20 +371,20 @@ class milestone_2Parser ( Parser ):
     def module(self):
 
         localctx = milestone_2Parser.ModuleContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 0, self.RULE_module)
+        self.enterRule(localctx, 2, self.RULE_module)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 32
+            self.state = 35
             self.stmt()
-            self.state = 39
+            self.state = 42
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << milestone_2Parser.T__0) | (1 << milestone_2Parser.T__4) | (1 << milestone_2Parser.T__5) | (1 << milestone_2Parser.T__8) | (1 << milestone_2Parser.INDENT) | (1 << milestone_2Parser.SEMI_COLON))) != 0) or _la==milestone_2Parser.IDENTIFIER:
-                self.state = 34
+                self.state = 37
                 _la = self._input.LA(1)
                 if _la==milestone_2Parser.INDENT or _la==milestone_2Parser.SEMI_COLON:
-                    self.state = 33
+                    self.state = 36
                     _la = self._input.LA(1)
                     if not(_la==milestone_2Parser.INDENT or _la==milestone_2Parser.SEMI_COLON):
                         self._errHandler.recoverInline(self)
@@ -346,9 +392,9 @@ class milestone_2Parser ( Parser ):
                         self.consume()
 
 
-                self.state = 36
+                self.state = 39
                 self.stmt()
-                self.state = 41
+                self.state = 44
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -403,33 +449,33 @@ class milestone_2Parser ( Parser ):
     def stmt(self):
 
         localctx = milestone_2Parser.StmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 2, self.RULE_stmt)
+        self.enterRule(localctx, 4, self.RULE_stmt)
         try:
-            self.state = 47
+            self.state = 50
             token = self._input.LA(1)
             if token in [milestone_2Parser.T__0]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 42
+                self.state = 45
                 self.varStmt()
 
             elif token in [milestone_2Parser.IDENTIFIER]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 43
+                self.state = 46
                 self.assignStmt()
 
             elif token in [milestone_2Parser.T__5]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 44
+                self.state = 47
                 self.constStmt()
 
             elif token in [milestone_2Parser.T__8]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 45
+                self.state = 48
                 self.echoStmt()
 
             elif token in [milestone_2Parser.T__4]:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 46
+                self.state = 49
                 self.letStmt()
 
             else:
@@ -474,20 +520,20 @@ class milestone_2Parser ( Parser ):
     def varStmt(self):
 
         localctx = milestone_2Parser.VarStmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 4, self.RULE_varStmt)
+        self.enterRule(localctx, 6, self.RULE_varStmt)
         try:
-            self.state = 51
+            self.state = 54
             self._errHandler.sync(self);
             la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 49
+                self.state = 52
                 self.simpleVarStmt()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 50
+                self.state = 53
                 self.complexVarStmt()
                 pass
 
@@ -541,34 +587,34 @@ class milestone_2Parser ( Parser ):
     def simpleVarStmt(self):
 
         localctx = milestone_2Parser.SimpleVarStmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 6, self.RULE_simpleVarStmt)
+        self.enterRule(localctx, 8, self.RULE_simpleVarStmt)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 53
+            self.state = 56
             self.match(milestone_2Parser.T__0)
-            self.state = 64 
+            self.state = 67 
             self._errHandler.sync(self)
             _alt = 1
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
-                    self.state = 54
+                    self.state = 57
                     self.match(milestone_2Parser.IDENTIFIER)
-                    self.state = 59
+                    self.state = 62
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     while _la==milestone_2Parser.COMMA:
-                        self.state = 55
+                        self.state = 58
                         self.match(milestone_2Parser.COMMA)
-                        self.state = 56
+                        self.state = 59
                         self.match(milestone_2Parser.IDENTIFIER)
-                        self.state = 61
+                        self.state = 64
                         self._errHandler.sync(self)
                         _la = self._input.LA(1)
 
-                    self.state = 62
+                    self.state = 65
                     self.match(milestone_2Parser.COLON)
-                    self.state = 63
+                    self.state = 66
                     _la = self._input.LA(1)
                     if not(_la==milestone_2Parser.T__1 or _la==milestone_2Parser.T__2):
                         self._errHandler.recoverInline(self)
@@ -577,7 +623,7 @@ class milestone_2Parser ( Parser ):
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 66 
+                self.state = 69 
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,5,self._ctx)
 
@@ -616,12 +662,12 @@ class milestone_2Parser ( Parser ):
     def complexVarStmt(self):
 
         localctx = milestone_2Parser.ComplexVarStmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 8, self.RULE_complexVarStmt)
+        self.enterRule(localctx, 10, self.RULE_complexVarStmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 68
+            self.state = 71
             self.match(milestone_2Parser.T__0)
-            self.state = 69
+            self.state = 72
             self.assignStmt()
         except RecognitionException as re:
             localctx.exception = re
@@ -661,14 +707,14 @@ class milestone_2Parser ( Parser ):
     def assignStmt(self):
 
         localctx = milestone_2Parser.AssignStmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 10, self.RULE_assignStmt)
+        self.enterRule(localctx, 12, self.RULE_assignStmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 71
+            self.state = 74
             self.match(milestone_2Parser.IDENTIFIER)
-            self.state = 72
+            self.state = 75
             self.match(milestone_2Parser.T__3)
-            self.state = 73
+            self.state = 76
             self.expr()
         except RecognitionException as re:
             localctx.exception = re
@@ -708,22 +754,22 @@ class milestone_2Parser ( Parser ):
     def letStmt(self):
 
         localctx = milestone_2Parser.LetStmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 12, self.RULE_letStmt)
+        self.enterRule(localctx, 14, self.RULE_letStmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 75
+            self.state = 78
             self.match(milestone_2Parser.T__4)
-            self.state = 77 
+            self.state = 80 
             self._errHandler.sync(self)
             _alt = 1
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
-                    self.state = 76
+                    self.state = 79
                     self.assignStmt()
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 79 
+                self.state = 82 
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
 
@@ -762,10 +808,10 @@ class milestone_2Parser ( Parser ):
     def expr(self):
 
         localctx = milestone_2Parser.ExprContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 14, self.RULE_expr)
+        self.enterRule(localctx, 16, self.RULE_expr)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 81
+            self.state = 84
             self.simpleExpr()
         except RecognitionException as re:
             localctx.exception = re
@@ -805,22 +851,22 @@ class milestone_2Parser ( Parser ):
     def constStmt(self):
 
         localctx = milestone_2Parser.ConstStmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 16, self.RULE_constStmt)
+        self.enterRule(localctx, 18, self.RULE_constStmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 83
+            self.state = 86
             self.match(milestone_2Parser.T__5)
-            self.state = 85 
+            self.state = 88 
             self._errHandler.sync(self)
             _alt = 1
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
-                    self.state = 84
+                    self.state = 87
                     self.assignStmt()
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 87 
+                self.state = 90 
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,7,self._ctx)
 
@@ -862,16 +908,16 @@ class milestone_2Parser ( Parser ):
     def assrtStmt(self):
 
         localctx = milestone_2Parser.AssrtStmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 18, self.RULE_assrtStmt)
+        self.enterRule(localctx, 20, self.RULE_assrtStmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 89
-            self.match(milestone_2Parser.T__6)
-            self.state = 90
-            self.literal()
-            self.state = 91
-            self.match(milestone_2Parser.T__7)
             self.state = 92
+            self.match(milestone_2Parser.T__6)
+            self.state = 93
+            self.literal()
+            self.state = 94
+            self.match(milestone_2Parser.T__7)
+            self.state = 95
             self.literal()
         except RecognitionException as re:
             localctx.exception = re
@@ -923,51 +969,51 @@ class milestone_2Parser ( Parser ):
     def simpleExpr(self):
 
         localctx = milestone_2Parser.SimpleExprContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 20, self.RULE_simpleExpr)
+        self.enterRule(localctx, 22, self.RULE_simpleExpr)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 97
+            self.state = 100
             token = self._input.LA(1)
             if token in [milestone_2Parser.TRIPLESTR_LIT, milestone_2Parser.STR_LIT, milestone_2Parser.CHAR_LIT, milestone_2Parser.RSTR_LIT, milestone_2Parser.NIL, milestone_2Parser.INT_LIT, milestone_2Parser.INT8_LIT, milestone_2Parser.INT16_LIT, milestone_2Parser.INT32_LIT, milestone_2Parser.INT64_LIT, milestone_2Parser.UINT_LIT, milestone_2Parser.UINT8_LIT, milestone_2Parser.UINT16_LIT, milestone_2Parser.UINT32_LIT, milestone_2Parser.UINT64_LIT, milestone_2Parser.FLOAT_LIT, milestone_2Parser.FLOAT32_LIT, milestone_2Parser.FLOAT64_LIT]:
-                self.state = 94
+                self.state = 97
                 self.literal()
 
             elif token in [milestone_2Parser.IDENTIFIER]:
-                self.state = 95
+                self.state = 98
                 self.match(milestone_2Parser.IDENTIFIER)
 
             elif token in [milestone_2Parser.DIGIT]:
-                self.state = 96
+                self.state = 99
                 self.match(milestone_2Parser.DIGIT)
 
             else:
                 raise NoViableAltException(self)
 
-            self.state = 107
+            self.state = 110
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==milestone_2Parser.ADD_OPERATOR:
-                self.state = 99
+                self.state = 102
                 self.match(milestone_2Parser.ADD_OPERATOR)
-                self.state = 103
+                self.state = 106
                 token = self._input.LA(1)
                 if token in [milestone_2Parser.TRIPLESTR_LIT, milestone_2Parser.STR_LIT, milestone_2Parser.CHAR_LIT, milestone_2Parser.RSTR_LIT, milestone_2Parser.NIL, milestone_2Parser.INT_LIT, milestone_2Parser.INT8_LIT, milestone_2Parser.INT16_LIT, milestone_2Parser.INT32_LIT, milestone_2Parser.INT64_LIT, milestone_2Parser.UINT_LIT, milestone_2Parser.UINT8_LIT, milestone_2Parser.UINT16_LIT, milestone_2Parser.UINT32_LIT, milestone_2Parser.UINT64_LIT, milestone_2Parser.FLOAT_LIT, milestone_2Parser.FLOAT32_LIT, milestone_2Parser.FLOAT64_LIT]:
-                    self.state = 100
+                    self.state = 103
                     self.literal()
 
                 elif token in [milestone_2Parser.IDENTIFIER]:
-                    self.state = 101
+                    self.state = 104
                     self.match(milestone_2Parser.IDENTIFIER)
 
                 elif token in [milestone_2Parser.DIGIT]:
-                    self.state = 102
+                    self.state = 105
                     self.match(milestone_2Parser.DIGIT)
 
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 109
+                self.state = 112
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1010,19 +1056,19 @@ class milestone_2Parser ( Parser ):
     def echoStmt(self):
 
         localctx = milestone_2Parser.EchoStmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_echoStmt)
+        self.enterRule(localctx, 24, self.RULE_echoStmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 110
-            self.match(milestone_2Parser.T__8)
             self.state = 113
+            self.match(milestone_2Parser.T__8)
+            self.state = 116
             token = self._input.LA(1)
             if token in [milestone_2Parser.TRIPLESTR_LIT, milestone_2Parser.STR_LIT, milestone_2Parser.CHAR_LIT, milestone_2Parser.RSTR_LIT, milestone_2Parser.NIL, milestone_2Parser.IDENTIFIER, milestone_2Parser.INT_LIT, milestone_2Parser.INT8_LIT, milestone_2Parser.INT16_LIT, milestone_2Parser.INT32_LIT, milestone_2Parser.INT64_LIT, milestone_2Parser.UINT_LIT, milestone_2Parser.UINT8_LIT, milestone_2Parser.UINT16_LIT, milestone_2Parser.UINT32_LIT, milestone_2Parser.UINT64_LIT, milestone_2Parser.FLOAT_LIT, milestone_2Parser.FLOAT32_LIT, milestone_2Parser.FLOAT64_LIT]:
-                self.state = 111
+                self.state = 114
                 self.simpleEcho()
 
             elif token in [milestone_2Parser.OPEN_PAREN]:
-                self.state = 112
+                self.state = 115
                 self.complexEcho()
 
             else:
@@ -1078,49 +1124,49 @@ class milestone_2Parser ( Parser ):
     def complexEcho(self):
 
         localctx = milestone_2Parser.ComplexEchoContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_complexEcho)
+        self.enterRule(localctx, 26, self.RULE_complexEcho)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 115
-            self.match(milestone_2Parser.OPEN_PAREN)
             self.state = 118
+            self.match(milestone_2Parser.OPEN_PAREN)
+            self.state = 121
             token = self._input.LA(1)
             if token in [milestone_2Parser.TRIPLESTR_LIT, milestone_2Parser.STR_LIT, milestone_2Parser.CHAR_LIT, milestone_2Parser.RSTR_LIT, milestone_2Parser.NIL, milestone_2Parser.INT_LIT, milestone_2Parser.INT8_LIT, milestone_2Parser.INT16_LIT, milestone_2Parser.INT32_LIT, milestone_2Parser.INT64_LIT, milestone_2Parser.UINT_LIT, milestone_2Parser.UINT8_LIT, milestone_2Parser.UINT16_LIT, milestone_2Parser.UINT32_LIT, milestone_2Parser.UINT64_LIT, milestone_2Parser.FLOAT_LIT, milestone_2Parser.FLOAT32_LIT, milestone_2Parser.FLOAT64_LIT]:
-                self.state = 116
+                self.state = 119
                 self.literal()
 
             elif token in [milestone_2Parser.IDENTIFIER]:
-                self.state = 117
+                self.state = 120
                 self.match(milestone_2Parser.IDENTIFIER)
 
             else:
                 raise NoViableAltException(self)
 
-            self.state = 127
+            self.state = 130
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==milestone_2Parser.COMMA:
-                self.state = 120
-                self.match(milestone_2Parser.COMMA)
                 self.state = 123
+                self.match(milestone_2Parser.COMMA)
+                self.state = 126
                 token = self._input.LA(1)
                 if token in [milestone_2Parser.TRIPLESTR_LIT, milestone_2Parser.STR_LIT, milestone_2Parser.CHAR_LIT, milestone_2Parser.RSTR_LIT, milestone_2Parser.NIL, milestone_2Parser.INT_LIT, milestone_2Parser.INT8_LIT, milestone_2Parser.INT16_LIT, milestone_2Parser.INT32_LIT, milestone_2Parser.INT64_LIT, milestone_2Parser.UINT_LIT, milestone_2Parser.UINT8_LIT, milestone_2Parser.UINT16_LIT, milestone_2Parser.UINT32_LIT, milestone_2Parser.UINT64_LIT, milestone_2Parser.FLOAT_LIT, milestone_2Parser.FLOAT32_LIT, milestone_2Parser.FLOAT64_LIT]:
-                    self.state = 121
+                    self.state = 124
                     self.literal()
 
                 elif token in [milestone_2Parser.IDENTIFIER]:
-                    self.state = 122
+                    self.state = 125
                     self.match(milestone_2Parser.IDENTIFIER)
 
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 129
+                self.state = 132
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 130
+            self.state = 133
             self.match(milestone_2Parser.T__9)
         except RecognitionException as re:
             localctx.exception = re
@@ -1172,43 +1218,43 @@ class milestone_2Parser ( Parser ):
     def simpleEcho(self):
 
         localctx = milestone_2Parser.SimpleEchoContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_simpleEcho)
+        self.enterRule(localctx, 28, self.RULE_simpleEcho)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 134
+            self.state = 137
             token = self._input.LA(1)
             if token in [milestone_2Parser.TRIPLESTR_LIT, milestone_2Parser.STR_LIT, milestone_2Parser.CHAR_LIT, milestone_2Parser.RSTR_LIT, milestone_2Parser.NIL, milestone_2Parser.INT_LIT, milestone_2Parser.INT8_LIT, milestone_2Parser.INT16_LIT, milestone_2Parser.INT32_LIT, milestone_2Parser.INT64_LIT, milestone_2Parser.UINT_LIT, milestone_2Parser.UINT8_LIT, milestone_2Parser.UINT16_LIT, milestone_2Parser.UINT32_LIT, milestone_2Parser.UINT64_LIT, milestone_2Parser.FLOAT_LIT, milestone_2Parser.FLOAT32_LIT, milestone_2Parser.FLOAT64_LIT]:
-                self.state = 132
+                self.state = 135
                 self.literal()
 
             elif token in [milestone_2Parser.IDENTIFIER]:
-                self.state = 133
+                self.state = 136
                 self.match(milestone_2Parser.IDENTIFIER)
 
             else:
                 raise NoViableAltException(self)
 
-            self.state = 143
+            self.state = 146
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==milestone_2Parser.COMMA:
-                self.state = 136
-                self.match(milestone_2Parser.COMMA)
                 self.state = 139
+                self.match(milestone_2Parser.COMMA)
+                self.state = 142
                 token = self._input.LA(1)
                 if token in [milestone_2Parser.TRIPLESTR_LIT, milestone_2Parser.STR_LIT, milestone_2Parser.CHAR_LIT, milestone_2Parser.RSTR_LIT, milestone_2Parser.NIL, milestone_2Parser.INT_LIT, milestone_2Parser.INT8_LIT, milestone_2Parser.INT16_LIT, milestone_2Parser.INT32_LIT, milestone_2Parser.INT64_LIT, milestone_2Parser.UINT_LIT, milestone_2Parser.UINT8_LIT, milestone_2Parser.UINT16_LIT, milestone_2Parser.UINT32_LIT, milestone_2Parser.UINT64_LIT, milestone_2Parser.FLOAT_LIT, milestone_2Parser.FLOAT32_LIT, milestone_2Parser.FLOAT64_LIT]:
-                    self.state = 137
+                    self.state = 140
                     self.literal()
 
                 elif token in [milestone_2Parser.IDENTIFIER]:
-                    self.state = 138
+                    self.state = 141
                     self.match(milestone_2Parser.IDENTIFIER)
 
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 145
+                self.state = 148
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1297,56 +1343,16 @@ class milestone_2Parser ( Parser ):
     def literal(self):
 
         localctx = milestone_2Parser.LiteralContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_literal)
+        self.enterRule(localctx, 30, self.RULE_literal)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 146
+            self.state = 149
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << milestone_2Parser.TRIPLESTR_LIT) | (1 << milestone_2Parser.STR_LIT) | (1 << milestone_2Parser.CHAR_LIT) | (1 << milestone_2Parser.RSTR_LIT))) != 0) or ((((_la - 85)) & ~0x3f) == 0 and ((1 << (_la - 85)) & ((1 << (milestone_2Parser.NIL - 85)) | (1 << (milestone_2Parser.INT_LIT - 85)) | (1 << (milestone_2Parser.INT8_LIT - 85)) | (1 << (milestone_2Parser.INT16_LIT - 85)) | (1 << (milestone_2Parser.INT32_LIT - 85)) | (1 << (milestone_2Parser.INT64_LIT - 85)) | (1 << (milestone_2Parser.UINT_LIT - 85)) | (1 << (milestone_2Parser.UINT8_LIT - 85)) | (1 << (milestone_2Parser.UINT16_LIT - 85)) | (1 << (milestone_2Parser.UINT32_LIT - 85)) | (1 << (milestone_2Parser.UINT64_LIT - 85)) | (1 << (milestone_2Parser.FLOAT_LIT - 85)) | (1 << (milestone_2Parser.FLOAT32_LIT - 85)) | (1 << (milestone_2Parser.FLOAT64_LIT - 85)))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self.consume()
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-    class StartContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def module(self):
-            return self.getTypedRuleContext(milestone_2Parser.ModuleContext,0)
-
-
-        def getRuleIndex(self):
-            return milestone_2Parser.RULE_start
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterStart" ):
-                listener.enterStart(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitStart" ):
-                listener.exitStart(self)
-
-
-
-
-    def start(self):
-
-        localctx = milestone_2Parser.StartContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_start)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 148
-            self.module()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

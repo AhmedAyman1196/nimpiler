@@ -1,13 +1,10 @@
-var
-    j, k: int
-    # a comment can occur here too
-    a, b, c: string
+const
+    x1 = 1
+    y1 = 2
+    z1 = y1 + 5
 
-j = 60
-k = 5 + j
-a = " hello world "
-b = "Bye world"
-c = "Welcome"
+echo ( x1, " : ", y1, " : ", z1)
 
-echo (j , " : " , k)
-echo (a , " : " , b, " : ", c)
+let x2 = "abc"
+
+echo (x2)

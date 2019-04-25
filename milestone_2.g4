@@ -2,6 +2,8 @@ grammar milestone_2;
 
 // ------------------------------ Grammar --------------------------------------
 
+start : module EOF;
+
 module : stmt ((';' | INDENT)? stmt)*;
 
 stmt : varStmt | assignStmt | constStmt | echoStmt | letStmt;
@@ -192,5 +194,3 @@ FLOAT32_LIT : HEX_LIT '\'' FLOAT32_SUFFIX
 FLOAT64_SUFFIX : (('f' | 'F') '64') | 'd' | 'D';
 FLOAT64_LIT : HEX_LIT '\'' FLOAT64_SUFFIX
             | (FLOAT_LIT | DEC_LIT | OCT_LIT | BIN_LIT) '\''? FLOAT64_SUFFIX;
-
-start : module;

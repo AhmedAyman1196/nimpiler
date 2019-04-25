@@ -8,6 +8,15 @@ else:
 # This class defines a complete listener for a parse tree produced by milestone_2Parser.
 class milestone_2Listener(ParseTreeListener):
 
+    # Enter a parse tree produced by milestone_2Parser#start.
+    def enterStart(self, ctx:milestone_2Parser.StartContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#start.
+    def exitStart(self, ctx:milestone_2Parser.StartContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#module.
     def enterModule(self, ctx:milestone_2Parser.ModuleContext):
         pass
@@ -140,15 +149,6 @@ class milestone_2Listener(ParseTreeListener):
 
     # Exit a parse tree produced by milestone_2Parser#literal.
     def exitLiteral(self, ctx:milestone_2Parser.LiteralContext):
-        pass
-
-
-    # Enter a parse tree produced by milestone_2Parser#start.
-    def enterStart(self, ctx:milestone_2Parser.StartContext):
-        pass
-
-    # Exit a parse tree produced by milestone_2Parser#start.
-    def exitStart(self, ctx:milestone_2Parser.StartContext):
         pass
 
 
