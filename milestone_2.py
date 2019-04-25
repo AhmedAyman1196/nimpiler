@@ -24,12 +24,13 @@ from antlr4.tree.Trees import Trees
 # 1_1 > OK
 # 1_2 > OK
 # 1_3 > OK
-#
+# 8 > OK
+# 9 >
 # 10 > OK
 # 11 > OK
 
 # candidates to be done , the one with * are easier imo
-# 2 , 4 , *7 , 8* , 9*
+# 2 , 4 , *7
 
 def main():
     with open(args.file, "r") as file:

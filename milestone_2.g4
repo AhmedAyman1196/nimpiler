@@ -22,7 +22,7 @@ constStmt: 'const' assignStmt+ ;
 
 assretStmt: 'assert' literal '==' literal ;
 
-simpleExpr: (literal | complexIdentifier| DIGIT) ('+' (literal | complexIdentifier | DIGIT))*;
+simpleExpr: (literal | complexIdentifier | invokeFunc | DIGIT) ('+' (literal | complexIdentifier | invokeFunc | DIGIT))*;
 
 echoStmt: 'echo' (simpleEcho | complexEcho);
 complexEcho : '(' (literal|complexIdentifier) (',' (literal|complexIdentifier))* ')';
@@ -37,7 +37,7 @@ complexIdentifier : IDENTIFIER('.' IDENTIFIER)*;
 
 forStmt : 'for' complexIdentifier (',' complexIdentifier)* 'in' (complexIdentifier | invokeFunc) ':' COMMENT? stmt ;
 
-invokeFunc : complexIdentifier '.' IDENTIFIER '(' (literal | complexIdentifier) ')';
+invokeFunc : (complexIdentifier '.')? IDENTIFIER '(' (literal | complexIdentifier)? ')';
 
 literal : INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
           | UINT_LIT | UINT8_LIT | UINT16_LIT | UINT32_LIT | UINT64_LIT
