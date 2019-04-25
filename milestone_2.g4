@@ -2,7 +2,7 @@ grammar milestone_2;
 
 // ------------------------------ Grammar --------------------------------------
 
-module : stmt+;
+module : stmt ((';' | INDENT)? stmt)*;
 
 stmt : varStmt | assignStmt | constStmt | echoStmt | letStmt;
 
@@ -72,7 +72,6 @@ XOR_OPERATOR : '^';
 DOT : '.' ;
 COLON : ':' ;
 OPEN_PAREN : '(' ;
-CLOSE_PAREN : ')' ;
 OPEN_BRACE : '{' ;
 CLOSE_BRACE : '}' ;
 OPEN_BRACK : '[';

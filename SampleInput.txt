@@ -1,10 +1,10 @@
-zar
+var
     j, k: int
     # a comment can occur here too
     a, b, c: string
 
 j = 60
-k == 5 + j;
+k = 5 + j
 a = " hello world "
 b = "Bye world"
 c = "Welcome"
