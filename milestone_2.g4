@@ -6,7 +6,7 @@ start : module EOF;
 
 module : stmt ((';' | INDENT)? stmt)*;
 
-stmt : breakStmt | whileStmt | invokeFunc | forStmt | importStmt | varStmt | assignStmt
+stmt : ifStmt | breakStmt | whileStmt | invokeFunc | forStmt | importStmt | varStmt | assignStmt
        | constStmt | echoStmt | letStmt | assretStmt;
 
 varStmt : simpleVarStmt | complexVarStmt ;
@@ -17,9 +17,11 @@ assignStmt : complexIdentifier '=' expr;
 
 letStmt : 'let' assignStmt+ ;
 
-expr : arrayConstr | simpleExpr ;
+expr : arrayConstr | simpleExpr | compareExpr ;
 
 constStmt: 'const' assignStmt+ ;
+
+compareExpr : complexIdentifier ('<' | '>') complexIdentifier;
 
 assretStmt: 'assert' literal '==' literal ;
 
@@ -42,9 +44,15 @@ invokeFunc : (complexIdentifier '.')? IDENTIFIER '(' (literal | complexIdentifie
 
 whileStmt : 'while' expr colcom stmt ;
 
-colcom : ':' COMMENT? ;
-
 breakStmt : 'break' optInd? expr? ;
+
+ifStmt : 'if' condStmt  ;
+
+condStmt : expr colcom stmt COMMENT?
+          (INDENT? 'elif' expr colcom stmt)*
+          (INDENT? 'else' colcom stmt)? ;
+
+colcom : ':' COMMENT? ;
 
 literal : INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
           | UINT_LIT | UINT8_LIT | UINT16_LIT | UINT32_LIT | UINT64_LIT

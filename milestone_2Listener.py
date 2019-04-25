@@ -98,6 +98,15 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by milestone_2Parser#compareExpr.
+    def enterCompareExpr(self, ctx:milestone_2Parser.CompareExprContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#compareExpr.
+    def exitCompareExpr(self, ctx:milestone_2Parser.CompareExprContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#assretStmt.
     def enterAssretStmt(self, ctx:milestone_2Parser.AssretStmtContext):
         pass
@@ -206,21 +215,39 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by milestone_2Parser#colcom.
-    def enterColcom(self, ctx:milestone_2Parser.ColcomContext):
-        pass
-
-    # Exit a parse tree produced by milestone_2Parser#colcom.
-    def exitColcom(self, ctx:milestone_2Parser.ColcomContext):
-        pass
-
-
     # Enter a parse tree produced by milestone_2Parser#breakStmt.
     def enterBreakStmt(self, ctx:milestone_2Parser.BreakStmtContext):
         pass
 
     # Exit a parse tree produced by milestone_2Parser#breakStmt.
     def exitBreakStmt(self, ctx:milestone_2Parser.BreakStmtContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#ifStmt.
+    def enterIfStmt(self, ctx:milestone_2Parser.IfStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#ifStmt.
+    def exitIfStmt(self, ctx:milestone_2Parser.IfStmtContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#condStmt.
+    def enterCondStmt(self, ctx:milestone_2Parser.CondStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#condStmt.
+    def exitCondStmt(self, ctx:milestone_2Parser.CondStmtContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#colcom.
+    def enterColcom(self, ctx:milestone_2Parser.ColcomContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#colcom.
+    def exitColcom(self, ctx:milestone_2Parser.ColcomContext):
         pass
 
 
