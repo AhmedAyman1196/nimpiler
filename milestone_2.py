@@ -22,11 +22,14 @@ from antlr4.tree.Trees import Trees
 # test cases notes :
 
 # 1_1 > ok
-# 2_1 > problem when there is a semicolon at the end
-# 3_1 > problem doesnt throw exception but stops parsing
+# 1_2 > problem when there is a semicolon at the end
+# 1_3 > problem doesnt throw exception but stops parsing
 #
 # 10 > ok
 # 11 > ok but do a thorough check for the tree output
+
+# candidates to be done , the one with * are easier imo
+# 2 , 4 , *7 , 8* , 9*
 
 def main():
     with open(args.file, "r") as file:
