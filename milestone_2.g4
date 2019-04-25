@@ -6,27 +6,35 @@ start : module EOF;
 
 module : stmt ((';' | INDENT)? stmt)*;
 
-stmt : varStmt | assignStmt | constStmt | echoStmt | letStmt | assretStmt;
+stmt : importStmt | varStmt | assignStmt | constStmt | echoStmt | letStmt | assretStmt;
 
 varStmt : simpleVarStmt | complexVarStmt ;
-simpleVarStmt : 'var' (IDENTIFIER (',' IDENTIFIER)* ':' ('int'|'string'))+ ;
+simpleVarStmt : 'var' (IDENTIFIER (',' complexIdentifier)* ':' ('int'|'string'))+ ;
 complexVarStmt : 'var' assignStmt ;
 
-assignStmt : IDENTIFIER '=' expr;
+assignStmt : complexIdentifier '=' expr;
 
 letStmt : 'let' assignStmt+ ;
 
-expr : simpleExpr ;
+expr : arrayConstr | simpleExpr ;
 
 constStmt: 'const' assignStmt+ ;
 
 assretStmt: 'assert' literal '==' literal ;
 
-simpleExpr: (literal | IDENTIFIER| DIGIT) ('+' (literal | IDENTIFIER | DIGIT))*;
+simpleExpr: (literal | complexIdentifier| DIGIT) ('+' (literal | complexIdentifier | DIGIT))*;
 
 echoStmt: 'echo' (simpleEcho | complexEcho);
-complexEcho : '(' (literal|IDENTIFIER) (',' (literal|IDENTIFIER))* ')';
-simpleEcho : (literal|IDENTIFIER) (',' (literal|IDENTIFIER))* ;
+complexEcho : '(' (literal|complexIdentifier) (',' (literal|complexIdentifier))* ')';
+simpleEcho : (literal|complexIdentifier) (',' (literal|complexIdentifier))* ;
+
+importStmt : 'import' optInd? complexIdentifier (',' complexIdentifier)*;
+optInd : COMMENT? INDENT ;
+
+arrayConstr : complexIdentifier '[' ('int' | 'string') ']()' ;
+
+complexIdentifier : IDENTIFIER('.'IDENTIFIER)*;
+
 
 // =============================================================================
 // ============================ Lexical Analysis ===============================
@@ -82,7 +90,7 @@ SEMI_COLON : ';';
 // KEYWORDS
 KEYW :
 AND | ADDR |AS | ASM |BIND |BLOCK |BREAK |CASE |CAST |CONCEPT |CONTINUE | CONVERTER |DEFER |
-DISCARD |DISTINCT |DIV |DO |ELIF |ELSE |END |ENUM |EXCEPT |EXPORT |FINALLY | FOR |FROM |FUNC |IF |IMPORT |
+DISCARD |DISTINCT |DIV |DO |ELIF |ELSE |END |ENUM |EXCEPT |EXPORT |FINALLY | FOR |FROM |FUNC |IF |
 IN |INCLUDE| INTERFACE |IS |ISNOT | ITERATOR  | MACRO |METHOD |MIXIN |MOD |NIL |NOT |NOTIN |OBJECT |
 OF |OR |OUT  |PROC |PTR |RAISE |REF |RETURN |SHL |SHR |STATIC | TEMPLATE | TRY |TUPLE |TYPE |USING |WHEN |
 WHILE |XOR |YIELD ;
@@ -117,7 +125,6 @@ FOR : 'for' ;
 FROM : 'from' ;
 FUNC : 'func' ;
 IF : 'if' ;
-IMPORT : 'import' ;
 IN : 'in' ;
 INCLUDE : 'include' ;
 INTERFACE : 'interface' ;

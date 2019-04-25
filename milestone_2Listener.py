@@ -143,6 +143,42 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by milestone_2Parser#importStmt.
+    def enterImportStmt(self, ctx:milestone_2Parser.ImportStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#importStmt.
+    def exitImportStmt(self, ctx:milestone_2Parser.ImportStmtContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#optInd.
+    def enterOptInd(self, ctx:milestone_2Parser.OptIndContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#optInd.
+    def exitOptInd(self, ctx:milestone_2Parser.OptIndContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#arrayConstr.
+    def enterArrayConstr(self, ctx:milestone_2Parser.ArrayConstrContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#arrayConstr.
+    def exitArrayConstr(self, ctx:milestone_2Parser.ArrayConstrContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#complexIdentifier.
+    def enterComplexIdentifier(self, ctx:milestone_2Parser.ComplexIdentifierContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#complexIdentifier.
+    def exitComplexIdentifier(self, ctx:milestone_2Parser.ComplexIdentifierContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#literal.
     def enterLiteral(self, ctx:milestone_2Parser.LiteralContext):
         pass
