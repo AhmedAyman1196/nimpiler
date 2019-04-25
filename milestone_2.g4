@@ -6,7 +6,7 @@ start : module EOF;
 
 module : stmt ((';' | INDENT)? stmt)*;
 
-stmt : ifStmt | breakStmt | whileStmt | invokeFunc | forStmt | importStmt | varStmt | assignStmt
+stmt : blockStmt | ifStmt | breakStmt | whileStmt | invokeFunc | forStmt | importStmt | varStmt | assignStmt
        | constStmt | echoStmt | letStmt | assretStmt;
 
 varStmt : simpleVarStmt | complexVarStmt ;
@@ -51,6 +51,8 @@ ifStmt : 'if' condStmt  ;
 condStmt : expr colcom stmt COMMENT?
           (INDENT? 'elif' expr colcom stmt)*
           (INDENT? 'else' colcom stmt)? ;
+
+blockStmt : 'block' IDENTIFIER? colcom stmt ;
 
 colcom : ':' COMMENT? ;
 

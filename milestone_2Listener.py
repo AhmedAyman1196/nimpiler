@@ -242,6 +242,15 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by milestone_2Parser#blockStmt.
+    def enterBlockStmt(self, ctx:milestone_2Parser.BlockStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#blockStmt.
+    def exitBlockStmt(self, ctx:milestone_2Parser.BlockStmtContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#colcom.
     def enterColcom(self, ctx:milestone_2Parser.ColcomContext):
         pass
