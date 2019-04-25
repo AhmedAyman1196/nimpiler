@@ -21,12 +21,12 @@ from antlr4.tree.Trees import Trees
 
 # test cases notes :
 
-# 1_1 > ok
-# 1_2 > problem when there is a semicolon at the end
-# 1_3 > problem doesnt throw exception but stops parsing
+# 1_1 > OK
+# 1_2 > OK
+# 1_3 > OK
 #
-# 10 > ok
-# 11 > ok but do a thorough check for the tree output
+# 10 > OK
+# 11 > OK
 
 # candidates to be done , the one with * are easier imo
 # 2 , 4 , *7 , 8* , 9*
@@ -58,7 +58,3 @@ if __name__ == '__main__':
     #    print("invalid")
     #else:
     #    print("valid")
-
-
-
-

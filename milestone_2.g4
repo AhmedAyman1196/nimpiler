@@ -6,10 +6,10 @@ start : module EOF;
 
 module : stmt ((';' | INDENT)? stmt)*;
 
-stmt : varStmt | assignStmt | constStmt | echoStmt | letStmt;
+stmt : varStmt | assignStmt | constStmt | echoStmt | letStmt | assretStmt;
 
 varStmt : simpleVarStmt | complexVarStmt ;
-simpleVarStmt : 'var' (IDENTIFIER (COMMA IDENTIFIER)* COLON ('int'|'string'))+ ;
+simpleVarStmt : 'var' (IDENTIFIER (',' IDENTIFIER)* ':' ('int'|'string'))+ ;
 complexVarStmt : 'var' assignStmt ;
 
 assignStmt : IDENTIFIER '=' expr;
@@ -20,13 +20,13 @@ expr : simpleExpr ;
 
 constStmt: 'const' assignStmt+ ;
 
-assrtStmt: 'assert' literal '==' literal ;
+assretStmt: 'assert' literal '==' literal ;
 
 simpleExpr: (literal | IDENTIFIER| DIGIT) ('+' (literal | IDENTIFIER | DIGIT))*;
 
 echoStmt: 'echo' (simpleEcho | complexEcho);
-complexEcho : '(' (literal|IDENTIFIER) (COMMA (literal|IDENTIFIER))* ')';
-simpleEcho : (literal|IDENTIFIER) (COMMA (literal|IDENTIFIER))* ;
+complexEcho : '(' (literal|IDENTIFIER) (',' (literal|IDENTIFIER))* ')';
+simpleEcho : (literal|IDENTIFIER) (',' (literal|IDENTIFIER))* ;
 
 // =============================================================================
 // ============================ Lexical Analysis ===============================
@@ -72,13 +72,11 @@ MODULUS : '%' ;
 NOT_OPERATOR : '!';
 XOR_OPERATOR : '^';
 DOT : '.' ;
-COLON : ':' ;
 OPEN_PAREN : '(' ;
 OPEN_BRACE : '{' ;
 CLOSE_BRACE : '}' ;
 OPEN_BRACK : '[';
 CLOSE_BRACK :  ']';
-COMMA : ',' ;
 SEMI_COLON : ';';
 
 // KEYWORDS

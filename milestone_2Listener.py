@@ -98,12 +98,12 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by milestone_2Parser#assrtStmt.
-    def enterAssrtStmt(self, ctx:milestone_2Parser.AssrtStmtContext):
+    # Enter a parse tree produced by milestone_2Parser#assretStmt.
+    def enterAssretStmt(self, ctx:milestone_2Parser.AssretStmtContext):
         pass
 
-    # Exit a parse tree produced by milestone_2Parser#assrtStmt.
-    def exitAssrtStmt(self, ctx:milestone_2Parser.AssrtStmtContext):
+    # Exit a parse tree produced by milestone_2Parser#assretStmt.
+    def exitAssretStmt(self, ctx:milestone_2Parser.AssretStmtContext):
         pass
 
 
