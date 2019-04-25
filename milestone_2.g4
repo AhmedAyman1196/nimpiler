@@ -6,7 +6,7 @@ start : module EOF;
 
 module : stmt ((';' | INDENT)? stmt)*;
 
-stmt : importStmt | varStmt | assignStmt | constStmt | echoStmt | letStmt | assretStmt;
+stmt : invokeFunc | forStmt | importStmt | varStmt | assignStmt | constStmt | echoStmt | letStmt | assretStmt;
 
 varStmt : simpleVarStmt | complexVarStmt ;
 simpleVarStmt : 'var' (IDENTIFIER (',' complexIdentifier)* ':' ('int'|'string'))+ ;
@@ -33,11 +33,11 @@ optInd : COMMENT? INDENT ;
 
 arrayConstr : complexIdentifier '[' ('int' | 'string') ']()' ;
 
-complexIdentifier : IDENTIFIER('.'IDENTIFIER)*;
+complexIdentifier : IDENTIFIER('.' IDENTIFIER)*;
 
+forStmt : 'for' complexIdentifier (',' complexIdentifier)* 'in' (complexIdentifier | invokeFunc) ':' COMMENT? stmt ;
 
-// =============================================================================
-// ============================ Lexical Analysis ===============================
+invokeFunc : complexIdentifier '.' IDENTIFIER '(' (literal | complexIdentifier) ')';
 
 literal : INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
           | UINT_LIT | UINT8_LIT | UINT16_LIT | UINT32_LIT | UINT64_LIT
@@ -45,6 +45,9 @@ literal : INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
           | STR_LIT | RSTR_LIT | TRIPLESTR_LIT
           | CHAR_LIT
           | NIL ;
+
+// =============================================================================
+// ============================ Lexical Analysis ===============================
 
 INDENT : ('    ')+ -> skip; // added this
 
@@ -90,8 +93,8 @@ SEMI_COLON : ';';
 // KEYWORDS
 KEYW :
 AND | ADDR |AS | ASM |BIND |BLOCK |BREAK |CASE |CAST |CONCEPT |CONTINUE | CONVERTER |DEFER |
-DISCARD |DISTINCT |DIV |DO |ELIF |ELSE |END |ENUM |EXCEPT |EXPORT |FINALLY | FOR |FROM |FUNC |IF |
-IN |INCLUDE| INTERFACE |IS |ISNOT | ITERATOR  | MACRO |METHOD |MIXIN |MOD |NIL |NOT |NOTIN |OBJECT |
+DISCARD |DISTINCT |DIV |DO |ELIF |ELSE |END |ENUM |EXCEPT |EXPORT |FINALLY |FROM |FUNC |IF |
+INCLUDE| INTERFACE |IS |ISNOT | ITERATOR  | MACRO |METHOD |MIXIN |MOD |NIL |NOT |NOTIN |OBJECT |
 OF |OR |OUT  |PROC |PTR |RAISE |REF |RETURN |SHL |SHR |STATIC | TEMPLATE | TRY |TUPLE |TYPE |USING |WHEN |
 WHILE |XOR |YIELD ;
 
@@ -121,11 +124,9 @@ ENUM : 'enum' ;
 EXCEPT : 'except' ;
 EXPORT : 'export' ;
 FINALLY : 'finally' ;
-FOR : 'for' ;
 FROM : 'from' ;
 FUNC : 'func' ;
 IF : 'if' ;
-IN : 'in' ;
 INCLUDE : 'include' ;
 INTERFACE : 'interface' ;
 IS : 'is' ;
