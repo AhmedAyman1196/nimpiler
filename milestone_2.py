@@ -15,25 +15,31 @@ from antlr4.tree.Trees import Trees
 # python "Testcase check.py" --testcase Milestone1_TestCases/input_1_result.txt --output milestone_1_result.txt
 
 
+# python3 antlr -Dlanguage=Python3 milestone_2.g4 && python3 milestone_2.py --file Milestone2\ Testcases/Test\ Case\ 1_1/input1_1_v.txt
+
+
+
+# test cases notes :
+
+# 1_1 > ok
+# 2_1 > problem when there is a semicolon at the end
+# 3_1 > problem doesnt throw exception but stops parsing
+#
+# 10 > ok
+# 11 > ok but do a thorough check for the tree output
 
 def main():
     with open(args.file, "r") as file:
         lines = file.read()
     input_stream = InputStream(lines)
-
     lexer = milestone_2Lexer(input_stream)
     token_stream = CommonTokenStream(lexer)
     parser = milestone_2Parser(token_stream)
+
     tree = parser.start()
     print(Trees.toStringTree(tree, None, parser))
 
-    token = lexer.nextToken()
     out = open("milestone_2_result.txt", "w+")
-
-    # while not token.type == Token.EOF:
-    #     #print(token.text, get_token_type(token))
-    #     out.write(get_token_type(token) +"  "+token.text +'\n')
-    #     token = lexer.nextToken()
 
 
 if __name__ == '__main__':
@@ -49,3 +55,7 @@ if __name__ == '__main__':
     #    print("invalid")
     #else:
     #    print("valid")
+
+
+
+

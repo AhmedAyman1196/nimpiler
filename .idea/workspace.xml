@@ -2,7 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48989edb-00a8-47d5-ba30-2eab0835d1ff" name="Default Changelist" comment="&quot;Ayman Commit&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 10/input10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 10/input10.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 10/output10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 10/output10.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 11/input11.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 11/input11.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 11/output11.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 11/output11.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_1/input1_1_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_1/input1_1_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_1/input1_1_v.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_1/input1_1_v.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_1/output1_1_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_1/output1_1_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_1/output1_1_v.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_1/output1_1_v.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/input1_2_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/input1_2_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/input1_2_v.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/input1_2_v.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/output1_2_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/output1_2_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/output1_2_v.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/output1_2_v.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/input1_3_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/input1_3_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/input1_3_v.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/input1_3_v.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/output1_3_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/output1_3_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/output1_3_v.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/output1_3_v.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/Copy of output1_4_2_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/Copy of output1_4_2_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/input1_4_1_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/input1_4_1_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/input1_4_2_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/input1_4_2_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/input1_4_v.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/input1_4_v.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/output1_4_1_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/output1_4_1_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/output1_4_v.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/output1_4_v.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_5/input1_5_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_5/input1_5_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_5/input1_5_v.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_5/input1_5_v.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_5/output1_5_iv.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_5/output1_5_iv.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_5/output1_5_v.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_5/output1_5_v.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 2/input2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 2/input2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 2/output2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 2/output2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 3/input3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 3/input3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 3/output3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 3/output3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 4/input4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 4/input4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 4/output4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 4/output4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 5/input5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 5/input5.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 5/output5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 5/output5.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 6/input6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 6/input6.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 6/output6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 6/output6.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 7/input7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 7/input7.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 7/output7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 7/output7.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 8/input8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 8/input8.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 8/output8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 8/output8.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 9/input9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 9/input9.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 9/output9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Milestone2 Testcases/Test Case 9/output9.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/milestone_2.g4" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_2.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/milestone_2.interp" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_2.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/milestone_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/milestone_2.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_2.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/milestone_2Lexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_2Lexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/milestone_2Lexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_2Lexer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/milestone_2Lexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_2Lexer.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/milestone_2Listener.py" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_2Listener.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/milestone_2Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/milestone_2Parser.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,11 +63,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/milestone_2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
+            <state relative-caret-position="183">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -24,29 +75,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/milestone_2.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-836">
-              <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
+            <state relative-caret-position="35">
+              <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/input1.txt">
+        <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/input1_3_v.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120" />
+            <state relative-caret-position="90">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SampleInput.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="4" selection-start-column="4" selection-end-column="4" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/input1_3_iv.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -77,6 +126,10 @@
       <find>INT_LIT</find>
       <find>arrowExpr</find>
       <find>NIL</find>
+      <find>var</find>
+      <find>const</find>
+      <find>let</find>
+      <find>\n</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -96,8 +149,12 @@
         <option value="$PROJECT_DIR$/Milestone1_TestCases/input_1_result.txt" />
         <option value="$PROJECT_DIR$/milestone_1.g4" />
         <option value="$PROJECT_DIR$/SampleInput.txt" />
-        <option value="$PROJECT_DIR$/milestone_2.py" />
+        <option value="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_1/input1_1_v.txt" />
+        <option value="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/input1_2_iv.txt" />
+        <option value="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/input1_2_v.txt" />
+        <option value="$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/input1_3_v.txt" />
         <option value="$PROJECT_DIR$/milestone_2.g4" />
+        <option value="$PROJECT_DIR$/milestone_2.py" />
       </list>
     </option>
   </component>
@@ -111,6 +168,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -123,11 +181,16 @@
               <item name="Milestone1" type="462c0819:PsiDirectoryNode" />
               <item name="Milestone2 Testcases" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Milestone1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone1" type="462c0819:PsiDirectoryNode" />
+              <item name="Milestone2 Testcases" type="462c0819:PsiDirectoryNode" />
+              <item name="Test Case 1_4" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -161,9 +224,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="694" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25767368" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27382874" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -175,7 +237,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Tool Output" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3298791" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3298791" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="ANTLR Preview" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
@@ -191,76 +253,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="&quot;Ayman Commit&quot;" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_2_result.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="31" column="5" selection-start-line="31" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_3_result.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-732" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_4.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_4_result.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_5.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_5_result.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_6.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_6_result.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_1_result.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-372">
-          <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/milestone_1_result.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_2.txt" />
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_2_result.txt" />
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_3.txt" />
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_3_result.txt" />
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_4.txt" />
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_4_result.txt" />
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_5.txt" />
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_5_result.txt" />
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_6.txt" />
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_6_result.txt" />
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_1_result.txt" />
+    <entry file="file://$PROJECT_DIR$/milestone_1_result.txt" />
     <entry file="file://$PROJECT_DIR$/Testcase check.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -268,40 +272,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/milestone_1.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="20" lean-forward="true" selection-end-line="179" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/milestone_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="275" column="8" selection-end-line="309" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/milestone_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone1_TestCases/input_1.txt" />
+    <entry file="file://$PROJECT_DIR$/milestone_1.g4" />
+    <entry file="file://$PROJECT_DIR$/milestone_1.py" />
     <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/input1_2.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -317,22 +290,78 @@
     <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/output1_1.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/SampleInput.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="4" selection-start-column="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/input1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-120" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_1/input1_1_iv.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SampleInput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_1/input1_1_v.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_4/input1_4_2_iv.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 2/input2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/output1_2_iv.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/input1_2_iv.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_2/input1_2_v.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/output1_3_iv.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/milestone_2.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-836">
-          <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
+        <state relative-caret-position="35">
+          <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/input1_3_iv.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Milestone2 Testcases/Test Case 1_3/input1_3_v.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/milestone_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

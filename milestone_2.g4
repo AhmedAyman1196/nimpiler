@@ -4,10 +4,30 @@ grammar milestone_2;
 
 module : stmt+;
 
-stmt : varStmt |  assignStmt | echoStmt;
+stmt : varStmt | assignStmt | constStmt | echoStmt | letStmt;
 
-varStmt : 'zar' INDENT? IDENTIFIER (COMMA IDENTIFIER)* ((COLON 'int') | ('=' literal));
+varStmt : simpleVarStmt | complexVarStmt ;
+simpleVarStmt : 'var' (IDENTIFIER (COMMA IDENTIFIER)* COLON ('int'|'string'))+ ;
+complexVarStmt : 'var' assignStmt ;
+
 assignStmt : IDENTIFIER '=' expr;
+
+letStmt : 'let' assignStmt+ ;
+
+expr : simpleExpr ;
+
+constStmt: 'const' assignStmt+ ;
+
+assrtStmt: 'assert' literal '==' literal ;
+
+simpleExpr: (literal | IDENTIFIER| DIGIT) ('+' (literal | IDENTIFIER | DIGIT))*;
+
+echoStmt: 'echo' (simpleEcho | complexEcho);
+complexEcho : '(' (literal|IDENTIFIER) (COMMA (literal|IDENTIFIER))* ')';
+simpleEcho : (literal|IDENTIFIER) (COMMA (literal|IDENTIFIER))* ;
+
+// =============================================================================
+// ============================ Lexical Analysis ===============================
 
 literal : INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
           | UINT_LIT | UINT8_LIT | UINT16_LIT | UINT32_LIT | UINT64_LIT
@@ -16,16 +36,7 @@ literal : INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
           | CHAR_LIT
           | NIL ;
 
-expr : simpleExpr ;
-
-simpleExpr: (literal | IDENTIFIER) ('+' (literal | IDENTIFIER))*;
-
-echoStmt: 'echo' '(' (literal|IDENTIFIER) (COMMA (literal|IDENTIFIER))* ')';
-
-// =============================================================================
-// ============================ Lexical Analysis ===============================
-
-INDENT : ('    ')+;
+INDENT : ('    ')+ -> skip; // added this
 
 SPACE :(' '| [\t\r\n]) -> skip;
 
@@ -71,14 +82,14 @@ SEMI_COLON : ';';
 
 // KEYWORDS
 KEYW :
-AND | VARIABLE|ADDR |AS | ASM |BIND |BLOCK |BREAK |CASE |CAST |CONCEPT |CONST |CONTINUE | CONVERTER |DEFER |
+AND | ADDR |AS | ASM |BIND |BLOCK |BREAK |CASE |CAST |CONCEPT |CONTINUE | CONVERTER |DEFER |
 DISCARD |DISTINCT |DIV |DO |ELIF |ELSE |END |ENUM |EXCEPT |EXPORT |FINALLY | FOR |FROM |FUNC |IF |IMPORT |
-IN |INCLUDE| INTERFACE |IS |ISNOT | ITERATOR |LET | MACRO |METHOD |MIXIN |MOD |NIL |NOT |NOTIN |OBJECT |
+IN |INCLUDE| INTERFACE |IS |ISNOT | ITERATOR  | MACRO |METHOD |MIXIN |MOD |NIL |NOT |NOTIN |OBJECT |
 OF |OR |OUT  |PROC |PTR |RAISE |REF |RETURN |SHL |SHR |STATIC | TEMPLATE | TRY |TUPLE |TYPE |USING |WHEN |
 WHILE |XOR |YIELD ;
 
 AND : 'and' ;
-VARIABLE: 'var';
+//VARIABLE: 'var';
 ADDR: 'addr' ;
 AS : 'as' ;
 ASM: 'asm';
@@ -88,7 +99,7 @@ BREAK: 'break' ;
 CASE: 'case' ;
 CAST: 'cast';
 CONCEPT : 'concept';
-CONST:  'const';
+// CONST:  'const';
 CONTINUE: 'continue';
 CONVERTER :  'converter';
 DEFER : 'defer';
@@ -114,7 +125,7 @@ INTERFACE : 'interface' ;
 IS : 'is' ;
 ISNOT : 'isnot' ;
 ITERATOR : 'iterator' ;
-LET : 'let' ;
+// LET : 'let' ;
 MACRO : 'macro' ;
 METHOD : 'method' ;
 MIXIN : 'mixin' ;
