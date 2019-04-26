@@ -287,6 +287,51 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by milestone_2Parser#templateStmt.
+    def enterTemplateStmt(self, ctx:milestone_2Parser.TemplateStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#templateStmt.
+    def exitTemplateStmt(self, ctx:milestone_2Parser.TemplateStmtContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#routine.
+    def enterRoutine(self, ctx:milestone_2Parser.RoutineContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#routine.
+    def exitRoutine(self, ctx:milestone_2Parser.RoutineContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#routineConst.
+    def enterRoutineConst(self, ctx:milestone_2Parser.RoutineConstContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#routineConst.
+    def exitRoutineConst(self, ctx:milestone_2Parser.RoutineConstContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#macroStmt.
+    def enterMacroStmt(self, ctx:milestone_2Parser.MacroStmtContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#macroStmt.
+    def exitMacroStmt(self, ctx:milestone_2Parser.MacroStmtContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#typeDef.
+    def enterTypeDef(self, ctx:milestone_2Parser.TypeDefContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#typeDef.
+    def exitTypeDef(self, ctx:milestone_2Parser.TypeDefContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#colcom.
     def enterColcom(self, ctx:milestone_2Parser.ColcomContext):
         pass

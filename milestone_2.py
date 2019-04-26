@@ -24,6 +24,7 @@ from antlr4.tree.Trees import Trees
 # 1_1 > OK
 # 1_2 > OK
 # 1_3 > OK
+# 7 > OK
 # 8 > OK
 # 9 > OK
 # 10 > OK

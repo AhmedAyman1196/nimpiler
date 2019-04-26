@@ -6,11 +6,11 @@ start : module EOF;
 
 module : stmt ((';' | INDENT)? stmt)*;
 
-stmt : symbol | blockStmt | ifStmt | breakStmt | whileStmt | invokeFunc | forStmt | importStmt | varStmt | assignStmt
+stmt : macroStmt | templateStmt | symbol | blockStmt | ifStmt | breakStmt | whileStmt | invokeFunc | forStmt | importStmt | varStmt | assignStmt
        | constStmt | echoStmt | letStmt | assretStmt;
 
 varStmt : simpleVarStmt | complexVarStmt ;
-simpleVarStmt : 'var' (IDENTIFIER (',' complexIdentifier)* ':' ('int'|'string'))+ ;
+simpleVarStmt : 'var' (IDENTIFIER (',' complexIdentifier)* ':' typeDef)+ ;
 complexVarStmt : 'var' assignStmt ;
 
 assignStmt : complexIdentifier '=' expr;
@@ -38,13 +38,13 @@ optInd : COMMENT? INDENT ;
 
 arrayConstr : complexIdentifier '[' ('int' | 'string') ']()' ;
 
-complexIdentifier : IDENTIFIER('.' IDENTIFIER)*;
+complexIdentifier : IDENTIFIER('.' IDENTIFIER)* ('[' IDENTIFIER ']')?;
 
 forStmt : 'for' complexIdentifier (',' complexIdentifier)* 'in' (complexIdentifier | invokeFunc) colcom stmt ;
 
-invokeFunc : (complexIdentifier '.')? IDENTIFIER '(' funcParam (',' funcParam)* ')';
+invokeFunc : (complexIdentifier '.')? IDENTIFIER '(' funcParam? (',' funcParam)* ')';
 
-funcParam : identOrLiteral | (identOrLiteral '=' identOrLiteral);
+funcParam : identOrLiteral | (identOrLiteral '=' identOrLiteral) | symbol;
 
 identOrLiteral : literal | complexIdentifier | symbol;
 symbol : 'action' | 'actions' ;
@@ -60,6 +60,15 @@ condStmt : expr colcom stmt COMMENT?
           (INDENT? 'else' colcom stmt)? ;
 
 blockStmt : 'block' IDENTIFIER? colcom stmt ;
+
+templateStmt : 'template' routine;
+
+routine : optInd? (invokeFunc | routineConst ) ('{.dirty}')? '=' stmt;
+routineConst : IDENTIFIER '(' (funcParam ':' typeDef)? (';' funcParam ':' typeDef)* ')' ':' typeDef;
+
+macroStmt : 'macro' routine;
+
+typeDef : 'int' | 'string' | 'untyped';
 
 colcom : ':' COMMENT? ;
 
