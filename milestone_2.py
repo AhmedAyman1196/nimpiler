@@ -4,6 +4,7 @@ from antlr4 import *
 from milestone_2Lexer import milestone_2Lexer
 from milestone_2Parser import milestone_2Parser
 from antlr4.tree.Trees import Trees
+from antlr4.error.ErrorListener import ErrorListener
 
 
 # antlr -Dlanguage=Python3 milestone_1.g4 && python3 milestone_1.py --file SampleInput.txt
@@ -33,6 +34,23 @@ from antlr4.tree.Trees import Trees
 # candidates to be done , the one with * are easier imo
 # 2 , 4 , *7
 
+class MyErrorListener( ErrorListener ):
+
+    def __init__(self):
+        super(MyErrorListener, self).__init__()
+
+    def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
+        raise Exception("OH NOES!!!")
+
+    def reportAmbiguity(self, recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs):
+        raise Exception("OH NOES!!!")
+
+    def reportAttemptingFullContext(self, recognizer, dfa, startIndex, stopIndex, conflictingAlts, configs):
+        raise Exception("OH NOES!!!")
+
+    def reportContextSensitivity(self, recognizer, dfa, startIndex, stopIndex, prediction, configs):
+        raise Exception("OH NOES!!!")
+
 def main():
     with open(args.file, "r") as file:
         lines = file.read()
@@ -41,10 +59,19 @@ def main():
     token_stream = CommonTokenStream(lexer)
     parser = milestone_2Parser(token_stream)
 
-    tree = parser.start()
-    print(Trees.toStringTree(tree, None, parser))
+    parser._listeners = [ MyErrorListener() ]
 
     out = open("milestone_2_result.txt", "w+")
+    try:
+        tree = parser.start()
+    except:
+        out.write("invalid")
+        print("invalid")
+    else:
+        out.write("valid")
+        print("valid")
+
+    out.close()
 
 
 if __name__ == '__main__':
@@ -54,9 +81,4 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    #try:
     main()
-    #except:
-    #    print("invalid")
-    #else:
-    #    print("valid")

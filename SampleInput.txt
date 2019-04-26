@@ -1,11 +1,9 @@
-var x,y,z ;int
+var x,y,z :int
 x = 10
 y = 25
 z = x + y
 
 echo ("sum of ", x, " and ", y, " is ", z)
-
-
 
 
 
