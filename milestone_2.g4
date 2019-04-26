@@ -36,7 +36,7 @@ echoParam : identOrLiteral | invokeFunc;
 importStmt : 'import' optInd? complexIdentifier (',' complexIdentifier)*;
 optInd : COMMENT? INDENT ;
 
-arrayConstr : complexIdentifier '[' ('int' | 'string') ']()' ;
+arrayConstr : complexIdentifier '[' typeDef ']()' ;
 
 complexIdentifier : IDENTIFIER('.' IDENTIFIER)* ('[' IDENTIFIER ']')?;
 
