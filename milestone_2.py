@@ -40,16 +40,7 @@ class MyErrorListener( ErrorListener ):
         super(MyErrorListener, self).__init__()
 
     def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
-        raise Exception("OH NOES!!!")
-
-    def reportAmbiguity(self, recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs):
-        raise Exception("OH NOES!!!")
-
-    def reportAttemptingFullContext(self, recognizer, dfa, startIndex, stopIndex, conflictingAlts, configs):
-        raise Exception("OH NOES!!!")
-
-    def reportContextSensitivity(self, recognizer, dfa, startIndex, stopIndex, prediction, configs):
-        raise Exception("OH NOES!!!")
+        raise Exception("OH HOW SYNTAXIXLESS OF YOU!!!")
 
 def main():
     with open(args.file, "r") as file:
@@ -64,6 +55,7 @@ def main():
     out = open("milestone_2_result.txt", "w+")
     try:
         tree = parser.start()
+        #print(Trees.toStringTree(tree, None, parser))
     except:
         out.write("invalid")
         print("invalid")
