@@ -1,4 +1,1 @@
-if mmlen > 0:
-    action
-    inc(mmpos, mmlen)
-    break searchSubs
+var mmlen = matchLen(inp, mmpatterns[p], matches, mmpos)

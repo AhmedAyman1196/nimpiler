@@ -233,6 +233,15 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by milestone_2Parser#symbol.
+    def enterSymbol(self, ctx:milestone_2Parser.SymbolContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#symbol.
+    def exitSymbol(self, ctx:milestone_2Parser.SymbolContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#whileStmt.
     def enterWhileStmt(self, ctx:milestone_2Parser.WhileStmtContext):
         pass

@@ -6,7 +6,7 @@ start : module EOF;
 
 module : stmt ((';' | INDENT)? stmt)*;
 
-stmt : blockStmt | ifStmt | breakStmt | whileStmt | invokeFunc | forStmt | importStmt | varStmt | assignStmt
+stmt : symbol | blockStmt | ifStmt | breakStmt | whileStmt | invokeFunc | forStmt | importStmt | varStmt | assignStmt
        | constStmt | echoStmt | letStmt | assretStmt;
 
 varStmt : simpleVarStmt | complexVarStmt ;
@@ -21,11 +21,11 @@ expr : arrayConstr | simpleExpr | compareExpr | invokeFunc ;
 
 constStmt: 'const' assignStmt+ ;
 
-compareExpr : complexIdentifier ('<' | '>') complexIdentifier;
+compareExpr : identOrLiteral ('<' | '>') identOrLiteral;
 
 assretStmt: 'assert' literal '==' literal ;
 
-simpleExpr: (identOrLiteral | invokeFunc | DIGIT) ('+' (identOrLiteral | invokeFunc | DIGIT))*;
+simpleExpr: (identOrLiteral | invokeFunc) ('+' (identOrLiteral | invokeFunc))*;
 
 echoStmt: 'echo' (simpleEcho | complexEcho);
 complexEcho : '(' echoParam (',' echoParam)* ')';
@@ -46,7 +46,8 @@ invokeFunc : (complexIdentifier '.')? IDENTIFIER '(' funcParam (',' funcParam)* 
 
 funcParam : identOrLiteral | (identOrLiteral '=' identOrLiteral);
 
-identOrLiteral : literal | complexIdentifier;
+identOrLiteral : literal | complexIdentifier | symbol;
+symbol : 'action' | 'actions' ;
 
 whileStmt : 'while' expr colcom stmt ;
 
@@ -62,7 +63,7 @@ blockStmt : 'block' IDENTIFIER? colcom stmt ;
 
 colcom : ':' COMMENT? ;
 
-literal : INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
+literal : DIGIT | INT_LIT | INT8_LIT | INT16_LIT | INT32_LIT | INT64_LIT
           | UINT_LIT | UINT8_LIT | UINT16_LIT | UINT32_LIT | UINT64_LIT
           | FLOAT_LIT | FLOAT32_LIT | FLOAT64_LIT
           | STR_LIT | RSTR_LIT | TRIPLESTR_LIT
