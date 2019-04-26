@@ -152,6 +152,15 @@ class milestone_2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by milestone_2Parser#echoParam.
+    def enterEchoParam(self, ctx:milestone_2Parser.EchoParamContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#echoParam.
+    def exitEchoParam(self, ctx:milestone_2Parser.EchoParamContext):
+        pass
+
+
     # Enter a parse tree produced by milestone_2Parser#importStmt.
     def enterImportStmt(self, ctx:milestone_2Parser.ImportStmtContext):
         pass
@@ -203,6 +212,24 @@ class milestone_2Listener(ParseTreeListener):
 
     # Exit a parse tree produced by milestone_2Parser#invokeFunc.
     def exitInvokeFunc(self, ctx:milestone_2Parser.InvokeFuncContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#funcParam.
+    def enterFuncParam(self, ctx:milestone_2Parser.FuncParamContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#funcParam.
+    def exitFuncParam(self, ctx:milestone_2Parser.FuncParamContext):
+        pass
+
+
+    # Enter a parse tree produced by milestone_2Parser#identOrLiteral.
+    def enterIdentOrLiteral(self, ctx:milestone_2Parser.IdentOrLiteralContext):
+        pass
+
+    # Exit a parse tree produced by milestone_2Parser#identOrLiteral.
+    def exitIdentOrLiteral(self, ctx:milestone_2Parser.IdentOrLiteralContext):
         pass
 
 

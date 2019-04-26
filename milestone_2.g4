@@ -17,7 +17,7 @@ assignStmt : complexIdentifier '=' expr;
 
 letStmt : 'let' assignStmt+ ;
 
-expr : arrayConstr | simpleExpr | compareExpr ;
+expr : arrayConstr | simpleExpr | compareExpr | invokeFunc ;
 
 constStmt: 'const' assignStmt+ ;
 
@@ -25,11 +25,13 @@ compareExpr : complexIdentifier ('<' | '>') complexIdentifier;
 
 assretStmt: 'assert' literal '==' literal ;
 
-simpleExpr: (literal | complexIdentifier | invokeFunc | DIGIT) ('+' (literal | complexIdentifier | invokeFunc | DIGIT))*;
+simpleExpr: (identOrLiteral | invokeFunc | DIGIT) ('+' (identOrLiteral | invokeFunc | DIGIT))*;
 
 echoStmt: 'echo' (simpleEcho | complexEcho);
-complexEcho : '(' (literal|complexIdentifier) (',' (literal|complexIdentifier))* ')';
-simpleEcho : (literal|complexIdentifier) (',' (literal|complexIdentifier))* ;
+complexEcho : '(' echoParam (',' echoParam)* ')';
+simpleEcho : echoParam (',' echoParam)* ;
+
+echoParam : identOrLiteral | invokeFunc;
 
 importStmt : 'import' optInd? complexIdentifier (',' complexIdentifier)*;
 optInd : COMMENT? INDENT ;
@@ -40,7 +42,11 @@ complexIdentifier : IDENTIFIER('.' IDENTIFIER)*;
 
 forStmt : 'for' complexIdentifier (',' complexIdentifier)* 'in' (complexIdentifier | invokeFunc) colcom stmt ;
 
-invokeFunc : (complexIdentifier '.')? IDENTIFIER '(' (literal | complexIdentifier)? ')';
+invokeFunc : (complexIdentifier '.')? IDENTIFIER '(' funcParam (',' funcParam)* ')';
+
+funcParam : identOrLiteral | (identOrLiteral '=' identOrLiteral);
+
+identOrLiteral : literal | complexIdentifier;
 
 whileStmt : 'while' expr colcom stmt ;
 
